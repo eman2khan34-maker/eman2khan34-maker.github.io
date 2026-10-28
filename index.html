@@ -3,291 +3,523 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#080914">
-<title>GLOVIX — Social Universe</title>
+<title>GLOVIX — Your World Without Limits</title>
+
 <style>
-:root{--bg:#080914;--panel:#111326;--line:#252943;--cyan:#48efff;--purple:#a47aff;--muted:#a5abc5}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:#f8f9ff;font-family:Arial,Helvetica,sans-serif}
-button,input{font:inherit}
-button{cursor:pointer}
-.top{height:68px;display:flex;align-items:center;justify-content:space-between;gap:15px;padding:0 5%;border-bottom:1px solid var(--line);background:#080914f5;position:sticky;top:0;z-index:10}
-.brand{display:flex;align-items:center;gap:10px;font-size:22px;font-weight:900;letter-spacing:3px}
-.logo{display:grid;place-items:center;width:38px;height:38px;border-radius:13px;background:linear-gradient(135deg,var(--cyan),var(--purple));color:#080914;box-shadow:0 0 20px #48efff40}
-.search{width:min(350px,40vw);padding:12px 16px;border:1px solid var(--line);border-radius:25px;background:#131529;color:white;outline:none}
-.search:focus{border-color:var(--cyan)}
-.layout{display:grid;grid-template-columns:210px minmax(0,650px) 245px;gap:25px;max-width:1250px;margin:auto;padding:24px 20px}
-.side{position:sticky;top:90px;height:max-content}
-.navbtn{display:block;width:100%;padding:14px;margin-bottom:6px;text-align:left;background:transparent;color:#d7daed;border:0;border-radius:12px}
-.navbtn:hover,.navbtn.active{background:#191c34;color:var(--cyan)}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:17px;padding:17px;margin-bottom:18px}
-.muted{color:var(--muted);font-size:13px;line-height:1.6}
-h2{font-size:20px;margin:4px 0 16px}
-h3{font-size:15px;margin:0 0 8px}
-.tag{font-size:11px;letter-spacing:1.5px;color:var(--cyan);text-transform:uppercase}
-.feedhead{display:flex;justify-content:space-between;align-items:center;margin:0 0 18px}
-.post{background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-bottom:22px}
-.posthead{display:flex;align-items:center;gap:11px;padding:15px}
-.avatar{width:39px;height:39px;display:grid;place-items:center;flex-shrink:0;border-radius:50%;background:linear-gradient(135deg,#48efff,#a47aff);color:#080914;font-weight:bold}
-.posthead strong{font-size:14px}
-.posthead small{display:block;color:var(--muted);margin-top:4px}
-.follow{margin-left:auto;background:transparent;color:var(--cyan);border:1px solid #48efff66;border-radius:18px;padding:7px 12px}
-.video-wrap{position:relative;background:#03040a;max-height:650px;min-height:240px}
-.video-wrap video{display:block;width:100%;max-height:650px;aspect-ratio:9/12;object-fit:contain;background:#03040a}
-.playhint{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;font-size:50px;color:#fff9;text-shadow:0 2px 15px #000}
-.caption{padding:13px 16px 4px;font-size:14px;line-height:1.6}
-.actions{display:flex;gap:8px;padding:12px 14px 16px;flex-wrap:wrap}
-.action{background:#1a1d34;color:#e6e8fa;border:1px solid #2a2e4a;border-radius:22px;padding:9px 13px}
-.action:hover{border-color:var(--cyan)}
-.action.liked{color:#ff75d6;border-color:#ff75d6}
-.btn{display:inline-block;border:0;border-radius:12px;padding:12px 15px;background:linear-gradient(100deg,var(--cyan),var(--purple));color:#090a18;font-weight:bold}
-.btn.full{width:100%}
-input[type=text],textarea{width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;background:#090b18;color:white}
-textarea{resize:vertical;min-height:75px}
-#uploadInput{display:none}
-.comments{padding:0 15px 15px;display:none}
-.comments.open{display:block}
-.comment-list{max-height:180px;overflow:auto;margin:8px 0}
-.comment-row{padding:9px 0;border-bottom:1px solid var(--line);font-size:13px}
-.comment-form{display:flex;gap:7px}
-.comment-form input{min-width:0}
-footer{padding:25px;text-align:center;color:var(--muted);font-size:12px;border-top:1px solid var(--line)}
-#notice{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1c2040;border:1px solid var(--cyan);border-radius:12px;padding:13px 18px;z-index:20;display:none;max-width:90%;font-size:13px}
-@media(max-width:1050px){.layout{grid-template-columns:175px minmax(0,650px);justify-content:center}.right{display:none}}
-@media(max-width:650px){
- .top{padding:0 12px;height:60px}.brand{font-size:17px;letter-spacing:2px}.logo{width:33px;height:33px}
- .search{width:38vw;padding:10px}.layout{display:block;padding:14px 10px}
- .side{position:static;display:flex;gap:5px;overflow-x:auto;margin-bottom:17px}
- .navbtn{white-space:nowrap;width:auto;padding:11px;margin:0}
- .navbtn span{display:none}.post{border-radius:13px}.video-wrap video{max-height:75vh}
- .card{padding:14px}
+:root {
+  --bg:#080914;
+  --panel:#111426;
+  --panel2:#171b30;
+  --text:#f5f7ff;
+  --muted:#969db7;
+  --cyan:#00e5ff;
+  --purple:#9b5cff;
+  --pink:#ff3e9d;
+  --line:rgba(255,255,255,.09);
+}
+* {box-sizing:border-box}
+body {
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Inter,Arial,sans-serif;
+}
+button,input,textarea {font:inherit}
+button {cursor:pointer}
+button:focus-visible,input:focus-visible,textarea:focus-visible {
+  outline:2px solid var(--cyan);outline-offset:3px
+}
+.topbar {
+  height:70px;position:sticky;top:0;z-index:10;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 5%;gap:15px;background:rgba(8,9,20,.94);
+  border-bottom:1px solid var(--line);backdrop-filter:blur(15px)
+}
+.brand {display:flex;align-items:center;gap:10px;font-weight:900;
+  letter-spacing:1.5px;font-size:22px}
+.logo {
+  width:42px;height:42px;display:grid;place-items:center;
+  border-radius:14px;color:#071018;font-size:25px;font-weight:1000;
+  background:linear-gradient(135deg,var(--cyan),var(--purple));
+  box-shadow:0 0 22px #00e5ff33
+}
+.brand span {color:var(--cyan)}
+.search {width:min(360px,40vw);padding:12px 16px;
+  background:var(--panel);border:1px solid var(--line);
+  border-radius:25px;color:white}
+.btn {
+  border:0;border-radius:12px;padding:11px 16px;
+  color:white;background:var(--panel2);font-weight:700
+}
+.btn.primary {background:linear-gradient(100deg,#00bfe9,#8254ff);color:white}
+.btn.outline {border:1px solid #00e5ff66;background:transparent}
+.layout {max-width:1450px;margin:auto;display:grid;
+  grid-template-columns:220px minmax(0,1fr) 260px;gap:24px;padding:24px}
+.sidebar,.rightbar {position:sticky;top:94px;height:max-content}
+.navitem {width:100%;display:flex;align-items:center;gap:13px;
+  padding:14px;border:0;border-radius:13px;background:transparent;
+  color:#b8bfd5;text-align:left;margin-bottom:5px;font-weight:650}
+.navitem:hover,.navitem.active {background:#161b30;color:var(--cyan)}
+.navicon {font-size:20px;width:25px;text-align:center}
+.sidecard,.panel,.creator-card {
+  background:var(--panel);border:1px solid var(--line);
+  border-radius:18px;padding:17px;margin-bottom:16px
+}
+.sidecard p,.muted {color:var(--muted);font-size:13px;line-height:1.6}
+h1,h2,h3,p {margin-top:0}
+h2 {font-size:19px}
+.hero {
+  padding:27px;border-radius:23px;margin-bottom:22px;
+  background:radial-gradient(ellipse at 90% 0%,#713aff40,transparent 45%),
+  linear-gradient(120deg,#111a30,#15102a);
+  border:1px solid #7b68ff30
+}
+.hero h1 {font-size:clamp(27px,4vw,43px);margin-bottom:10px;line-height:1.1}
+.gradient-text {background:linear-gradient(90deg,var(--cyan),#c5a0ff,var(--pink));
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p {color:#b4bad2;line-height:1.7;max-width:600px}
+.stats {display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}
+.stat {background:#ffffff08;border:1px solid var(--line);padding:14px;border-radius:14px}
+.stat strong {display:block;font-size:22px;margin-bottom:4px}
+.stat small {color:var(--muted)}
+.section-title {display:flex;justify-content:space-between;align-items:center;gap:10px}
+.tabs {display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.tab {padding:9px 15px;border-radius:22px;border:1px solid var(--line);
+  background:var(--panel);color:#bdc3d7}
+.tab.active {background:#00e5ff16;color:var(--cyan);border-color:#00e5ff70}
+.video-card {background:var(--panel);border:1px solid var(--line);
+  border-radius:20px;overflow:hidden;margin-bottom:22px}
+.video-head {padding:15px;display:flex;align-items:center;gap:11px}
+.avatar {width:42px;height:42px;display:grid;place-items:center;
+  border-radius:50%;font-weight:900;background:linear-gradient(135deg,#00d9ff,#8b4dff);
+  color:white;flex-shrink:0}
+.avatar.pink {background:linear-gradient(135deg,#ff449a,#ff9a55)}
+.avatar.green {background:linear-gradient(135deg,#08d9a0,#347aff)}
+.user-info {flex:1;min-width:0}
+.user-info strong {display:block;margin-bottom:4px}
+.user-info small {color:var(--muted)}
+.follow {padding:8px 12px;border-radius:10px;background:transparent;
+  color:var(--cyan);border:1px solid #00e5ff77;font-weight:700}
+.follow.following {color:#c3c7d8;border-color:var(--line)}
+.video-stage {position:relative;background:#05060c;aspect-ratio:16/9;
+  max-height:530px;display:grid;place-items:center;overflow:hidden}
+.video-stage video {width:100%;height:100%;object-fit:contain;background:#05060c}
+.video-caption {padding:14px 16px 4px;line-height:1.6}
+.video-caption p {color:#d4d8e8;margin-bottom:8px}
+.video-actions {display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:12px 15px 16px}
+.action {background:#ffffff08;color:#c9cde0;border:1px solid var(--line);
+  border-radius:12px;padding:10px 12px}
+.action.liked {color:#ff5b9f;border-color:#ff5b9f66;background:#ff5b9f12}
+.views {margin-left:auto;color:var(--muted);font-size:13px}
+.comments {display:none;padding:0 15px 15px}
+.comments.open {display:block}
+.comment-list {max-height:150px;overflow:auto;margin-bottom:10px}
+.comment {padding:9px 0;border-bottom:1px solid var(--line);font-size:14px}
+.comment small {color:var(--muted)}
+.comment-form {display:flex;gap:8px}
+.comment-form input {min-width:0;flex:1;padding:11px;border-radius:11px;
+  border:1px solid var(--line);background:#090b18;color:white}
+.comment-form button {background:var(--purple);color:white;border:0;border-radius:10px;padding:10px}
+.profile-head {text-align:center;padding:28px 15px}
+.big-avatar {width:86px;height:86px;margin:0 auto 15px;border-radius:28px;
+  display:grid;place-items:center;font-size:38px;font-weight:1000;
+  background:linear-gradient(135deg,var(--cyan),var(--purple))}
+.profile-numbers {display:flex;justify-content:center;gap:22px;margin:20px 0}
+.profile-numbers strong {display:block;font-size:19px}
+.profile-numbers small {color:var(--muted)}
+.creator-card {display:flex;gap:11px;align-items:center}
+.creator-card p {font-size:12px;color:var(--muted);margin:5px 0 0}
+.market-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.product {background:var(--panel);border:1px solid var(--line);border-radius:17px;padding:15px}
+.product-art {height:120px;border-radius:13px;display:grid;place-items:center;
+  font-size:42px;background:linear-gradient(135deg,#142b45,#302052);margin-bottom:12px}
+.product p {color:var(--muted);font-size:13px}
+.field {width:100%;padding:12px;border-radius:11px;border:1px solid var(--line);
+  background:#090b18;color:white;margin:7px 0 14px}
+textarea.field {min-height:90px;resize:vertical}
+.notice {color:var(--muted);font-size:12px;line-height:1.6}
+.page {display:none}
+.page.active {display:block}
+.mobile-nav {display:none}
+footer {text-align:center;color:#747b98;font-size:12px;padding:30px 10px}
+#toast {position:fixed;bottom:25px;left:50%;transform:translateX(-50%);
+  background:#1b2440;border:1px solid #00e5ff66;padding:12px 18px;
+  border-radius:13px;display:none;z-index:50;max-width:90vw;text-align:center}
+@media(max-width:1050px) {
+  .layout {grid-template-columns:190px minmax(0,1fr)}
+  .rightbar {display:none}
+}
+@media(max-width:700px) {
+  .topbar {height:62px;padding:0 12px}
+  .brand {font-size:18px;gap:7px}
+  .logo {width:36px;height:36px}
+  .search {width:32vw;padding:10px;font-size:12px}
+  .topbar .btn {padding:9px;font-size:12px}
+  .layout {display:block;padding:14px 10px 90px}
+  .sidebar {display:none}
+  .hero {padding:21px}
+  .stats {gap:7px}
+  .stat {padding:10px}
+  .stat strong {font-size:18px}
+  .video-stage {aspect-ratio:9/12}
+  .market-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
+  .mobile-nav {display:flex;position:fixed;bottom:0;left:0;right:0;z-index:20;
+    background:#0d1020f5;border-top:1px solid var(--line);
+    justify-content:space-around;padding:9px 3px max(9px,env(safe-area-inset-bottom))}
+  .mobile-nav button {background:none;border:0;color:#aeb5ce;font-size:11px}
+  .mobile-nav button span {display:block;font-size:20px;margin-bottom:4px}
+  .views {margin-left:0}
 }
 </style>
 </head>
+
 <body>
-<header class="top">
-  <div class="brand"><span class="logo">G</span> GLOVIX</div>
-  <input class="search" id="search" type="text" placeholder="Search videos..." aria-label="Search videos">
-  <button class="btn" id="topUpload">＋ Upload</button>
+<header class="topbar">
+  <div class="brand"><div class="logo">G</div>GLO<span>VIX</span></div>
+  <input id="searchInput" class="search" placeholder="Search creators..." aria-label="Search creators">
+  <button class="btn primary" onclick="showPage('upload')">＋ Upload</button>
 </header>
 
 <div class="layout">
-  <aside class="side">
-    <button class="navbtn active" data-filter="all">⌂ &nbsp; Home</button>
-    <button class="navbtn" data-filter="short">▷ &nbsp; Shorts</button>
-    <button class="navbtn" data-filter="music">♫ &nbsp; Music</button>
-    <button class="navbtn" id="uploadNav">＋ &nbsp; Upload video</button>
-    <button class="navbtn" id="aboutNav">◎ &nbsp; About GLOVIX</button>
+  <aside class="sidebar">
+    <button class="navitem active" data-page="home" onclick="showPage('home')"><span class="navicon">⌂</span> Home</button>
+    <button class="navitem" data-page="explore" onclick="showPage('explore')"><span class="navicon">⌕</span> Explore</button>
+    <button class="navitem" data-page="following" onclick="showPage('following')"><span class="navicon">♡</span> Following</button>
+    <button class="navitem" data-page="upload" onclick="showPage('upload')"><span class="navicon">＋</span> Upload video</button>
+    <button class="navitem" data-page="profile" onclick="showPage('profile')"><span class="navicon">◉</span> My profile</button>
+    <button class="navitem" data-page="market" onclick="showPage('market')"><span class="navicon">◇</span> Marketplace</button>
+    <div class="sidecard" style="margin-top:25px">
+      <div class="brand" style="font-size:15px"><div class="logo" style="width:30px;height:30px;font-size:18px">G</div> GLOVIX</div>
+      <p>Your world. Your voice. Your community.</p>
+      <small class="muted">Created by mianVerse</small>
+    </div>
   </aside>
 
   <main>
-    <div class="feedhead">
-      <div><div class="tag">YOUR DIGITAL UNIVERSE</div><h2>Discover your world.</h2></div>
-    </div>
-
-    <section class="card" id="uploadBox" hidden>
-      <h2>Upload a video</h2>
-      <p class="muted">Choose a video to preview it in this browser.</p>
-      <label class="btn" for="uploadInput">Choose video</label>
-      <input id="uploadInput" type="file" accept="video/*">
-      <div id="uploadDetails" class="muted" style="margin-top:12px"></div>
-      <p class="muted">This preview does not publish the video to other users. Online publishing requires a server or video-storage service.</p>
-      <button class="action" id="closeUpload">Close</button>
+    <section class="page active" id="page-home">
+      <div class="hero">
+        <h1>Your world.<br><span class="gradient-text">Without limits.</span></h1>
+        <p>Discover creators, watch videos, share your moments and connect with people around the world — all in one place.</p>
+        <button class="btn primary" onclick="showPage('explore')">Explore GLOVIX →</button>
+        <div class="stats">
+          <div class="stat"><strong>🌍 Global</strong><small>Connect worldwide</small></div>
+          <div class="stat"><strong>🎬 Videos</strong><small>Discover new content</small></div>
+          <div class="stat"><strong>✨ Create</strong><small>Share your story</small></div>
+        </div>
+      </div>
+      <div class="section-title"><h2>For You ✨</h2><span class="muted">Discover something new</span></div>
+      <div class="tabs">
+        <button class="tab active" onclick="filterFeed('all',this)">For You</button>
+        <button class="tab" onclick="filterFeed('popular',this)">Popular</button>
+        <button class="tab" onclick="filterFeed('following',this)">Following</button>
+      </div>
+      <div id="videoFeed"></div>
+      <div id="emptyFeed" class="panel" style="display:none;text-align:center">
+        <h3>No videos found</h3><p class="muted">Try another search or explore more creators.</p>
+      </div>
     </section>
 
-    <div id="feed">
-      <article class="post" data-kind="short" data-title="Big Buck Bunny animation">
-        <div class="posthead">
-          <div class="avatar">G</div>
-          <div><strong>GLOVIX Discover</strong><small>Featured video · Online sample</small></div>
-          <button class="follow" data-follow>Follow +</button>
+    <section class="page" id="page-explore">
+      <div class="hero"><h1>Explore <span class="gradient-text">GLOVIX</span></h1>
+        <p>Find creators and discover what's happening.</p></div>
+      <div class="panel">
+        <h2>Discover creators</h2>
+        <p class="muted">Search creators by their display name in the search box above.</p>
+        <div id="creatorList"></div>
+      </div>
+      <div class="panel"><h2>Trending topics</h2>
+        <div class="tabs">
+          <button class="tab" onclick="notify('Explore page is a demo.')"># Lifestyle</button>
+          <button class="tab" onclick="notify('Explore page is a demo.')"># Gaming</button>
+          <button class="tab" onclick="notify('Explore page is a demo.')"># Fashion</button>
+          <button class="tab" onclick="notify('Explore page is a demo.')"># Travel</button>
+          <button class="tab" onclick="notify('Explore page is a demo.')"># Music</button>
         </div>
-        <div class="video-wrap">
-          <video controls playsinline preload="metadata" poster="https://storage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg">
-            <source src="https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
-            Your browser cannot play this video.
-          </video>
-        </div>
-        <div class="caption"><strong>Welcome to GLOVIX 🌍</strong><br>Your world. Your stories. Discover something new.</div>
-        <div class="actions">
-          <button class="action" data-like>♡ Like <span>0</span></button>
-          <button class="action" data-comments>▢ Comments</button>
-          <button class="action" data-share>↗ Share</button>
-        </div>
-        <div class="comments">
-          <div class="comment-list"></div>
-          <form class="comment-form"><input type="text" placeholder="Write a comment..." required><button class="action">Send</button></form>
-        </div>
-      </article>
+      </div>
+    </section>
 
-      <article class="post" data-kind="music" data-title="Elephants Dream movie">
-        <div class="posthead">
-          <div class="avatar">M</div>
-          <div><strong>Movie Universe</strong><small>Featured video · Online sample</small></div>
-          <button class="follow" data-follow>Follow +</button>
+    <section class="page" id="page-following">
+      <div class="hero"><h1>Your <span class="gradient-text">Following</span></h1>
+        <p>Videos from creators you follow.</p></div>
+      <div id="followingFeed"></div>
+      <div id="followingEmpty" class="panel"><h3>Find your people 💜</h3>
+        <p class="muted">Follow a creator from the video feed to see them here.</p>
+        <button class="btn primary" onclick="showPage('explore')">Find creators</button></div>
+    </section>
+
+    <section class="page" id="page-upload">
+      <div class="hero"><h1>Share your <span class="gradient-text">story.</span></h1>
+        <p>Choose a video and preview your post.</p></div>
+      <div class="panel">
+        <h2>＋ Create a post</h2>
+        <label for="videoFile" class="muted">Choose video file</label>
+        <input id="videoFile" class="field" type="file" accept="video/*">
+        <label for="postCaption" class="muted">Caption</label>
+        <textarea id="postCaption" class="field" maxlength="500" placeholder="What's your video about?"></textarea>
+        <label for="postUsername" class="muted">Creator name</label>
+        <input id="postUsername" class="field" maxlength="40" placeholder="Your creator name">
+        <video id="uploadPreview" controls style="display:none;width:100%;max-height:360px;border-radius:14px;background:#05060c"></video>
+        <button class="btn primary" onclick="publishPreview()">Preview post</button>
+        <p class="notice" style="margin-top:15px">Demo limitation: this previews a video in your browser. It does not upload it to a public server or share it with other users.</p>
+      </div>
+      <div id="uploadResult"></div>
+    </section>
+
+    <section class="page" id="page-profile">
+      <div class="panel profile-head">
+        <div class="big-avatar">G</div>
+        <h2 id="profileName">GLOVIX Creator</h2>
+        <p class="muted">@glovixcreator</p>
+        <p class="muted">Make moments. Build connections. Share your world.</p>
+        <div class="profile-numbers">
+          <div><strong id="profileFollowers">0</strong><small>Followers</small></div>
+          <div><strong id="profileFollowing">0</strong><small>Following</small></div>
+          <div><strong id="profileLikes">0</strong><small>Likes</small></div>
         </div>
-        <div class="video-wrap">
-          <video controls playsinline preload="metadata" poster="https://storage.googleapis.com/gtv-videos-bucket/sample/images/ElephantsDream.jpg">
-            <source src="https://storage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" type="video/mp4">
-            Your browser cannot play this video.
-          </video>
-        </div>
-        <div class="caption"><strong>Explore the extraordinary ✨</strong><br>A sample film to test video playback on GLOVIX.</div>
-        <div class="actions">
-          <button class="action" data-like>♡ Like <span>0</span></button>
-          <button class="action" data-comments>▢ Comments</button>
-          <button class="action" data-share>↗ Share</button>
-        </div>
-        <div class="comments">
-          <div class="comment-list"></div>
-          <form class="comment-form"><input type="text" placeholder="Write a comment..." required><button class="action">Send</button></form>
-        </div>
-      </article>
-    </div>
-    <p class="muted" id="noResults" hidden>No videos found for this search.</p>
+        <button class="btn outline" onclick="editProfile()">Edit profile name</button>
+      </div>
+      <div class="panel"><h2>Your activity</h2><p class="muted">Your demo likes and follows are saved only in this browser.</p>
+        <div id="profileActivity"></div></div>
+    </section>
+
+    <section class="page" id="page-market">
+      <div class="hero"><h1>GLOVIX <span class="gradient-text">Marketplace</span></h1>
+        <p>A space for creators and brands to showcase products.</p></div>
+      <div class="notice" style="margin-bottom:15px">Demo storefront only. No real orders or payments are processed.</div>
+      <div class="market-grid">
+        <div class="product"><div class="product-art">👕</div><h3>Creator T-Shirt</h3><p>Everyday style for your community.</p><button class="btn outline" onclick="notify('Demo only — no checkout is connected.')">View product</button></div>
+        <div class="product"><div class="product-art">🧥</div><h3>Street Hoodie</h3><p>Comfort meets creator culture.</p><button class="btn outline" onclick="notify('Demo only — no checkout is connected.')">View product</button></div>
+        <div class="product"><div class="product-art">🧢</div><h3>Creator Cap</h3><p>Wear your own vibe.</p><button class="btn outline" onclick="notify('Demo only — no checkout is connected.')">View product</button></div>
+        <div class="product"><div class="product-art">🎨</div><h3>Digital Designs</h3><p>Creative ideas made by creators.</p><button class="btn outline" onclick="notify('Demo only — no checkout is connected.')">View product</button></div>
+      </div>
+    </section>
+
+    <footer>GLOVIX © 2026 · Created by <strong>mianVerse (Mian Abdullah)</strong><br>Demo version — backend services are not connected.</footer>
   </main>
 
-  <aside class="right">
-    <div class="card">
-      <div class="tag">THE NEXT WAVE</div>
-      <h2>Welcome to GLOVIX</h2>
-      <p class="muted">A place for videos, creators, communities and ideas. This is the first front-end version.</p>
-      <button class="btn full" id="rightUpload">Create a post ＋</button>
+  <aside class="rightbar">
+    <div class="panel">
+      <h3>👑 Creator spotlight</h3>
+      <div class="creator-card"><div class="avatar pink">A</div><div><strong>Alex Creates</strong><p>Creative lifestyle</p></div></div>
+      <div class="creator-card"><div class="avatar green">Z</div><div><strong>Zara Vibes</strong><p>Fashion & daily life</p></div></div>
+      <div class="creator-card"><div class="avatar">M</div><div><strong>Mike Explore</strong><p>Travel & adventure</p></div></div>
+      <button class="btn outline" style="width:100%" onclick="showPage('explore')">See creators</button>
     </div>
-    <div class="card">
-      <h3>🚀 Coming into focus</h3>
-      <p class="muted">• User accounts<br>• Creator profiles<br>• Global video uploads<br>• Likes and comments<br>• Live streaming<br>• Marketplace</p>
-      <p class="muted">These require a backend and are not enabled in this demo.</p>
-    </div>
-    <div class="card">
-      <h3>Made by mianVerse</h3>
-      <p class="muted">Mian Abdullah<br>Building a connected world.</p>
+    <div class="panel"><h3>🌐 The GLOVIX vision</h3>
+      <p class="muted">One platform for videos, community, creativity and commerce.</p>
+      <hr style="border-color:var(--line)">
+      <p class="notice">Built by mianVerse<br>Mian Abdullah</p>
     </div>
   </aside>
 </div>
 
-<footer>GLOVIX · Connect. Create. Explore.<br><br>Created by mianVerse (Mian Abdullah)</footer>
-<div id="notice" role="status"></div>
+<nav class="mobile-nav">
+  <button onclick="showPage('home')"><span>⌂</span>Home</button>
+  <button onclick="showPage('explore')"><span>⌕</span>Explore</button>
+  <button onclick="showPage('upload')"><span>＋</span>Create</button>
+  <button onclick="showPage('following')"><span>♡</span>Following</button>
+  <button onclick="showPage('profile')"><span>◉</span>Profile</button>
+</nav>
+<div id="toast" role="status" aria-live="polite"></div>
 
 <script>
-const notice = document.getElementById("notice");
-let noticeTimer;
-function say(message) {
-  notice.textContent = message;
-  notice.style.display = "block";
-  clearTimeout(noticeTimer);
-  noticeTimer = setTimeout(() => notice.style.display = "none", 3500);
+const demoVideos = [
+  {
+    id:"v1",name:"Alex Creates",handle:"@alexcreates",avatar:"A",
+    style:"",caption:"Chasing big dreams and enjoying the little moments. ✨ #lifestyle #glovix",
+    url:"https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
+    likes:1280,views:24600,comments:["Beautiful vibes! 💜","Love this video"],category:"popular"
+  },
+  {
+    id:"v2",name:"Zara Vibes",handle:"@zaravibes",avatar:"Z",
+    style:"pink",caption:"A little color, a little creativity, and a whole lot of confidence. 💫 #style",
+    url:"https://www.w3schools.com/html/mov_bbb.mp4",
+    likes:865,views:12300,comments:["Amazing!","More videos please 🔥"],category:"new"
+  }
+];
+let state = {
+  likes:JSON.parse(localStorage.getItem("glovix_likes")||"[]"),
+  follows:JSON.parse(localStorage.getItem("glovix_follows")||"[]"),
+  comments:JSON.parse(localStorage.getItem("glovix_comments")||"{}"),
+  name:localStorage.getItem("glovix_name")||"GLOVIX Creator",
+  filter:"all"
+};
+let currentPage="home";
+let uploadObjectUrl=null;
+
+function saveState(){
+  localStorage.setItem("glovix_likes",JSON.stringify(state.likes));
+  localStorage.setItem("glovix_follows",JSON.stringify(state.follows));
+  localStorage.setItem("glovix_comments",JSON.stringify(state.comments));
+  localStorage.setItem("glovix_name",state.name);
 }
-
-document.querySelectorAll("[data-like]").forEach(button => {
-  button.addEventListener("click", () => {
-    const count = button.querySelector("span");
-    const liked = button.classList.toggle("liked");
-    count.textContent = Math.max(0, Number(count.textContent) + (liked ? 1 : -1));
-    button.firstChild.textContent = liked ? "♥ Unlike " : "♡ Like ";
-  });
-});
-
-document.querySelectorAll("[data-comments]").forEach(button => {
-  button.addEventListener("click", () => {
-    button.closest(".post").querySelector(".comments").classList.toggle("open");
-  });
-});
-
-document.querySelectorAll(".comment-form").forEach(form => {
-  form.addEventListener("submit", event => {
-    event.preventDefault();
-    const input = form.querySelector("input");
-    const text = input.value.trim();
-    if (!text) return;
-    const row = document.createElement("div");
-    row.className = "comment-row";
-    row.textContent = text;
-    form.parentElement.querySelector(".comment-list").appendChild(row);
-    input.value = "";
-    say("Comment added in this browser preview only.");
-  });
-});
-
-document.querySelectorAll("[data-share]").forEach(button => {
-  button.addEventListener("click", async () => {
-    try {
-      if (navigator.share) await navigator.share({title:"GLOVIX",url:location.href});
-      else if (navigator.clipboard) {
-        await navigator.clipboard.writeText(location.href);
-        say("Page link copied!");
-      } else say("Copy the website address from your browser.");
-    } catch (error) {
-      if (error.name !== "AbortError") say("Share was not completed.");
-    }
-  });
-});
-
-document.querySelectorAll("[data-follow]").forEach(button => {
-  button.addEventListener("click", () => {
-    const following = button.dataset.following === "yes";
-    button.dataset.following = following ? "no" : "yes";
-    button.textContent = following ? "Follow +" : "Following ✓";
-    say("Follow setting is only saved in this page session.");
-  });
-});
-
-const uploadBox = document.getElementById("uploadBox");
-function showUpload() {
-  uploadBox.hidden = false;
-  uploadBox.scrollIntoView({behavior:"smooth",block:"start"});
+function escapeHTML(value){
+  return String(value).replace(/[&<>"']/g,c=>({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+  }[c]));
 }
-["topUpload","uploadNav","rightUpload"].forEach(id =>
-  document.getElementById(id).addEventListener("click",showUpload)
-);
-document.getElementById("closeUpload").addEventListener("click",()=>uploadBox.hidden=true);
-
-document.getElementById("uploadInput").addEventListener("change", event => {
-  const file = event.target.files[0];
-  const details = document.getElementById("uploadDetails");
-  if (!file) return;
-  details.textContent = "Selected: " + file.name + " (" + Math.round(file.size/1024/1024) + " MB). This file is not uploaded to the internet.";
-  const url = URL.createObjectURL(file);
-  const post = document.createElement("article");
-  post.className = "post";
-  post.innerHTML = '<div class="posthead"><div class="avatar">Y</div><div><strong>Your preview</strong><small>Only visible in this browser</small></div></div><div class="video-wrap"><video controls playsinline style="width:100%;max-height:650px"></video></div>';
-  post.querySelector("video").src = url;
-  document.getElementById("feed").prepend(post);
-  say("Video preview added. It has not been published online.");
-});
-
-const search = document.getElementById("search");
-function filterFeed() {
-  const query = search.value.toLowerCase().trim();
-  let visible = 0;
-  document.querySelectorAll("#feed .post").forEach(post => {
-    const match = (post.dataset.title + " " + post.innerText).toLowerCase().includes(query);
-    post.hidden = !match;
-    if (match) visible++;
-  });
-  document.getElementById("noResults").hidden = visible !== 0;
+function notify(message){
+  const el=document.getElementById("toast");
+  el.textContent=message;el.style.display="block";
+  clearTimeout(notify.timer);
+  notify.timer=setTimeout(()=>el.style.display="none",2600);
 }
-search.addEventListener("input",filterFeed);
-
-document.querySelectorAll("[data-filter]").forEach(button => {
-  button.addEventListener("click", () => {
-    document.querySelectorAll("[data-filter]").forEach(b=>b.classList.remove("active"));
-    button.classList.add("active");
-    const kind = button.dataset.filter;
-    let visible = 0;
-    document.querySelectorAll("#feed .post").forEach(post => {
-      const match = kind === "all" || post.dataset.kind === kind;
-      post.hidden = !match;
-      if(match) visible++;
-    });
-    document.getElementById("noResults").hidden = visible !== 0;
-    search.value = "";
+function showPage(page){
+  currentPage=page;
+  document.querySelectorAll(".page").forEach(el=>el.classList.remove("active"));
+  const target=document.getElementById("page-"+page);
+  if(target)target.classList.add("active");
+  document.querySelectorAll(".navitem").forEach(el=>{
+    el.classList.toggle("active",el.dataset.page===page);
   });
+  if(page==="profile")renderProfile();
+  if(page==="explore")renderCreators();
+  if(page==="following")renderFollowing();
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function getComments(video){
+  return state.comments[video.id]||video.comments;
+}
+function videoCard(v){
+  const liked=state.likes.includes(v.id);
+  const followed=state.follows.includes(v.handle);
+  const comments=getComments(v);
+  return `<article class="video-card" data-video="${v.id}" data-name="${escapeHTML(v.name.toLowerCase())}">
+    <div class="video-head">
+      <div class="avatar ${v.style}">${escapeHTML(v.avatar)}</div>
+      <div class="user-info"><strong>${escapeHTML(v.name)}</strong><small>${escapeHTML(v.handle)} · Creator</small></div>
+      <button class="follow ${followed?"following":""}" onclick="toggleFollow('${v.handle}')">${followed?"✓ Following":"+ Follow"}</button>
+    </div>
+    <div class="video-stage">
+      <video controls playsinline preload="metadata" src="${v.url}"></video>
+    </div>
+    <div class="video-caption"><p>${escapeHTML(v.caption)}</p></div>
+    <div class="video-actions">
+      <button class="action ${liked?"liked":""}" onclick="toggleLike('${v.id}')">${liked?"♥":"♡"} ${formatCount(v.likes+(liked?1:0))}</button>
+      <button class="action" onclick="toggleComments('${v.id}')">💬 ${comments.length}</button>
+      <button class="action" onclick="shareVideo('${v.id}')">↗ Share</button>
+      <span class="views">▶ ${formatCount(v.views)} views</span>
+    </div>
+    <div class="comments" id="comments-${v.id}">
+      <div class="comment-list">${comments.map(c=>`<div class="comment">${escapeHTML(c)}<br><small>Community comment · demo</small></div>`).join("")}</div>
+      <form class="comment-form" onsubmit="addComment(event,'${v.id}')">
+        <input id="comment-input-${v.id}" maxlength="250" placeholder="Write a comment..." required>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </article>`;
+}
+function formatCount(n){
+  return n>=1000000?(n/1000000).toFixed(1)+"M":n>=1000?(n/1000).toFixed(1)+"K":String(n);
+}
+function renderFeed(){
+  const query=document.getElementById("searchInput").value.trim().toLowerCase();
+  let videos=demoVideos.filter(v=>(v.name+" "+v.handle+" "+v.caption).toLowerCase().includes(query));
+  if(state.filter==="popular")videos.sort((a,b)=>b.likes-a.likes);
+  if(state.filter==="following")videos=videos.filter(v=>state.follows.includes(v.handle));
+  document.getElementById("videoFeed").innerHTML=videos.map(videoCard).join("");
+  document.getElementById("emptyFeed").style.display=videos.length?"none":"block";
+  renderFollowing();
+}
+function filterFeed(filter,button){
+  state.filter=filter;
+  document.querySelectorAll("#page-home .tab").forEach(b=>b.classList.remove("active"));
+  button.classList.add("active");
+  renderFeed();
+}
+function toggleLike(id){
+  state.likes=state.likes.includes(id)?state.likes.filter(x=>x!==id):[...state.likes,id];
+  saveState();renderFeed();renderProfile();
+}
+function toggleFollow(handle){
+  state.follows=state.follows.includes(handle)?state.follows.filter(x=>x!==handle):[...state.follows,handle];
+  saveState();renderFeed();renderCreators();renderProfile();renderFollowing();
+}
+function toggleComments(id){
+  const box=document.getElementById("comments-"+id);
+  if(box)box.classList.toggle("open");
+}
+function addComment(event,id){
+  event.preventDefault();
+  const input=document.getElementById("comment-input-"+id);
+  const comment=input.value.trim();if(!comment)return;
+  state.comments[id]=state.comments[id]||demoVideos.find(v=>v.id===id).comments.slice();
+  state.comments[id].push(comment);
+  saveState();renderFeed();
+  const box=document.getElementById("comments-"+id);
+  if(box)box.classList.add("open");
+  notify("Comment added in this browser.");
+}
+function shareVideo(id){
+  const url=location.href.split("#")[0]+"#"+id;
+  if(navigator.share){
+    navigator.share({title:"GLOVIX video",text:"Check out this video on GLOVIX!",url}).catch(()=>{});
+  }else if(navigator.clipboard){
+    navigator.clipboard.writeText(url).then(()=>notify("Link copied!")).catch(()=>notify("Sharing is not available here."));
+  }else notify("Copy your browser address to share this demo.");
+}
+function renderFollowing(){
+  const videos=demoVideos.filter(v=>state.follows.includes(v.handle));
+  const box=document.getElementById("followingFeed");
+  if(!box)return;
+  box.innerHTML=videos.map(videoCard).join("");
+  document.getElementById("followingEmpty").style.display=videos.length?"none":"block";
+}
+function renderCreators(){
+  const box=document.getElementById("creatorList");if(!box)return;
+  const query=document.getElementById("searchInput").value.trim().toLowerCase();
+  const creators=demoVideos.filter(v=>(v.name+" "+v.handle).toLowerCase().includes(query));
+  box.innerHTML=creators.map(v=>`<div class="creator-card">
+    <div class="avatar ${v.style}">${escapeHTML(v.avatar)}</div>
+    <div style="flex:1"><strong>${escapeHTML(v.name)}</strong><p>${escapeHTML(v.handle)}</p></div>
+    <button class="follow ${state.follows.includes(v.handle)?"following":""}" onclick="toggleFollow('${v.handle}')">${state.follows.includes(v.handle)?"✓ Following":"+ Follow"}</button>
+  </div>`).join("")||"<p class='muted'>No creators found.</p>";
+}
+function renderProfile(){
+  document.getElementById("profileName").textContent=state.name;
+  document.getElementById("profileFollowers").textContent=""+state.follows.length;
+  document.getElementById("profileFollowing").textContent=""+state.follows.length;
+  document.getElementById("profileLikes").textContent=""+state.likes.length;
+  document.getElementById("profileActivity").innerHTML=
+    `<p>♥ Videos liked: <strong>${state.likes.length}</strong></p>
+     <p>＋ Creators followed: <strong>${state.follows.length}</strong></p>
+     <p class="notice">These numbers are local demo data, not real public account statistics.</p>`;
+}
+function editProfile(){
+  const newName=prompt("Enter your display name:",state.name);
+  if(newName&&newName.trim()){
+    state.name=newName.trim().slice(0,40);saveState();renderProfile();
+    notify("Display name updated on this browser.");
+  }
+}
+document.getElementById("searchInput").addEventListener("input",()=>{
+  renderFeed();renderCreators();
 });
-document.getElementById("aboutNav").addEventListener("click", () => {
-  say("GLOVIX is being built by mianVerse (Mian Abdullah).");
+document.getElementById("videoFile").addEventListener("change",event=>{
+  const file=event.target.files[0];if(!file)return;
+  if(uploadObjectUrl)URL.revokeObjectURL(uploadObjectUrl);
+  uploadObjectUrl=URL.createObjectURL(file);
+  const video=document.getElementById("uploadPreview");
+  video.src=uploadObjectUrl;video.style.display="block";
 });
+function publishPreview(){
+  const file=document.getElementById("videoFile").files[0];
+  const caption=document.getElementById("postCaption").value.trim();
+  const name=document.getElementById("postUsername").value.trim()||state.name;
+  if(!file){notify("Please choose a video first.");return;}
+  document.getElementById("uploadResult").innerHTML=
+    `<div class="panel"><h3>Preview ready ✨</h3>
+    <p><strong>${escapeHTML(name)}</strong></p>
+    <p>${escapeHTML(caption||"My new GLOVIX video!")}</p>
+    <p class="notice">File: ${escapeHTML(file.name)}. This post has not been published online.</p></div>`;
+  notify("Preview created in your browser.");
+}
+function filterInit(){
+  renderFeed();renderCreators();renderProfile();
+}
+filterInit();
 </script>
 </body>
 </html>
