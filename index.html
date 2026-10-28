@@ -3,569 +3,290 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080916">
-<meta name="description" content="GLOVIX — Connect, Create, Explore.">
-<title>GLOVIX — Enter What's Next</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080914">
+<title>GLOVIX — Social Universe</title>
 <style>
-:root {
-  --bg: #080916;
-  --cyan: #5cf4ff;
-  --purple: #a47bff;
-  --pink: #ff6edb;
-  --text: #f5f7ff;
-  --muted: #a8acc7;
-  --glass: rgba(255,255,255,.065);
-  --line: rgba(255,255,255,.13);
-}
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  min-height: 100vh;
-  color: var(--text);
-  font-family: Inter, system-ui, Arial, sans-serif;
-  background:
-    radial-gradient(ellipse at 15% 10%,rgba(73,53,168,.28),transparent 42%),
-    radial-gradient(ellipse at 90% 35%,rgba(0,191,209,.16),transparent 36%),
-    linear-gradient(145deg,#080916,#0d1024 55%,#080916);
-  overflow-x: hidden;
-}
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  opacity: .16;
-  background-image:
-    linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
-  background-size: 48px 48px;
-}
-a { color: inherit; text-decoration: none; }
-button { font: inherit; }
-.wrap {
-  width: min(1160px,calc(100% - 40px));
-  margin: auto;
-  position: relative;
-  z-index: 1;
-}
-nav {
-  height: 86px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid rgba(255,255,255,.08);
-}
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 11px;
-  font-weight: 900;
-  letter-spacing: .13em;
-  font-size: 1.18rem;
-}
-.brand-mark {
-  width: 36px;
-  height: 36px;
-  display: grid;
-  place-items: center;
-  border: 1px solid rgba(92,244,255,.5);
-  border-radius: 12px;
-  color: var(--cyan);
-  box-shadow: 0 0 25px rgba(92,244,255,.15);
-}
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 28px;
-  color: var(--muted);
-  font-size: .9rem;
-}
-.nav-links a:hover { color: white; }
-.nav-cta {
-  padding: 10px 17px;
-  border: 1px solid rgba(92,244,255,.42);
-  border-radius: 999px;
-  color: var(--cyan) !important;
-  background: rgba(92,244,255,.06);
-}
-.hero {
-  display: grid;
-  grid-template-columns: 1.08fr .92fr;
-  gap: 42px;
-  align-items: center;
-  padding: 85px 0 78px;
-  min-height: 620px;
-}
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  border: 1px solid var(--line);
-  background: rgba(255,255,255,.04);
-  border-radius: 999px;
-  padding: 9px 13px;
-  color: #c9d3ff;
-  font-size: .76rem;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-}
-.dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--cyan);
-  box-shadow: 0 0 12px var(--cyan);
-}
-h1 {
-  font-size: clamp(3.5rem,8vw,6.6rem);
-  line-height: .93;
-  letter-spacing: -.075em;
-  margin: 27px 0 23px;
-  font-weight: 900;
-}
-.gradient-text {
-  background: linear-gradient(100deg,#fff 5%,var(--cyan) 43%,#b99aff 75%,var(--pink));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-.hero-copy {
-  color: var(--muted);
-  font-size: 1.08rem;
-  line-height: 1.8;
-  max-width: 550px;
-}
-.actions {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  flex-wrap: wrap;
-  margin-top: 30px;
-}
-.launch {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  padding: 16px 24px;
-  border: 0;
-  border-radius: 13px;
-  background: linear-gradient(100deg,var(--cyan),#9c8aff 72%,var(--pink));
-  color: #080916;
-  font-weight: 900;
-  letter-spacing: .045em;
-  box-shadow: 0 8px 35px rgba(92,244,255,.2);
-  cursor: pointer;
-  transition: transform .2s, box-shadow .2s;
-}
-.launch:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 45px rgba(92,244,255,.34);
-}
-.secondary {
-  padding: 15px 20px;
-  border: 1px solid var(--line);
-  border-radius: 13px;
-  color: #e8eaff;
-  background: rgba(255,255,255,.035);
-}
-.microcopy {
-  margin-top: 18px;
-  color: #858bab;
-  font-size: .78rem;
-}
-
-/* Futuristic glowing logo */
-.visual {
-  min-height: 440px;
-  position: relative;
-  display: grid;
-  place-items: center;
-}
-.orb {
-  position: absolute;
-  width: min(360px,85%);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 28%,
-    rgba(92,244,255,.28),
-    rgba(126,84,255,.13) 38%,
-    rgba(255,110,219,.08) 60%,
-    transparent 72%);
-  animation: breathe 6s ease-in-out infinite;
-}
-.ring {
-  position: absolute;
-  width: 310px;
-  max-width: 80%;
-  aspect-ratio: 1;
-  border: 1px solid rgba(92,244,255,.35);
-  border-radius: 50%;
-  box-shadow: 0 0 45px rgba(92,244,255,.07);
-  transform: rotate(-24deg) scaleY(.48);
-}
-.ring.two {
-  width: 360px;
-  border-color: rgba(164,123,255,.32);
-  transform: rotate(57deg) scaleY(.52);
-}
-.core {
-  width: 190px;
-  aspect-ratio: 1;
-  border-radius: 34%;
-  display: grid;
-  place-items: center;
-  transform: rotate(-8deg);
-  border: 1px solid rgba(255,255,255,.28);
-  background: linear-gradient(145deg,
-    rgba(92,244,255,.16),
-    rgba(164,123,255,.18) 55%,
-    rgba(255,110,219,.13));
-  box-shadow: inset 0 0 45px rgba(255,255,255,.07),
-    0 0 80px rgba(116,113,255,.2);
-  backdrop-filter: blur(20px);
-  animation: float 5s ease-in-out infinite;
-}
-.core span {
-  font-size: 5.3rem;
-  font-weight: 950;
-  letter-spacing: -.12em;
-  color: white;
-  text-shadow: 0 0 22px rgba(92,244,255,.7);
-  transform: rotate(8deg);
-}
-.float-card {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 14px 16px;
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  background: rgba(15,19,43,.75);
-  backdrop-filter: blur(18px);
-  box-shadow: 0 18px 60px rgba(0,0,0,.2);
-}
-.float-card strong { display: block; font-size: .86rem; }
-.float-card small {
-  display: block;
-  color: var(--muted);
-  margin-top: 3px;
-  font-size: .72rem;
-}
-.float-icon {
-  width: 38px;
-  height: 38px;
-  display: grid;
-  place-items: center;
-  border-radius: 12px;
-  background: rgba(92,244,255,.1);
-  color: var(--cyan);
-  font-size: 1.15rem;
-}
-.card-top { top: 46px; right: 0; }
-.card-bottom { bottom: 45px; left: 0; }
-
-.features { padding: 34px 0 90px; }
-.section-head {
-  text-align: center;
-  max-width: 690px;
-  margin: 0 auto 36px;
-}
-.section-head .eyebrow { margin-bottom: 16px; }
-h2 {
-  font-size: clamp(2rem,4vw,3.2rem);
-  letter-spacing: -.055em;
-  margin: 0 0 13px;
-}
-.section-head p {
-  color: var(--muted);
-  line-height: 1.7;
-}
-.feature-grid {
-  display: grid;
-  grid-template-columns: repeat(4,1fr);
-  gap: 15px;
-}
-.feature {
-  min-height: 195px;
-  padding: 23px;
-  border: 1px solid var(--line);
-  border-radius: 21px;
-  background: linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.025));
-  backdrop-filter: blur(16px);
-  transition: transform .2s,border-color .2s;
-}
-.feature:hover {
-  transform: translateY(-5px);
-  border-color: rgba(92,244,255,.4);
-}
-.feature-icon {
-  width: 46px;
-  height: 46px;
-  border-radius: 14px;
-  display: grid;
-  place-items: center;
-  font-size: 1.3rem;
-  color: var(--cyan);
-  background: rgba(92,244,255,.09);
-  border: 1px solid rgba(92,244,255,.15);
-  margin-bottom: 20px;
-}
-.feature h3 { font-size: 1.02rem; margin: 0 0 9px; }
-.feature p {
-  color: var(--muted);
-  font-size: .86rem;
-  line-height: 1.65;
-  margin: 0;
-}
-.manifesto {
-  margin: 0 0 75px;
-  padding: 34px;
-  border-radius: 25px;
-  border: 1px solid var(--line);
-  background: radial-gradient(ellipse at 90% 0%,rgba(164,123,255,.15),transparent 45%),rgba(255,255,255,.035);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 25px;
-}
-.manifesto h2 { font-size: clamp(1.7rem,3vw,2.7rem); }
-.manifesto p { color: var(--muted); }
-.owner {
-  white-space: nowrap;
-  text-align: right;
-  border-left: 1px solid var(--line);
-  padding-left: 27px;
-}
-.owner small {
-  display: block;
-  color: var(--muted);
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  font-size: .7rem;
-}
-.owner strong { display: block; margin-top: 7px; }
-.owner span {
-  display: block;
-  color: var(--cyan);
-  font-size: .85rem;
-  margin-top: 4px;
-}
-footer {
-  border-top: 1px solid rgba(255,255,255,.08);
-  padding: 25px 0 32px;
-  color: #858bab;
-  font-size: .8rem;
-  display: flex;
-  justify-content: space-between;
-  gap: 15px;
-  flex-wrap: wrap;
-}
-footer b { color: #dfe5ff; letter-spacing: .12em; }
-.toast {
-  position: fixed;
-  z-index: 5;
-  left: 50%;
-  bottom: 25px;
-  transform: translate(-50%,20px);
-  padding: 13px 18px;
-  background: rgba(15,19,43,.97);
-  border: 1px solid rgba(92,244,255,.45);
-  border-radius: 12px;
-  color: white;
-  box-shadow: 0 10px 40px #0008;
-  opacity: 0;
-  pointer-events: none;
-  transition: .25s;
-  font-size: .9rem;
-}
-.toast.show { opacity: 1; transform: translate(-50%,0); }
-
-@keyframes float {
-  0%,100% { translate: 0 0; }
-  50% { translate: 0 -12px; }
-}
-@keyframes breathe {
-  0%,100% { transform: scale(.95); opacity: .8; }
-  50% { transform: scale(1.06); opacity: 1; }
-}
-@media(max-width:850px) {
-  .hero { grid-template-columns: 1fr; padding: 65px 0 50px; gap: 5px; }
-  .hero-content { text-align: center; }
-  .hero-copy { margin-inline: auto; }
-  .actions { justify-content: center; }
-  .visual { min-height: 400px; }
-  .feature-grid { grid-template-columns: repeat(2,1fr); }
-  .manifesto { align-items: flex-start; flex-direction: column; }
-  .owner {
-    text-align: left;
-    border-left: 0;
-    border-top: 1px solid var(--line);
-    padding: 18px 0 0;
-    width: 100%;
-  }
-}
-@media(max-width:520px) {
-  .wrap { width: calc(100% - 28px); }
-  nav { height: 72px; }
-  .nav-links { gap: 12px; }
-  .nav-links a:not(.nav-cta) { display: none; }
-  .brand { font-size: 1rem; }
-  .hero { padding-top: 54px; }
-  h1 { font-size: clamp(3.2rem,17vw,5rem); }
-  .hero-copy { font-size: .98rem; }
-  .visual { min-height: 350px; }
-  .core { width: 150px; }
-  .core span { font-size: 4.3rem; }
-  .ring { width: 270px; }
-  .ring.two { width: 310px; }
-  .card-top { top: 24px; right: -2px; }
-  .card-bottom { bottom: 23px; left: -2px; }
-  .float-card { padding: 10px 12px; }
-  .float-icon { width: 32px; height: 32px; }
-  .feature-grid { grid-template-columns: 1fr; }
-  .feature { min-height: auto; }
-  .features { padding-bottom: 60px; }
-  .manifesto { padding: 24px; margin-bottom: 50px; }
-  footer { flex-direction: column; }
-}
-@media(prefers-reduced-motion:reduce) {
-  *,*::before,*::after {
-    scroll-behavior: auto !important;
-    animation: none !important;
-    transition: none !important;
-  }
+:root{--bg:#080914;--panel:#111326;--line:#252943;--cyan:#48efff;--purple:#a47aff;--muted:#a5abc5}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:#f8f9ff;font-family:Arial,Helvetica,sans-serif}
+button,input{font:inherit}
+button{cursor:pointer}
+.top{height:68px;display:flex;align-items:center;justify-content:space-between;gap:15px;padding:0 5%;border-bottom:1px solid var(--line);background:#080914f5;position:sticky;top:0;z-index:10}
+.brand{display:flex;align-items:center;gap:10px;font-size:22px;font-weight:900;letter-spacing:3px}
+.logo{display:grid;place-items:center;width:38px;height:38px;border-radius:13px;background:linear-gradient(135deg,var(--cyan),var(--purple));color:#080914;box-shadow:0 0 20px #48efff40}
+.search{width:min(350px,40vw);padding:12px 16px;border:1px solid var(--line);border-radius:25px;background:#131529;color:white;outline:none}
+.search:focus{border-color:var(--cyan)}
+.layout{display:grid;grid-template-columns:210px minmax(0,650px) 245px;gap:25px;max-width:1250px;margin:auto;padding:24px 20px}
+.side{position:sticky;top:90px;height:max-content}
+.navbtn{display:block;width:100%;padding:14px;margin-bottom:6px;text-align:left;background:transparent;color:#d7daed;border:0;border-radius:12px}
+.navbtn:hover,.navbtn.active{background:#191c34;color:var(--cyan)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:17px;padding:17px;margin-bottom:18px}
+.muted{color:var(--muted);font-size:13px;line-height:1.6}
+h2{font-size:20px;margin:4px 0 16px}
+h3{font-size:15px;margin:0 0 8px}
+.tag{font-size:11px;letter-spacing:1.5px;color:var(--cyan);text-transform:uppercase}
+.feedhead{display:flex;justify-content:space-between;align-items:center;margin:0 0 18px}
+.post{background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-bottom:22px}
+.posthead{display:flex;align-items:center;gap:11px;padding:15px}
+.avatar{width:39px;height:39px;display:grid;place-items:center;flex-shrink:0;border-radius:50%;background:linear-gradient(135deg,#48efff,#a47aff);color:#080914;font-weight:bold}
+.posthead strong{font-size:14px}
+.posthead small{display:block;color:var(--muted);margin-top:4px}
+.follow{margin-left:auto;background:transparent;color:var(--cyan);border:1px solid #48efff66;border-radius:18px;padding:7px 12px}
+.video-wrap{position:relative;background:#03040a;max-height:650px;min-height:240px}
+.video-wrap video{display:block;width:100%;max-height:650px;aspect-ratio:9/12;object-fit:contain;background:#03040a}
+.playhint{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;font-size:50px;color:#fff9;text-shadow:0 2px 15px #000}
+.caption{padding:13px 16px 4px;font-size:14px;line-height:1.6}
+.actions{display:flex;gap:8px;padding:12px 14px 16px;flex-wrap:wrap}
+.action{background:#1a1d34;color:#e6e8fa;border:1px solid #2a2e4a;border-radius:22px;padding:9px 13px}
+.action:hover{border-color:var(--cyan)}
+.action.liked{color:#ff75d6;border-color:#ff75d6}
+.btn{display:inline-block;border:0;border-radius:12px;padding:12px 15px;background:linear-gradient(100deg,var(--cyan),var(--purple));color:#090a18;font-weight:bold}
+.btn.full{width:100%}
+input[type=text],textarea{width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;background:#090b18;color:white}
+textarea{resize:vertical;min-height:75px}
+#uploadInput{display:none}
+.comments{padding:0 15px 15px;display:none}
+.comments.open{display:block}
+.comment-list{max-height:180px;overflow:auto;margin:8px 0}
+.comment-row{padding:9px 0;border-bottom:1px solid var(--line);font-size:13px}
+.comment-form{display:flex;gap:7px}
+.comment-form input{min-width:0}
+footer{padding:25px;text-align:center;color:var(--muted);font-size:12px;border-top:1px solid var(--line)}
+#notice{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1c2040;border:1px solid var(--cyan);border-radius:12px;padding:13px 18px;z-index:20;display:none;max-width:90%;font-size:13px}
+@media(max-width:1050px){.layout{grid-template-columns:175px minmax(0,650px);justify-content:center}.right{display:none}}
+@media(max-width:650px){
+ .top{padding:0 12px;height:60px}.brand{font-size:17px;letter-spacing:2px}.logo{width:33px;height:33px}
+ .search{width:38vw;padding:10px}.layout{display:block;padding:14px 10px}
+ .side{position:static;display:flex;gap:5px;overflow-x:auto;margin-bottom:17px}
+ .navbtn{white-space:nowrap;width:auto;padding:11px;margin:0}
+ .navbtn span{display:none}.post{border-radius:13px}.video-wrap video{max-height:75vh}
+ .card{padding:14px}
 }
 </style>
 </head>
-
 <body>
-<header class="wrap">
-  <nav aria-label="Main navigation">
-    <a class="brand" href="#home">
-      <span class="brand-mark">G</span>
-      <span>GLOVIX</span>
-    </a>
-    <div class="nav-links">
-      <a href="#vision">Vision</a>
-      <a href="#features">Features</a>
-      <a class="nav-cta" href="#launch">Enter the future ↗</a>
-    </div>
-  </nav>
+<header class="top">
+  <div class="brand"><span class="logo">G</span> GLOVIX</div>
+  <input class="search" id="search" type="text" placeholder="Search videos..." aria-label="Search videos">
+  <button class="btn" id="topUpload">＋ Upload</button>
 </header>
 
-<main>
-  <section class="wrap hero" id="home">
-    <div class="hero-content">
-      <div class="eyebrow"><span class="dot"></span>A new digital universe</div>
-      <h1>YOUR WORLD.<br><span class="gradient-text">WITHOUT LIMITS.</span></h1>
-      <p class="hero-copy">
-        Meet GLOVIX — a bold new vision for connecting, creating,
-        watching, and discovering. One universe for your digital life.
-        The next wave starts here.
-      </p>
-      <div class="actions" id="launch">
-        <button class="launch" id="launchButton" type="button">
-          LAUNCH GLOVIX <span aria-hidden="true">↗</span>
-        </button>
-        <a class="secondary" href="#features">Explore the vision ↓</a>
-      </div>
-      <p class="microcopy">A vision in progress · Built for a world that never stands still</p>
+<div class="layout">
+  <aside class="side">
+    <button class="navbtn active" data-filter="all">⌂ &nbsp; Home</button>
+    <button class="navbtn" data-filter="short">▷ &nbsp; Shorts</button>
+    <button class="navbtn" data-filter="music">♫ &nbsp; Music</button>
+    <button class="navbtn" id="uploadNav">＋ &nbsp; Upload video</button>
+    <button class="navbtn" id="aboutNav">◎ &nbsp; About GLOVIX</button>
+  </aside>
+
+  <main>
+    <div class="feedhead">
+      <div><div class="tag">YOUR DIGITAL UNIVERSE</div><h2>Discover your world.</h2></div>
     </div>
 
-    <div class="visual" aria-label="Abstract glowing GLOVIX emblem">
-      <div class="orb"></div>
-      <div class="ring"></div>
-      <div class="ring two"></div>
-      <div class="core"><span>G</span></div>
+    <section class="card" id="uploadBox" hidden>
+      <h2>Upload a video</h2>
+      <p class="muted">Choose a video to preview it in this browser.</p>
+      <label class="btn" for="uploadInput">Choose video</label>
+      <input id="uploadInput" type="file" accept="video/*">
+      <div id="uploadDetails" class="muted" style="margin-top:12px"></div>
+      <p class="muted">This preview does not publish the video to other users. Online publishing requires a server or video-storage service.</p>
+      <button class="action" id="closeUpload">Close</button>
+    </section>
 
-      <div class="float-card card-top">
-        <div class="float-icon">✦</div>
-        <div><strong>One connected world</strong><small>Your people. Your interests.</small></div>
-      </div>
-
-      <div class="float-card card-bottom">
-        <div class="float-icon">⌁</div>
-        <div><strong>Create what's next</strong><small>Ideas move the universe.</small></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="wrap features" id="features">
-    <div class="section-head">
-      <div class="eyebrow"><span class="dot"></span>One platform. More possibilities.</div>
-      <h2>Everything meets <span class="gradient-text">here.</span></h2>
-      <p>Imagine a place where your community, creativity, entertainment,
-      and discoveries live together in one seamless experience.</p>
-    </div>
-
-    <div class="feature-grid">
-      <article class="feature">
-        <div class="feature-icon">◎</div>
-        <h3>Connect globally</h3>
-        <p>Find your people, follow creators, and build communities across borders.</p>
+    <div id="feed">
+      <article class="post" data-kind="short" data-title="Big Buck Bunny animation">
+        <div class="posthead">
+          <div class="avatar">G</div>
+          <div><strong>GLOVIX Discover</strong><small>Featured video · Online sample</small></div>
+          <button class="follow" data-follow>Follow +</button>
+        </div>
+        <div class="video-wrap">
+          <video controls playsinline preload="metadata" poster="https://storage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg">
+            <source src="https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+            Your browser cannot play this video.
+          </video>
+        </div>
+        <div class="caption"><strong>Welcome to GLOVIX 🌍</strong><br>Your world. Your stories. Discover something new.</div>
+        <div class="actions">
+          <button class="action" data-like>♡ Like <span>0</span></button>
+          <button class="action" data-comments>▢ Comments</button>
+          <button class="action" data-share>↗ Share</button>
+        </div>
+        <div class="comments">
+          <div class="comment-list"></div>
+          <form class="comment-form"><input type="text" placeholder="Write a comment..." required><button class="action">Send</button></form>
+        </div>
       </article>
-      <article class="feature">
-        <div class="feature-icon">▷</div>
-        <h3>Video universe</h3>
-        <p>Explore short clips, long-form stories, and ideas worth sharing.</p>
-      </article>
-      <article class="feature">
-        <div class="feature-icon">◉</div>
-        <h3>Live moments</h3>
-        <p>Bring people together around real-time moments and shared interests.</p>
-      </article>
-      <article class="feature">
-        <div class="feature-icon">◇</div>
-        <h3>Discover & trade</h3>
-        <p>Explore products, creators, and new possibilities in one digital space.</p>
+
+      <article class="post" data-kind="music" data-title="Elephants Dream movie">
+        <div class="posthead">
+          <div class="avatar">M</div>
+          <div><strong>Movie Universe</strong><small>Featured video · Online sample</small></div>
+          <button class="follow" data-follow>Follow +</button>
+        </div>
+        <div class="video-wrap">
+          <video controls playsinline preload="metadata" poster="https://storage.googleapis.com/gtv-videos-bucket/sample/images/ElephantsDream.jpg">
+            <source src="https://storage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" type="video/mp4">
+            Your browser cannot play this video.
+          </video>
+        </div>
+        <div class="caption"><strong>Explore the extraordinary ✨</strong><br>A sample film to test video playback on GLOVIX.</div>
+        <div class="actions">
+          <button class="action" data-like>♡ Like <span>0</span></button>
+          <button class="action" data-comments>▢ Comments</button>
+          <button class="action" data-share>↗ Share</button>
+        </div>
+        <div class="comments">
+          <div class="comment-list"></div>
+          <form class="comment-form"><input type="text" placeholder="Write a comment..." required><button class="action">Send</button></form>
+        </div>
       </article>
     </div>
-  </section>
+    <p class="muted" id="noResults" hidden>No videos found for this search.</p>
+  </main>
 
-  <section class="wrap" id="vision">
-    <div class="manifesto">
-      <div>
-        <h2>The future isn't somewhere you go.<br>
-          <span class="gradient-text">It's something we build.</span>
-        </h2>
-        <p>Welcome to the beginning of GLOVIX.</p>
-      </div>
-      <div class="owner">
-        <small>Created by</small>
-        <strong>mianVerse</strong>
-        <span>Mian Abdullah</span>
-      </div>
+  <aside class="right">
+    <div class="card">
+      <div class="tag">THE NEXT WAVE</div>
+      <h2>Welcome to GLOVIX</h2>
+      <p class="muted">A place for videos, creators, communities and ideas. This is the first front-end version.</p>
+      <button class="btn full" id="rightUpload">Create a post ＋</button>
     </div>
-  </section>
-</main>
-
-<footer class="wrap">
-  <span><b>GLOVIX</b> · Connect. Create. Explore.</span>
-  <span>Concept landing page · © <span id="year"></span> mianVerse</span>
-</footer>
-
-<div class="toast" id="toast" role="status" aria-live="polite">
-  You're early — GLOVIX is getting ready. ✨
+    <div class="card">
+      <h3>🚀 Coming into focus</h3>
+      <p class="muted">• User accounts<br>• Creator profiles<br>• Global video uploads<br>• Likes and comments<br>• Live streaming<br>• Marketplace</p>
+      <p class="muted">These require a backend and are not enabled in this demo.</p>
+    </div>
+    <div class="card">
+      <h3>Made by mianVerse</h3>
+      <p class="muted">Mian Abdullah<br>Building a connected world.</p>
+    </div>
+  </aside>
 </div>
 
+<footer>GLOVIX · Connect. Create. Explore.<br><br>Created by mianVerse (Mian Abdullah)</footer>
+<div id="notice" role="status"></div>
+
 <script>
-document.getElementById("year").textContent = new Date().getFullYear();
+const notice = document.getElementById("notice");
+let noticeTimer;
+function say(message) {
+  notice.textContent = message;
+  notice.style.display = "block";
+  clearTimeout(noticeTimer);
+  noticeTimer = setTimeout(() => notice.style.display = "none", 3500);
+}
 
-const launchButton = document.getElementById("launchButton");
-const toast = document.getElementById("toast");
-let toastTimer;
+document.querySelectorAll("[data-like]").forEach(button => {
+  button.addEventListener("click", () => {
+    const count = button.querySelector("span");
+    const liked = button.classList.toggle("liked");
+    count.textContent = Math.max(0, Number(count.textContent) + (liked ? 1 : -1));
+    button.firstChild.textContent = liked ? "♥ Unlike " : "♡ Like ";
+  });
+});
 
-launchButton.addEventListener("click", () => {
-  toast.classList.add("show");
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => {
-    toast.classList.remove("show");
-  }, 3200);
+document.querySelectorAll("[data-comments]").forEach(button => {
+  button.addEventListener("click", () => {
+    button.closest(".post").querySelector(".comments").classList.toggle("open");
+  });
+});
+
+document.querySelectorAll(".comment-form").forEach(form => {
+  form.addEventListener("submit", event => {
+    event.preventDefault();
+    const input = form.querySelector("input");
+    const text = input.value.trim();
+    if (!text) return;
+    const row = document.createElement("div");
+    row.className = "comment-row";
+    row.textContent = text;
+    form.parentElement.querySelector(".comment-list").appendChild(row);
+    input.value = "";
+    say("Comment added in this browser preview only.");
+  });
+});
+
+document.querySelectorAll("[data-share]").forEach(button => {
+  button.addEventListener("click", async () => {
+    try {
+      if (navigator.share) await navigator.share({title:"GLOVIX",url:location.href});
+      else if (navigator.clipboard) {
+        await navigator.clipboard.writeText(location.href);
+        say("Page link copied!");
+      } else say("Copy the website address from your browser.");
+    } catch (error) {
+      if (error.name !== "AbortError") say("Share was not completed.");
+    }
+  });
+});
+
+document.querySelectorAll("[data-follow]").forEach(button => {
+  button.addEventListener("click", () => {
+    const following = button.dataset.following === "yes";
+    button.dataset.following = following ? "no" : "yes";
+    button.textContent = following ? "Follow +" : "Following ✓";
+    say("Follow setting is only saved in this page session.");
+  });
+});
+
+const uploadBox = document.getElementById("uploadBox");
+function showUpload() {
+  uploadBox.hidden = false;
+  uploadBox.scrollIntoView({behavior:"smooth",block:"start"});
+}
+["topUpload","uploadNav","rightUpload"].forEach(id =>
+  document.getElementById(id).addEventListener("click",showUpload)
+);
+document.getElementById("closeUpload").addEventListener("click",()=>uploadBox.hidden=true);
+
+document.getElementById("uploadInput").addEventListener("change", event => {
+  const file = event.target.files[0];
+  const details = document.getElementById("uploadDetails");
+  if (!file) return;
+  details.textContent = "Selected: " + file.name + " (" + Math.round(file.size/1024/1024) + " MB). This file is not uploaded to the internet.";
+  const url = URL.createObjectURL(file);
+  const post = document.createElement("article");
+  post.className = "post";
+  post.innerHTML = '<div class="posthead"><div class="avatar">Y</div><div><strong>Your preview</strong><small>Only visible in this browser</small></div></div><div class="video-wrap"><video controls playsinline style="width:100%;max-height:650px"></video></div>';
+  post.querySelector("video").src = url;
+  document.getElementById("feed").prepend(post);
+  say("Video preview added. It has not been published online.");
+});
+
+const search = document.getElementById("search");
+function filterFeed() {
+  const query = search.value.toLowerCase().trim();
+  let visible = 0;
+  document.querySelectorAll("#feed .post").forEach(post => {
+    const match = (post.dataset.title + " " + post.innerText).toLowerCase().includes(query);
+    post.hidden = !match;
+    if (match) visible++;
+  });
+  document.getElementById("noResults").hidden = visible !== 0;
+}
+search.addEventListener("input",filterFeed);
+
+document.querySelectorAll("[data-filter]").forEach(button => {
+  button.addEventListener("click", () => {
+    document.querySelectorAll("[data-filter]").forEach(b=>b.classList.remove("active"));
+    button.classList.add("active");
+    const kind = button.dataset.filter;
+    let visible = 0;
+    document.querySelectorAll("#feed .post").forEach(post => {
+      const match = kind === "all" || post.dataset.kind === kind;
+      post.hidden = !match;
+      if(match) visible++;
+    });
+    document.getElementById("noResults").hidden = visible !== 0;
+    search.value = "";
+  });
+});
+document.getElementById("aboutNav").addEventListener("click", () => {
+  say("GLOVIX is being built by mianVerse (Mian Abdullah).");
 });
 </script>
 </body>
