@@ -3,157 +3,354 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2283215295274944"
-     crossorigin="anonymous"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#090a12">
-<title>GLOVIX — Connect Your World</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GLOVIX — Connect the World</title>
 <style>
-:root{--bg:#090a12;--card:#141624;--line:#282a3b;--text:#f7f7ff;--muted:#a3a7bd;--pink:#ff3d91;--cyan:#00dcff;--purple:#8755ff}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font:15px Arial,sans-serif}
-button,input,textarea{font:inherit}
-button{cursor:pointer}
-.top{height:65px;position:sticky;top:0;z-index:5;background:#0b0c15f5;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 max(15px,calc((100vw - 1150px)/2));gap:15px}
-.brand{display:flex;align-items:center;gap:9px;font-size:23px;font-weight:900;letter-spacing:1px}
-.logo{width:38px;height:38px;border-radius:13px;display:grid;place-items:center;color:white;font-size:24px;background:linear-gradient(135deg,var(--cyan),var(--purple),var(--pink));box-shadow:0 0 18px #8755ff55}
-.brand b{background:linear-gradient(90deg,var(--cyan),var(--pink));color:transparent;background-clip:text}
-.search{width:min(300px,35vw);background:#171927;border:1px solid var(--line);padding:11px 15px;border-radius:22px;color:white}
-button.primary{border:0;background:linear-gradient(100deg,#00bce8,#8652ff);padding:11px 16px;border-radius:11px;color:white;font-weight:bold}
-.layout{max-width:1150px;margin:auto;display:grid;grid-template-columns:210px minmax(0,600px) 260px;gap:25px;padding:24px 12px}
-.sidebar,.right{position:sticky;top:85px;height:max-content}
-.nav{display:flex;align-items:center;gap:13px;width:100%;padding:14px 12px;border:0;background:transparent;color:#d5d7e8;text-align:left;border-radius:12px;margin-bottom:4px;font-size:15px}
-.nav:hover,.nav.active{background:#1a1c2e;color:var(--cyan)}
-.nicon{font-size:22px;width:25px;text-align:center}
-.box{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin-bottom:17px}
-.muted{color:var(--muted);font-size:13px;line-height:1.5}
-h2{font-size:19px;margin:0 0 14px}
-h3{font-size:16px}
-.page{display:none}.page.active{display:block}
-.stories{display:flex;gap:15px;overflow:auto;padding:14px;background:var(--card);border:1px solid var(--line);border-radius:16px;margin-bottom:18px}
-.story{flex:0 0 65px;text-align:center;font-size:11px;color:var(--muted);overflow:hidden}
-.story-ring{width:57px;height:57px;margin:0 auto 7px;border-radius:50%;padding:3px;background:linear-gradient(135deg,var(--cyan),var(--purple),var(--pink))}
-.story-face{height:100%;width:100%;border-radius:50%;background:#1d2033;border:2px solid var(--card);display:grid;place-items:center;font-size:22px;color:white}
-.profile-line{display:flex;align-items:center;gap:10px;margin-bottom:13px}
-.avatar{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;flex-shrink:0;font-weight:bold;background:linear-gradient(135deg,var(--cyan),var(--purple))}
-.user{flex:1;min-width:0}.user strong{display:block;margin-bottom:4px}.user small{color:var(--muted)}
-.follow{border:1px solid #8755ff88;color:#c7b2ff;background:transparent;padding:8px 11px;border-radius:9px}
-.following{color:#b7bdd0;border-color:var(--line)}
-.post{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-bottom:20px}
-.post-head{padding:13px;display:flex;align-items:center;gap:10px}
-.media{background:#05060b;width:100%;aspect-ratio:4/4.4;max-height:550px;display:grid;place-items:center;overflow:hidden}
-.media video,.media img{width:100%;height:100%;object-fit:contain}
-.media video{background:#05060b}
-.media-placeholder{font-size:60px;text-align:center;padding:20px;background:radial-gradient(ellipse,#30305b,#090a12);width:100%;height:100%;display:grid;place-items:center}
-.post-actions{display:flex;gap:14px;padding:13px 14px 5px;align-items:center}
-.iconbtn{border:0;background:transparent;color:white;font-size:25px;padding:0}
-.iconbtn.liked{color:var(--pink)}
-.post-text{padding:7px 14px 14px;line-height:1.5;overflow-wrap:anywhere}
-.post-text p{margin:6px 0}
-.commentlist{padding:0 14px 8px;color:#ddd}
-.commentlist div{margin:6px 0;font-size:13px;overflow-wrap:anywhere}
-.commentform{display:flex;gap:7px;padding:10px 14px 14px;border-top:1px solid var(--line)}
-.commentform input{min-width:0;flex:1;background:transparent;border:0;color:white;outline:none}
-.commentform button{border:0;background:transparent;color:var(--cyan);font-weight:bold}
-.field{display:block;width:100%;margin:9px 0 14px;background:#0d0f1a;border:1px solid var(--line);border-radius:10px;padding:12px;color:white}
-textarea.field{min-height:85px}
-.stats{display:flex;justify-content:space-around;text-align:center;gap:8px;margin:18px 0}
-.stats strong{display:block;font-size:19px;margin-bottom:4px}
-.stats span{font-size:12px;color:var(--muted)}
-.bigprofile{width:90px;height:90px;border-radius:28px;margin:5px auto 15px;display:grid;place-items:center;font-size:39px;font-weight:bold;background:linear-gradient(135deg,var(--cyan),var(--purple),var(--pink))}
-.productgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.product{background:#1a1d2e;border:1px solid var(--line);border-radius:12px;padding:13px}
-.product .art{font-size:40px;text-align:center;padding:20px}
-.notice{font-size:12px;color:var(--muted);line-height:1.6}
-.mobile{display:none}
-#toast{display:none;position:fixed;z-index:20;bottom:80px;left:50%;transform:translateX(-50%);background:#252840;border:1px solid #555978;padding:12px 17px;border-radius:12px;max-width:90%;text-align:center}
-@media(max-width:960px){.layout{grid-template-columns:180px minmax(0,600px);justify-content:center}.right{display:none}}
-@media(max-width:650px){.top{padding:0 10px;height:59px}.brand{font-size:18px;gap:6px}.logo{width:33px;height:33px}.search{width:30vw;font-size:12px;padding:9px}.top .primary{padding:9px;font-size:12px}.layout{display:block;padding:13px 9px 82px}.sidebar,.right{display:none}.mobile{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:10;justify-content:space-around;background:#10111df7;border-top:1px solid var(--line);padding:10px 0 max(10px,env(safe-area-inset-bottom))}.mobile button{background:transparent;border:0;color:white;font-size:11px}.mobile span{display:block;font-size:21px;margin-bottom:4px}.media{aspect-ratio:4/4.5}.stories{gap:10px}}
+body{margin:0;background:#101018;color:#fff;font-family:Arial,sans-serif}
+header{position:sticky;top:0;background:#171722;padding:16px 20px;border-bottom:1px solid #30303d;display:flex;justify-content:space-between;align-items:center;z-index:2}
+.logo{font-size:27px;font-weight:900;letter-spacing:2px;background:linear-gradient(90deg,#a855f7,#ec4899,#38bdf8);color:transparent;background-clip:text}
+button{border:0;border-radius:9px;padding:11px 15px;background:#a855f7;color:white;font-weight:bold;cursor:pointer}
+button:hover{opacity:.85}
+input,textarea{width:100%;padding:12px;margin:7px 0;background:#222230;border:1px solid #414154;border-radius:9px;color:white}
+main{max-width:650px;margin:24px auto;padding:0 14px}
+.card,.panel{background:#191923;border:1px solid #30303d;border-radius:14px;margin-bottom:18px;padding:16px}
+h2,h3{margin-top:5px}
+.muted{color:#aaaabc;font-size:13px}
+.post-image{width:100%;max-height:600px;object-fit:contain;background:#09090d;border-radius:9px;margin-top:10px}
+.actions{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+nav{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;padding:12px;background:#171722}
+nav button{background:#29293a}
+.hidden{display:none!important}
+#notice{padding:10px;color:#d8b4fe}
+a{color:#c4b5fd}
 </style>
 </head>
 <body>
-<header class="top">
- <div class="brand"><div class="logo">G</div>GLO<b>VIX</b></div>
- <input class="search" id="search" placeholder="Search..." aria-label="Search posts">
- <button class="primary" onclick="page('create')">＋ Create</button>
+<header>
+  <div class="logo">GLOVIX</div>
+  <button id="accountBtn" onclick="showAuth()">Login / Sign up</button>
 </header>
-<div class="layout">
-<aside class="sidebar">
- <button class="nav active" data-p="home" onclick="page('home')"><span class="nicon">⌂</span> Home</button>
- <button class="nav" data-p="explore" onclick="page('explore')"><span class="nicon">⌕</span> Explore</button>
- <button class="nav" data-p="reels" onclick="page('reels')"><span class="nicon">▷</span> Reels</button>
- <button class="nav" data-p="messages" onclick="page('messages')"><span class="nicon">➤</span> Messages</button>
- <button class="nav" data-p="notifications" onclick="page('notifications')"><span class="nicon">♡</span> Notifications</button>
- <button class="nav" data-p="create" onclick="page('create')"><span class="nicon">＋</span> Create post</button>
- <button class="nav" data-p="profile" onclick="page('profile')"><span class="nicon">◉</span> Profile</button>
- <button class="nav" data-p="market" onclick="page('market')"><span class="nicon">◇</span> Marketplace</button>
- <div class="box" style="margin-top:22px"><div class="brand" style="font-size:15px"><div class="logo">G</div>GLOVIX</div><p class="muted">Your world. Your people. Your story.</p><p class="notice">Created by mianVerse (Mian Abdullah)</p></div>
-</aside>
+
+<nav>
+  <button onclick="showPage('home')">🏠 Home</button>
+  <button onclick="showPage('explore')">🌍 Explore</button>
+  <button onclick="showPage('create')">＋ Create Post</button>
+  <button onclick="showPage('profile')">👤 Profile</button>
+</nav>
 
 <main>
-<section id="p-home" class="page active">
- <div class="stories" id="stories"></div>
- <div style="display:flex;align-items:center;justify-content:space-between;margin:20px 2px 13px"><h2>Your feed</h2><span class="muted">Discover ✨</span></div>
- <div id="feed"></div>
-</section>
-<section id="p-explore" class="page">
- <div class="box"><h2>Explore GLOVIX 🌍</h2><p class="muted">Discover photos, videos and creators. Use search to filter posts.</p></div><div id="exploreFeed"></div>
-</section>
-<section id="p-reels" class="page">
- <div class="box"><h2>Reels ▶</h2><p class="muted">Watch videos from the community.</p></div><div id="reelsFeed"></div>
-</section>
-<section id="p-create" class="page">
- <div class="box"><h2>Create a post ＋</h2>
- <label class="muted" for="mediaFile">Choose a photo or video</label><input class="field" type="file" id="mediaFile" accept="image/*,video/*">
- <label class="muted" for="caption">Write a caption</label><textarea class="field" id="caption" maxlength="1000" placeholder="Share your moment..."></textarea>
- <label class="muted" for="creatorName">Creator name</label><input class="field" id="creatorName" maxlength="50" placeholder="Your name">
- <div id="preview"></div><button class="primary" onclick="createPost()">Preview post</button>
- <p class="notice" style="margin-top:14px">Demo: posts are saved only in this browser session. Public uploads need connected login, database and file storage.</p>
- </div>
-</section>
-<section id="p-profile" class="page">
- <div class="box" style="text-align:center"><div class="bigprofile">G</div><h2 id="profileName">GLOVIX Creator</h2><p class="muted">@glovixcreator</p><button class="follow" onclick="editName()">Edit profile</button>
- <div class="stats"><div><strong id="followers">0</strong><span>Followers</span></div><div><strong id="following">0</strong><span>Following</span></div><div><strong id="likes">0</strong><span>Likes</span></div></div><p class="muted">Create. Connect. Inspire.</p></div>
- <div class="box"><h2>Your posts</h2><div id="myPosts" class="muted">Your preview posts appear here during this session.</div></div>
-</section>
-<section id="p-messages" class="page"><div class="box"><h2>Messages ✉</h2><p class="muted">A messaging interface needs user accounts and a backend to send messages to other people.</p><input id="demoMessage" class="field" placeholder="Write a demo message"><button class="primary" onclick="sendDemoMessage()">Test message</button><div id="messageResult"></div></div></section>
-<section id="p-notifications" class="page"><div class="box"><h2>Notifications ♡</h2><p class="muted">Your demo activity appears here. Real-time notifications require backend configuration.</p><div id="noticeList">Welcome to GLOVIX! ✨</div></div></section>
-<section id="p-market" class="page"><div class="box"><h2>Creator marketplace ◇</h2><p class="muted">A preview storefront for creator products. Payments and orders are not connected.</p><div class="productgrid"><div class="product"><div class="art">👕</div><strong>Creator T-Shirt</strong><p class="muted">Wear your own style.</p></div><div class="product"><div class="art">🧥</div><strong>Street Hoodie</strong><p class="muted">Creator collection.</p></div><div class="product"><div class="art">🧢</div><strong>Creator Cap</strong></div><div class="product"><div class="art">🎨</div><strong>Digital Art</strong></div></div></div></section>
+  <div id="notice">Welcome to GLOVIX — Connect the World.</div>
+
+  <section id="home">
+    <div class="panel">
+      <h2>Welcome to GLOVIX 🌎</h2>
+      <p class="muted">Share your moments, discover creators and connect with people around the world.</p>
+      <button onclick="showAuth()">Create your account</button>
+    </div>
+    <div id="feed"></div>
+  </section>
+
+  <section id="explore" class="hidden">
+    <div class="panel">
+      <h2>Explore 🌍</h2>
+      <p class="muted">Discover public posts from the GLOVIX community.</p>
+    </div>
+    <div id="exploreFeed"></div>
+  </section>
+
+  <section id="create" class="hidden">
+    <div class="panel">
+      <h2>Create a post</h2>
+      <p class="muted">Login first to share your photo or video.</p>
+      <input id="mediaFile" type="file" accept="image/*,video/*">
+      <textarea id="caption" placeholder="Write a caption..."></textarea>
+      <button onclick="createPost()">Share Post</button>
+    </div>
+  </section>
+
+  <section id="profile" class="hidden">
+    <div class="panel">
+      <h2>Your Profile</h2>
+      <p id="profileEmail" class="muted">Login to see your profile.</p>
+      <input id="username" placeholder="Choose a username">
+      <input id="bio" placeholder="Write a short bio">
+      <button onclick="saveProfile()">Save Profile</button>
+      <div id="stats"></div>
+      <button onclick="logout()">Logout</button>
+    </div>
+    <div id="myPosts"></div>
+  </section>
+
+  <section id="auth" class="hidden">
+    <div class="panel">
+      <h2>Join GLOVIX ✨</h2>
+      <p class="muted">Create an account or log in.</p>
+      <input id="authUsername" placeholder="Username (for sign up)">
+      <input id="authEmail" type="email" placeholder="Email address">
+      <input id="authPassword" type="password" placeholder="Password (minimum 6 characters)">
+      <div class="actions">
+        <button onclick="signup()">Create Account</button>
+        <button onclick="login()">Login</button>
+      </div>
+      <p class="muted">Use a valid email address. Email confirmation may be required.</p>
+    </div>
+  </section>
 </main>
-<aside class="right">
- <div class="box"><h3>Suggested for you</h3><div id="suggestions"></div></div>
- <div class="box"><h3>About GLOVIX</h3><p class="muted">A social platform concept for sharing moments, connecting with creators and discovering content worldwide.</p><p class="notice">© 2026 GLOVIX · mianVerse</p></div>
-</aside>
-</div>
-<nav class="mobile">
- <button onclick="page('home')"><span>⌂</span>Home</button><button onclick="page('explore')"><span>⌕</span>Explore</button><button onclick="page('reels')"><span>▷</span>Reels</button><button onclick="page('create')"><span>＋</span>Create</button><button onclick="page('profile')"><span>◉</span>Profile</button>
-</nav>
-<div id="toast"></div>
-<script>
-const demos=[
-{id:1,name:"Alex Creates",handle:"@alexcreates",letter:"A",caption:"A little beauty in the everyday world ✨ #nature #glovix",url:"https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",kind:"video",likes:1280,comments:["Beautiful vibes! 💜","Amazing video!"],views:24600},
-{id:2,name:"Zara Vibes",handle:"@zaravibes",letter:"Z",caption:"Create your own style. Be yourself. 💫 #style #fashion",url:"https://www.w3schools.com/html/mov_bbb.mp4",kind:"video",likes:865,comments:["Love it!","More please 🔥"],views:12300}
-];
-let posts=[...demos],liked=JSON.parse(localStorage.getItem("gv_liked")||"[]"),followed=JSON.parse(localStorage.getItem("gv_followed")||"[]"),myName=localStorage.getItem("gv_name")||"GLOVIX Creator",activity=[];
-const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-function toast(s){let t=document.getElementById("toast");t.textContent=s;t.style.display="block";clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>t.style.display="none",2600)}
-function save(){localStorage.setItem("gv_liked",JSON.stringify(liked));localStorage.setItem("gv_followed",JSON.stringify(followed));localStorage.setItem("gv_name",myName)}
-function page(p){document.querySelectorAll(".page").forEach(x=>x.classList.remove("active"));document.getElementById("p-"+p).classList.add("active");document.querySelectorAll(".nav").forEach(x=>x.classList.toggle("active",x.dataset.p===p));if(p==="profile")renderProfile();window.scrollTo({top:0,behavior:"smooth"})}
-function fmt(n){return n>=1000000?(n/1000000).toFixed(1)+"M":n>=1000?(n/1000).toFixed(1)+"K":n}
-function postHTML(v){let isLiked=liked.includes(v.id),isFollowing=followed.includes(v.handle);return `<article class="post" data-name="${esc((v.name+" "+v.caption).toLowerCase())}"><div class="post-head"><div class="avatar">${esc(v.letter||"G")}</div><div class="user"><strong>${esc(v.name)}</strong><small>${esc(v.handle||"@creator")}</small></div>${v.id>2?"":`<button class="follow ${isFollowing?"following":""}" onclick="toggleFollow('${esc(v.handle)}')">${isFollowing?"Following":"Follow"}</button>`}</div><div class="media">${v.kind==="image"?`<img src="${v.url}" alt="Post image">`:`<video controls playsinline preload="metadata" src="${v.url}"></video>`}</div><div class="post-actions"><button class="iconbtn ${isLiked?"liked":""}" aria-label="Like post" onclick="toggleLike(${v.id})">${isLiked?"♥":"♡"}</button><button class="iconbtn" aria-label="Comments" onclick="document.getElementById('c'+v.id).focus()">♧</button><button class="iconbtn" aria-label="Share" onclick="sharePost(${v.id})">➤</button><span class="muted" style="margin-left:auto">▶ ${fmt(v.views||0)} views</span></div><div class="post-text"><strong>${fmt(v.likes+(isLiked?1:0))} likes</strong><p><strong>${esc(v.name)}</strong> ${esc(v.caption)}</p><div class="commentlist" id="list${v.id}">${(v.comments||[]).map(c=>`<div>${esc(c)}</div>`).join("")}</div></div><form class="commentform" onsubmit="addComment(event,${v.id})"><input id="c${v.id}" maxlength="300" placeholder="Add a comment..." required><button>Post</button></form></article>`}
-function render(){let q=document.getElementById("search").value.toLowerCase();let html=posts.filter(v=>(v.name+" "+v.caption).toLowerCase().includes(q)).map(postHTML).join("");document.getElementById("feed").innerHTML=html||'<div class="box">No posts found. Try another search.</div>';document.getElementById("exploreFeed").innerHTML=html;document.getElementById("reelsFeed").innerHTML=posts.filter(v=>v.kind==="video"&&(v.name+" "+v.caption).toLowerCase().includes(q)).map(postHTML).join("")||'<div class="box">No videos found.</div>';document.getElementById("stories").innerHTML=[{n:"Your story",l:"＋"},{n:"Alex",l:"A"},{n:"Zara",l:"Z"},{n:"Discover",l:"✦"}].map(s=>`<div class="story" onclick="toast('Stories require online storage in the full app.')"><div class="story-ring"><div class="story-face">${s.l}</div></div>${s.n}</div>`).join("");document.getElementById("suggestions").innerHTML=demos.map(v=>`<div class="profile-line"><div class="avatar">${v.letter}</div><div class="user"><strong>${esc(v.name)}</strong><small>${esc(v.handle)}</small></div><button class="follow ${followed.includes(v.handle)?"following":""}" onclick="toggleFollow('${v.handle}')">${followed.includes(v.handle)?"✓":"Follow"}</button></div>`).join("");renderProfile()}
-function toggleLike(id){liked=liked.includes(id)?liked.filter(x=>x!==id):[...liked,id];save();render();toast("Like updated in this browser.")}
-function toggleFollow(h){followed=followed.includes(h)?followed.filter(x=>x!==h):[...followed,h];save();render();toast(followed.includes(h)?"Following creator":"Unfollowed creator")}
-function addComment(e,id){e.preventDefault();let input=document.getElementById("c"+id),v=posts.find(x=>x.id===id);if(v){v.comments.push(input.value.trim());activity.unshift("You commented on "+v.name);render();toast("Comment added in this session.")}}
-function sharePost(id){let u=location.href.split("#")[0]+"#post-"+id;if(navigator.share)navigator.share({title:"GLOVIX",url:u}).catch(()=>{});else if(navigator.clipboard)navigator.clipboard.writeText(u).then(()=>toast("Link copied")).catch(()=>toast(u));else toast(u)}
-function renderProfile(){document.getElementById("profileName").textContent=myName;document.getElementById("followers").textContent=followed.length;document.getElementById("following").textContent=followed.length;document.getElementById("likes").textContent=liked.length;document.getElementById("myPosts").innerHTML=posts.filter(x=>x.own).map(postHTML).join("")||"No posts created in this session yet."}
-function editName(){let n=prompt("Your display name",myName);if(n&&n.trim()){myName=n.trim().slice(0,50);save();render();toast("Profile name updated.")}}
-let nextId=10,previewUrl=null;
-document.getElementById("mediaFile").addEventListener("change",e=>{let f=e.target.files[0];if(!f)return;if(previewUrl)URL.revokeObjectURL(previewUrl);previewUrl=URL.createObjectURL(f);document.getElementById("preview").innerHTML=f.type.startsWith("video/")?`<video controls style="width:100%;max-height:350px" src="${previewUrl}"></video>`:`<img style="max-width:100%;border-radius:12px" src="${previewUrl}" alt="Upload preview">`});
-function createPost(){let f=document.getElementById("mediaFile").files[0];if(!f){toast("Choose a photo or video first.");return}if(!previewUrl){toast("Wait for the preview.");return}let cap=document.getElementById("caption").value.trim(),name=document.getElementById("creatorName").value.trim()||myName;posts.unshift({id:nextId++,name,handle:"@localcreator",letter:name[0].toUpperCase(),caption:cap,url:previewUrl,kind:f.type.startsWith("image/")?"image":"video",likes:0,comments:[],views:0,own:true});activity.unshift("Created a post");render();toast("Preview post added for this session.");page("home")}
-function sendDemoMessage(){let v=document.getElementById("demoMessage").value.trim();if(!v)return toast("Write a message first.");document.getElementById("messageResult").innerHTML="<p class='muted'>Demo message: "+esc(v)+"</p><p class='notice'>Only displayed here; not sent to another user.</p>";document.getElementById("demoMessage").value=""}
-document.getElementById("search").addEventListener("input",render);
-render();
+
+<script type="module">
+import { createClient } from
+'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+
+/* STEP 2: Replace these with your Supabase project details */
+const SUPABASE_URL = "PASTE_YOUR_PROJECT_URL_HERE";
+const SUPABASE_KEY = "PASTE_YOUR_PUBLISHABLE_KEY_HERE";
+
+let db = null;
+let user = null;
+
+const $ = id => document.getElementById(id);
+const say = message => $('notice').textContent = message;
+
+window.showPage = function(page) {
+  ['home','explore','create','profile','auth'].forEach(id =>
+    $(id).classList.toggle('hidden', id !== page)
+  );
+  if (page === 'home' || page === 'explore') loadFeed();
+  if (page === 'profile') loadProfile();
+};
+
+window.showAuth = () => showPage('auth');
+
+function ready() {
+  if (!db) {
+    say('Setup required: add your Supabase URL and publishable key in index.html.');
+    return false;
+  }
+  return true;
+}
+
+window.signup = async function() {
+  if (!ready()) return;
+  const email = $('authEmail').value.trim();
+  const password = $('authPassword').value;
+  const username = $('authUsername').value.trim().toLowerCase();
+
+  if (!email || password.length < 6 || !/^[a-z0-9_]{3,20}$/.test(username)) {
+    say('Enter a valid email, password of at least 6 characters, and username (3–20 letters, numbers or underscores).');
+    return;
+  }
+
+  const { error } = await db.auth.signUp({
+    email, password, options: { data: { username } }
+  });
+
+  if (error) return say(error.message);
+  say('Account request submitted. Check your email if confirmation is required, then log in.');
+};
+
+window.login = async function() {
+  if (!ready()) return;
+  const { data, error } = await db.auth.signInWithPassword({
+    email: $('authEmail').value.trim(),
+    password: $('authPassword').value
+  });
+  if (error) return say(error.message);
+  user = data.user;
+  say('Login successful!');
+  showPage('home');
+  await loadFeed();
+};
+
+window.logout = async function() {
+  if (!ready()) return;
+  const { error } = await db.auth.signOut();
+  if (error) return say(error.message);
+  user = null;
+  $('accountBtn').textContent = 'Login / Sign up';
+  say('You have logged out.');
+  showPage('home');
+};
+
+window.saveProfile = async function() {
+  if (!ready()) return;
+  if (!user) return say('Please log in first.');
+
+  const username = $('username').value.trim().toLowerCase();
+  const bio = $('bio').value.trim();
+
+  if (!/^[a-z0-9_]{3,20}$/.test(username))
+    return say('Username must be 3–20 letters, numbers or underscores.');
+
+  const { error } = await db.from('profiles').upsert({
+    id: user.id, username, bio
+  });
+  if (error) return say(error.message);
+  say('Profile saved!');
+  await loadProfile();
+};
+
+window.createPost = async function() {
+  if (!ready()) return;
+  if (!user) return say('Create an account or log in first.');
+
+  const file = $('mediaFile').files[0];
+  const caption = $('caption').value.trim();
+
+  if (!file) return say('Please select a photo or video.');
+  if (!file.type.startsWith('image/') && !file.type.startsWith('video/'))
+    return say('Please choose an image or video.');
+  if (file.size > 50 * 1024 * 1024)
+    return say('File must be smaller than 50 MB.');
+
+  const ext = file.name.split('.').pop().replace(/[^a-zA-Z0-9]/g,'') || 'bin';
+  const path = `${user.id}/${crypto.randomUUID()}.${ext}`;
+
+  say('Uploading media...');
+  const { error: uploadError } = await db.storage.from('posts').upload(path, file);
+  if (uploadError) return say(uploadError.message);
+
+  const { data: urlData } = db.storage.from('posts').getPublicUrl(path);
+  const { error } = await db.from('posts').insert({
+    user_id: user.id,
+    media_url: urlData.publicUrl,
+    media_type: file.type.startsWith('video/') ? 'video' : 'image',
+    caption
+  });
+
+  if (error) return say(error.message);
+  $('mediaFile').value = '';
+  $('caption').value = '';
+  say('Your post has been published!');
+  showPage('home');
+  await loadFeed();
+};
+
+async function loadFeed() {
+  if (!db) return;
+  const { data, error } = await db.from('posts')
+    .select('id,user_id,media_url,media_type,caption,created_at,profiles(username)')
+    .order('created_at', { ascending: false }).limit(50);
+
+  if (error) {
+    $('feed').innerHTML = '<div class="card">Could not load posts. Check your Supabase setup.</div>';
+    return;
+  }
+
+  const html = (data || []).map(p => {
+    const username = p.profiles?.username || 'creator';
+    const media = p.media_type === 'video'
+      ? `<video class="post-image" controls src="${escapeAttr(p.media_url)}"></video>`
+      : `<img class="post-image" src="${escapeAttr(p.media_url)}" alt="Post">`;
+
+    return `<article class="card">
+      <strong>@${escapeHTML(username)}</strong>
+      <p>${escapeHTML(p.caption || '')}</p>
+      ${media}
+      <div class="actions">
+        <button onclick="likePost('${p.id}')">❤️ Like</button>
+        <button onclick="commentPost('${p.id}')">💬 Comment</button>
+        ${user && user.id === p.user_id
+          ? `<button onclick="deletePost('${p.id}')">🗑 Delete</button>` : ''}
+      </div>
+      <div id="comments-${p.id}"></div>
+      <p class="muted">${new Date(p.created_at).toLocaleString()}</p>
+    </article>`;
+  }).join('');
+
+  $('feed').innerHTML = html || '<div class="card">No posts yet. Be the first to share!</div>';
+  $('exploreFeed').innerHTML = html || '<div class="card">No public posts yet.</div>';
+}
+
+function escapeHTML(value) {
+  return String(value).replace(/[&<>"']/g, c => ({
+    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+  })[c]);
+}
+function escapeAttr(value) { return escapeHTML(value); }
+
+window.likePost = async function(postId) {
+  if (!ready()) return;
+  if (!user) return say('Please log in to like posts.');
+  const { error } = await db.from('likes').upsert(
+    { user_id: user.id, post_id: postId },
+    { onConflict: 'user_id,post_id', ignoreDuplicates: true }
+  );
+  say(error ? error.message : 'Post liked ❤️');
+};
+
+window.commentPost = async function(postId) {
+  if (!ready()) return;
+  if (!user) return say('Please log in to comment.');
+  const body = prompt('Write your comment:');
+  if (!body || !body.trim()) return;
+  const { error } = await db.from('comments').insert({
+    user_id: user.id, post_id: postId, body: body.trim()
+  });
+  say(error ? error.message : 'Comment added!');
+};
+
+window.deletePost = async function(postId) {
+  if (!ready() || !user) return;
+  if (!confirm('Delete this post?')) return;
+  const { error } = await db.from('posts').delete()
+    .eq('id', postId).eq('user_id', user.id);
+  say(error ? error.message : 'Post deleted.');
+  await loadFeed();
+  await loadProfile();
+};
+
+async function loadProfile() {
+  if (!db) return;
+  if (!user) {
+    $('profileEmail').textContent = 'Login to see your profile.';
+    $('stats').textContent = '';
+    $('myPosts').innerHTML = '';
+    return;
+  }
+
+  $('profileEmail').textContent = user.email || '';
+  const { data: profile } = await db.from('profiles').select('*').eq('id', user.id).maybeSingle();
+  $('username').value = profile?.username || '';
+  $('bio').value = profile?.bio || '';
+
+  const { count: posts } = await db.from('posts').select('*', { count:'exact', head:true }).eq('user_id', user.id);
+  const { count: followers } = await db.from('follows').select('*', { count:'exact', head:true }).eq('following_id', user.id);
+  const { count: following } = await db.from('follows').select('*', { count:'exact', head:true }).eq('follower_id', user.id);
+  $('stats').textContent = `Posts: ${posts || 0} · Followers: ${followers || 0} · Following: ${following || 0}`;
+
+  const { data } = await db.from('posts').select('id,user_id,media_url,media_type,caption,created_at,profiles(username)').eq('user_id',user.id).order('created_at',{ascending:false});
+  $('myPosts').innerHTML = (data || []).map(p =>
+    `<div class="card"><p>${escapeHTML(p.caption || '')}</p><a href="${escapeAttr(p.media_url)}" target="_blank" rel="noopener">Open post media</a><button onclick="deletePost('${p.id}')">Delete</button></div>`
+  ).join('') || '<div class="card">You have not posted yet.</div>';
+}
+
+async function start() {
+  if (SUPABASE_URL.includes('PASTE_') || SUPABASE_KEY.includes('PASTE_')) {
+    say('Step 2: Connect your free Supabase project to activate real accounts.');
+    return;
+  }
+  try {
+    db = createClient(SUPABASE_URL, SUPABASE_KEY);
+    const { data } = await db.auth.getSession();
+    user = data.session?.user || null;
+    $('accountBtn').textContent = user ? 'Account active' : 'Login / Sign up';
+    if (user) await loadProfile();
+    await loadFeed();
+
+    db.auth.onAuthStateChange((_event, session) => {
+      user = session?.user || null;
+      $('accountBtn').textContent = user ? 'Account active' : 'Login / Sign up';
+      setTimeout(async () => {
+        await loadFeed();
+        await loadProfile();
+      }, 0);
+    });
+  } catch (e) {
+    say('Connection error: ' + e.message);
+  }
+}
+start();
 </script>
 </body>
 </html>
