@@ -3,523 +3,155 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080914">
-<title>GLOVIX — Your World Without Limits</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090a12">
+<title>GLOVIX — Connect Your World</title>
 <style>
-:root {
-  --bg:#080914;
-  --panel:#111426;
-  --panel2:#171b30;
-  --text:#f5f7ff;
-  --muted:#969db7;
-  --cyan:#00e5ff;
-  --purple:#9b5cff;
-  --pink:#ff3e9d;
-  --line:rgba(255,255,255,.09);
-}
-* {box-sizing:border-box}
-body {
-  margin:0;
-  background:var(--bg);
-  color:var(--text);
-  font-family:Inter,Arial,sans-serif;
-}
-button,input,textarea {font:inherit}
-button {cursor:pointer}
-button:focus-visible,input:focus-visible,textarea:focus-visible {
-  outline:2px solid var(--cyan);outline-offset:3px
-}
-.topbar {
-  height:70px;position:sticky;top:0;z-index:10;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 5%;gap:15px;background:rgba(8,9,20,.94);
-  border-bottom:1px solid var(--line);backdrop-filter:blur(15px)
-}
-.brand {display:flex;align-items:center;gap:10px;font-weight:900;
-  letter-spacing:1.5px;font-size:22px}
-.logo {
-  width:42px;height:42px;display:grid;place-items:center;
-  border-radius:14px;color:#071018;font-size:25px;font-weight:1000;
-  background:linear-gradient(135deg,var(--cyan),var(--purple));
-  box-shadow:0 0 22px #00e5ff33
-}
-.brand span {color:var(--cyan)}
-.search {width:min(360px,40vw);padding:12px 16px;
-  background:var(--panel);border:1px solid var(--line);
-  border-radius:25px;color:white}
-.btn {
-  border:0;border-radius:12px;padding:11px 16px;
-  color:white;background:var(--panel2);font-weight:700
-}
-.btn.primary {background:linear-gradient(100deg,#00bfe9,#8254ff);color:white}
-.btn.outline {border:1px solid #00e5ff66;background:transparent}
-.layout {max-width:1450px;margin:auto;display:grid;
-  grid-template-columns:220px minmax(0,1fr) 260px;gap:24px;padding:24px}
-.sidebar,.rightbar {position:sticky;top:94px;height:max-content}
-.navitem {width:100%;display:flex;align-items:center;gap:13px;
-  padding:14px;border:0;border-radius:13px;background:transparent;
-  color:#b8bfd5;text-align:left;margin-bottom:5px;font-weight:650}
-.navitem:hover,.navitem.active {background:#161b30;color:var(--cyan)}
-.navicon {font-size:20px;width:25px;text-align:center}
-.sidecard,.panel,.creator-card {
-  background:var(--panel);border:1px solid var(--line);
-  border-radius:18px;padding:17px;margin-bottom:16px
-}
-.sidecard p,.muted {color:var(--muted);font-size:13px;line-height:1.6}
-h1,h2,h3,p {margin-top:0}
-h2 {font-size:19px}
-.hero {
-  padding:27px;border-radius:23px;margin-bottom:22px;
-  background:radial-gradient(ellipse at 90% 0%,#713aff40,transparent 45%),
-  linear-gradient(120deg,#111a30,#15102a);
-  border:1px solid #7b68ff30
-}
-.hero h1 {font-size:clamp(27px,4vw,43px);margin-bottom:10px;line-height:1.1}
-.gradient-text {background:linear-gradient(90deg,var(--cyan),#c5a0ff,var(--pink));
-  -webkit-background-clip:text;background-clip:text;color:transparent}
-.hero p {color:#b4bad2;line-height:1.7;max-width:600px}
-.stats {display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}
-.stat {background:#ffffff08;border:1px solid var(--line);padding:14px;border-radius:14px}
-.stat strong {display:block;font-size:22px;margin-bottom:4px}
-.stat small {color:var(--muted)}
-.section-title {display:flex;justify-content:space-between;align-items:center;gap:10px}
-.tabs {display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
-.tab {padding:9px 15px;border-radius:22px;border:1px solid var(--line);
-  background:var(--panel);color:#bdc3d7}
-.tab.active {background:#00e5ff16;color:var(--cyan);border-color:#00e5ff70}
-.video-card {background:var(--panel);border:1px solid var(--line);
-  border-radius:20px;overflow:hidden;margin-bottom:22px}
-.video-head {padding:15px;display:flex;align-items:center;gap:11px}
-.avatar {width:42px;height:42px;display:grid;place-items:center;
-  border-radius:50%;font-weight:900;background:linear-gradient(135deg,#00d9ff,#8b4dff);
-  color:white;flex-shrink:0}
-.avatar.pink {background:linear-gradient(135deg,#ff449a,#ff9a55)}
-.avatar.green {background:linear-gradient(135deg,#08d9a0,#347aff)}
-.user-info {flex:1;min-width:0}
-.user-info strong {display:block;margin-bottom:4px}
-.user-info small {color:var(--muted)}
-.follow {padding:8px 12px;border-radius:10px;background:transparent;
-  color:var(--cyan);border:1px solid #00e5ff77;font-weight:700}
-.follow.following {color:#c3c7d8;border-color:var(--line)}
-.video-stage {position:relative;background:#05060c;aspect-ratio:16/9;
-  max-height:530px;display:grid;place-items:center;overflow:hidden}
-.video-stage video {width:100%;height:100%;object-fit:contain;background:#05060c}
-.video-caption {padding:14px 16px 4px;line-height:1.6}
-.video-caption p {color:#d4d8e8;margin-bottom:8px}
-.video-actions {display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:12px 15px 16px}
-.action {background:#ffffff08;color:#c9cde0;border:1px solid var(--line);
-  border-radius:12px;padding:10px 12px}
-.action.liked {color:#ff5b9f;border-color:#ff5b9f66;background:#ff5b9f12}
-.views {margin-left:auto;color:var(--muted);font-size:13px}
-.comments {display:none;padding:0 15px 15px}
-.comments.open {display:block}
-.comment-list {max-height:150px;overflow:auto;margin-bottom:10px}
-.comment {padding:9px 0;border-bottom:1px solid var(--line);font-size:14px}
-.comment small {color:var(--muted)}
-.comment-form {display:flex;gap:8px}
-.comment-form input {min-width:0;flex:1;padding:11px;border-radius:11px;
-  border:1px solid var(--line);background:#090b18;color:white}
-.comment-form button {background:var(--purple);color:white;border:0;border-radius:10px;padding:10px}
-.profile-head {text-align:center;padding:28px 15px}
-.big-avatar {width:86px;height:86px;margin:0 auto 15px;border-radius:28px;
-  display:grid;place-items:center;font-size:38px;font-weight:1000;
-  background:linear-gradient(135deg,var(--cyan),var(--purple))}
-.profile-numbers {display:flex;justify-content:center;gap:22px;margin:20px 0}
-.profile-numbers strong {display:block;font-size:19px}
-.profile-numbers small {color:var(--muted)}
-.creator-card {display:flex;gap:11px;align-items:center}
-.creator-card p {font-size:12px;color:var(--muted);margin:5px 0 0}
-.market-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-.product {background:var(--panel);border:1px solid var(--line);border-radius:17px;padding:15px}
-.product-art {height:120px;border-radius:13px;display:grid;place-items:center;
-  font-size:42px;background:linear-gradient(135deg,#142b45,#302052);margin-bottom:12px}
-.product p {color:var(--muted);font-size:13px}
-.field {width:100%;padding:12px;border-radius:11px;border:1px solid var(--line);
-  background:#090b18;color:white;margin:7px 0 14px}
-textarea.field {min-height:90px;resize:vertical}
-.notice {color:var(--muted);font-size:12px;line-height:1.6}
-.page {display:none}
-.page.active {display:block}
-.mobile-nav {display:none}
-footer {text-align:center;color:#747b98;font-size:12px;padding:30px 10px}
-#toast {position:fixed;bottom:25px;left:50%;transform:translateX(-50%);
-  background:#1b2440;border:1px solid #00e5ff66;padding:12px 18px;
-  border-radius:13px;display:none;z-index:50;max-width:90vw;text-align:center}
-@media(max-width:1050px) {
-  .layout {grid-template-columns:190px minmax(0,1fr)}
-  .rightbar {display:none}
-}
-@media(max-width:700px) {
-  .topbar {height:62px;padding:0 12px}
-  .brand {font-size:18px;gap:7px}
-  .logo {width:36px;height:36px}
-  .search {width:32vw;padding:10px;font-size:12px}
-  .topbar .btn {padding:9px;font-size:12px}
-  .layout {display:block;padding:14px 10px 90px}
-  .sidebar {display:none}
-  .hero {padding:21px}
-  .stats {gap:7px}
-  .stat {padding:10px}
-  .stat strong {font-size:18px}
-  .video-stage {aspect-ratio:9/12}
-  .market-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
-  .mobile-nav {display:flex;position:fixed;bottom:0;left:0;right:0;z-index:20;
-    background:#0d1020f5;border-top:1px solid var(--line);
-    justify-content:space-around;padding:9px 3px max(9px,env(safe-area-inset-bottom))}
-  .mobile-nav button {background:none;border:0;color:#aeb5ce;font-size:11px}
-  .mobile-nav button span {display:block;font-size:20px;margin-bottom:4px}
-  .views {margin-left:0}
-}
+:root{--bg:#090a12;--card:#141624;--line:#282a3b;--text:#f7f7ff;--muted:#a3a7bd;--pink:#ff3d91;--cyan:#00dcff;--purple:#8755ff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:15px Arial,sans-serif}
+button,input,textarea{font:inherit}
+button{cursor:pointer}
+.top{height:65px;position:sticky;top:0;z-index:5;background:#0b0c15f5;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 max(15px,calc((100vw - 1150px)/2));gap:15px}
+.brand{display:flex;align-items:center;gap:9px;font-size:23px;font-weight:900;letter-spacing:1px}
+.logo{width:38px;height:38px;border-radius:13px;display:grid;place-items:center;color:white;font-size:24px;background:linear-gradient(135deg,var(--cyan),var(--purple),var(--pink));box-shadow:0 0 18px #8755ff55}
+.brand b{background:linear-gradient(90deg,var(--cyan),var(--pink));color:transparent;background-clip:text}
+.search{width:min(300px,35vw);background:#171927;border:1px solid var(--line);padding:11px 15px;border-radius:22px;color:white}
+button.primary{border:0;background:linear-gradient(100deg,#00bce8,#8652ff);padding:11px 16px;border-radius:11px;color:white;font-weight:bold}
+.layout{max-width:1150px;margin:auto;display:grid;grid-template-columns:210px minmax(0,600px) 260px;gap:25px;padding:24px 12px}
+.sidebar,.right{position:sticky;top:85px;height:max-content}
+.nav{display:flex;align-items:center;gap:13px;width:100%;padding:14px 12px;border:0;background:transparent;color:#d5d7e8;text-align:left;border-radius:12px;margin-bottom:4px;font-size:15px}
+.nav:hover,.nav.active{background:#1a1c2e;color:var(--cyan)}
+.nicon{font-size:22px;width:25px;text-align:center}
+.box{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin-bottom:17px}
+.muted{color:var(--muted);font-size:13px;line-height:1.5}
+h2{font-size:19px;margin:0 0 14px}
+h3{font-size:16px}
+.page{display:none}.page.active{display:block}
+.stories{display:flex;gap:15px;overflow:auto;padding:14px;background:var(--card);border:1px solid var(--line);border-radius:16px;margin-bottom:18px}
+.story{flex:0 0 65px;text-align:center;font-size:11px;color:var(--muted);overflow:hidden}
+.story-ring{width:57px;height:57px;margin:0 auto 7px;border-radius:50%;padding:3px;background:linear-gradient(135deg,var(--cyan),var(--purple),var(--pink))}
+.story-face{height:100%;width:100%;border-radius:50%;background:#1d2033;border:2px solid var(--card);display:grid;place-items:center;font-size:22px;color:white}
+.profile-line{display:flex;align-items:center;gap:10px;margin-bottom:13px}
+.avatar{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;flex-shrink:0;font-weight:bold;background:linear-gradient(135deg,var(--cyan),var(--purple))}
+.user{flex:1;min-width:0}.user strong{display:block;margin-bottom:4px}.user small{color:var(--muted)}
+.follow{border:1px solid #8755ff88;color:#c7b2ff;background:transparent;padding:8px 11px;border-radius:9px}
+.following{color:#b7bdd0;border-color:var(--line)}
+.post{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-bottom:20px}
+.post-head{padding:13px;display:flex;align-items:center;gap:10px}
+.media{background:#05060b;width:100%;aspect-ratio:4/4.4;max-height:550px;display:grid;place-items:center;overflow:hidden}
+.media video,.media img{width:100%;height:100%;object-fit:contain}
+.media video{background:#05060b}
+.media-placeholder{font-size:60px;text-align:center;padding:20px;background:radial-gradient(ellipse,#30305b,#090a12);width:100%;height:100%;display:grid;place-items:center}
+.post-actions{display:flex;gap:14px;padding:13px 14px 5px;align-items:center}
+.iconbtn{border:0;background:transparent;color:white;font-size:25px;padding:0}
+.iconbtn.liked{color:var(--pink)}
+.post-text{padding:7px 14px 14px;line-height:1.5;overflow-wrap:anywhere}
+.post-text p{margin:6px 0}
+.commentlist{padding:0 14px 8px;color:#ddd}
+.commentlist div{margin:6px 0;font-size:13px;overflow-wrap:anywhere}
+.commentform{display:flex;gap:7px;padding:10px 14px 14px;border-top:1px solid var(--line)}
+.commentform input{min-width:0;flex:1;background:transparent;border:0;color:white;outline:none}
+.commentform button{border:0;background:transparent;color:var(--cyan);font-weight:bold}
+.field{display:block;width:100%;margin:9px 0 14px;background:#0d0f1a;border:1px solid var(--line);border-radius:10px;padding:12px;color:white}
+textarea.field{min-height:85px}
+.stats{display:flex;justify-content:space-around;text-align:center;gap:8px;margin:18px 0}
+.stats strong{display:block;font-size:19px;margin-bottom:4px}
+.stats span{font-size:12px;color:var(--muted)}
+.bigprofile{width:90px;height:90px;border-radius:28px;margin:5px auto 15px;display:grid;place-items:center;font-size:39px;font-weight:bold;background:linear-gradient(135deg,var(--cyan),var(--purple),var(--pink))}
+.productgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.product{background:#1a1d2e;border:1px solid var(--line);border-radius:12px;padding:13px}
+.product .art{font-size:40px;text-align:center;padding:20px}
+.notice{font-size:12px;color:var(--muted);line-height:1.6}
+.mobile{display:none}
+#toast{display:none;position:fixed;z-index:20;bottom:80px;left:50%;transform:translateX(-50%);background:#252840;border:1px solid #555978;padding:12px 17px;border-radius:12px;max-width:90%;text-align:center}
+@media(max-width:960px){.layout{grid-template-columns:180px minmax(0,600px);justify-content:center}.right{display:none}}
+@media(max-width:650px){.top{padding:0 10px;height:59px}.brand{font-size:18px;gap:6px}.logo{width:33px;height:33px}.search{width:30vw;font-size:12px;padding:9px}.top .primary{padding:9px;font-size:12px}.layout{display:block;padding:13px 9px 82px}.sidebar,.right{display:none}.mobile{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:10;justify-content:space-around;background:#10111df7;border-top:1px solid var(--line);padding:10px 0 max(10px,env(safe-area-inset-bottom))}.mobile button{background:transparent;border:0;color:white;font-size:11px}.mobile span{display:block;font-size:21px;margin-bottom:4px}.media{aspect-ratio:4/4.5}.stories{gap:10px}}
 </style>
 </head>
-
 <body>
-<header class="topbar">
-  <div class="brand"><div class="logo">G</div>GLO<span>VIX</span></div>
-  <input id="searchInput" class="search" placeholder="Search creators..." aria-label="Search creators">
-  <button class="btn primary" onclick="showPage('upload')">＋ Upload</button>
+<header class="top">
+ <div class="brand"><div class="logo">G</div>GLO<b>VIX</b></div>
+ <input class="search" id="search" placeholder="Search..." aria-label="Search posts">
+ <button class="primary" onclick="page('create')">＋ Create</button>
 </header>
-
 <div class="layout">
-  <aside class="sidebar">
-    <button class="navitem active" data-page="home" onclick="showPage('home')"><span class="navicon">⌂</span> Home</button>
-    <button class="navitem" data-page="explore" onclick="showPage('explore')"><span class="navicon">⌕</span> Explore</button>
-    <button class="navitem" data-page="following" onclick="showPage('following')"><span class="navicon">♡</span> Following</button>
-    <button class="navitem" data-page="upload" onclick="showPage('upload')"><span class="navicon">＋</span> Upload video</button>
-    <button class="navitem" data-page="profile" onclick="showPage('profile')"><span class="navicon">◉</span> My profile</button>
-    <button class="navitem" data-page="market" onclick="showPage('market')"><span class="navicon">◇</span> Marketplace</button>
-    <div class="sidecard" style="margin-top:25px">
-      <div class="brand" style="font-size:15px"><div class="logo" style="width:30px;height:30px;font-size:18px">G</div> GLOVIX</div>
-      <p>Your world. Your voice. Your community.</p>
-      <small class="muted">Created by mianVerse</small>
-    </div>
-  </aside>
+<aside class="sidebar">
+ <button class="nav active" data-p="home" onclick="page('home')"><span class="nicon">⌂</span> Home</button>
+ <button class="nav" data-p="explore" onclick="page('explore')"><span class="nicon">⌕</span> Explore</button>
+ <button class="nav" data-p="reels" onclick="page('reels')"><span class="nicon">▷</span> Reels</button>
+ <button class="nav" data-p="messages" onclick="page('messages')"><span class="nicon">➤</span> Messages</button>
+ <button class="nav" data-p="notifications" onclick="page('notifications')"><span class="nicon">♡</span> Notifications</button>
+ <button class="nav" data-p="create" onclick="page('create')"><span class="nicon">＋</span> Create post</button>
+ <button class="nav" data-p="profile" onclick="page('profile')"><span class="nicon">◉</span> Profile</button>
+ <button class="nav" data-p="market" onclick="page('market')"><span class="nicon">◇</span> Marketplace</button>
+ <div class="box" style="margin-top:22px"><div class="brand" style="font-size:15px"><div class="logo">G</div>GLOVIX</div><p class="muted">Your world. Your people. Your story.</p><p class="notice">Created by mianVerse (Mian Abdullah)</p></div>
+</aside>
 
-  <main>
-    <section class="page active" id="page-home">
-      <div class="hero">
-        <h1>Your world.<br><span class="gradient-text">Without limits.</span></h1>
-        <p>Discover creators, watch videos, share your moments and connect with people around the world — all in one place.</p>
-        <button class="btn primary" onclick="showPage('explore')">Explore GLOVIX →</button>
-        <div class="stats">
-          <div class="stat"><strong>🌍 Global</strong><small>Connect worldwide</small></div>
-          <div class="stat"><strong>🎬 Videos</strong><small>Discover new content</small></div>
-          <div class="stat"><strong>✨ Create</strong><small>Share your story</small></div>
-        </div>
-      </div>
-      <div class="section-title"><h2>For You ✨</h2><span class="muted">Discover something new</span></div>
-      <div class="tabs">
-        <button class="tab active" onclick="filterFeed('all',this)">For You</button>
-        <button class="tab" onclick="filterFeed('popular',this)">Popular</button>
-        <button class="tab" onclick="filterFeed('following',this)">Following</button>
-      </div>
-      <div id="videoFeed"></div>
-      <div id="emptyFeed" class="panel" style="display:none;text-align:center">
-        <h3>No videos found</h3><p class="muted">Try another search or explore more creators.</p>
-      </div>
-    </section>
-
-    <section class="page" id="page-explore">
-      <div class="hero"><h1>Explore <span class="gradient-text">GLOVIX</span></h1>
-        <p>Find creators and discover what's happening.</p></div>
-      <div class="panel">
-        <h2>Discover creators</h2>
-        <p class="muted">Search creators by their display name in the search box above.</p>
-        <div id="creatorList"></div>
-      </div>
-      <div class="panel"><h2>Trending topics</h2>
-        <div class="tabs">
-          <button class="tab" onclick="notify('Explore page is a demo.')"># Lifestyle</button>
-          <button class="tab" onclick="notify('Explore page is a demo.')"># Gaming</button>
-          <button class="tab" onclick="notify('Explore page is a demo.')"># Fashion</button>
-          <button class="tab" onclick="notify('Explore page is a demo.')"># Travel</button>
-          <button class="tab" onclick="notify('Explore page is a demo.')"># Music</button>
-        </div>
-      </div>
-    </section>
-
-    <section class="page" id="page-following">
-      <div class="hero"><h1>Your <span class="gradient-text">Following</span></h1>
-        <p>Videos from creators you follow.</p></div>
-      <div id="followingFeed"></div>
-      <div id="followingEmpty" class="panel"><h3>Find your people 💜</h3>
-        <p class="muted">Follow a creator from the video feed to see them here.</p>
-        <button class="btn primary" onclick="showPage('explore')">Find creators</button></div>
-    </section>
-
-    <section class="page" id="page-upload">
-      <div class="hero"><h1>Share your <span class="gradient-text">story.</span></h1>
-        <p>Choose a video and preview your post.</p></div>
-      <div class="panel">
-        <h2>＋ Create a post</h2>
-        <label for="videoFile" class="muted">Choose video file</label>
-        <input id="videoFile" class="field" type="file" accept="video/*">
-        <label for="postCaption" class="muted">Caption</label>
-        <textarea id="postCaption" class="field" maxlength="500" placeholder="What's your video about?"></textarea>
-        <label for="postUsername" class="muted">Creator name</label>
-        <input id="postUsername" class="field" maxlength="40" placeholder="Your creator name">
-        <video id="uploadPreview" controls style="display:none;width:100%;max-height:360px;border-radius:14px;background:#05060c"></video>
-        <button class="btn primary" onclick="publishPreview()">Preview post</button>
-        <p class="notice" style="margin-top:15px">Demo limitation: this previews a video in your browser. It does not upload it to a public server or share it with other users.</p>
-      </div>
-      <div id="uploadResult"></div>
-    </section>
-
-    <section class="page" id="page-profile">
-      <div class="panel profile-head">
-        <div class="big-avatar">G</div>
-        <h2 id="profileName">GLOVIX Creator</h2>
-        <p class="muted">@glovixcreator</p>
-        <p class="muted">Make moments. Build connections. Share your world.</p>
-        <div class="profile-numbers">
-          <div><strong id="profileFollowers">0</strong><small>Followers</small></div>
-          <div><strong id="profileFollowing">0</strong><small>Following</small></div>
-          <div><strong id="profileLikes">0</strong><small>Likes</small></div>
-        </div>
-        <button class="btn outline" onclick="editProfile()">Edit profile name</button>
-      </div>
-      <div class="panel"><h2>Your activity</h2><p class="muted">Your demo likes and follows are saved only in this browser.</p>
-        <div id="profileActivity"></div></div>
-    </section>
-
-    <section class="page" id="page-market">
-      <div class="hero"><h1>GLOVIX <span class="gradient-text">Marketplace</span></h1>
-        <p>A space for creators and brands to showcase products.</p></div>
-      <div class="notice" style="margin-bottom:15px">Demo storefront only. No real orders or payments are processed.</div>
-      <div class="market-grid">
-        <div class="product"><div class="product-art">👕</div><h3>Creator T-Shirt</h3><p>Everyday style for your community.</p><button class="btn outline" onclick="notify('Demo only — no checkout is connected.')">View product</button></div>
-        <div class="product"><div class="product-art">🧥</div><h3>Street Hoodie</h3><p>Comfort meets creator culture.</p><button class="btn outline" onclick="notify('Demo only — no checkout is connected.')">View product</button></div>
-        <div class="product"><div class="product-art">🧢</div><h3>Creator Cap</h3><p>Wear your own vibe.</p><button class="btn outline" onclick="notify('Demo only — no checkout is connected.')">View product</button></div>
-        <div class="product"><div class="product-art">🎨</div><h3>Digital Designs</h3><p>Creative ideas made by creators.</p><button class="btn outline" onclick="notify('Demo only — no checkout is connected.')">View product</button></div>
-      </div>
-    </section>
-
-    <footer>GLOVIX © 2026 · Created by <strong>mianVerse (Mian Abdullah)</strong><br>Demo version — backend services are not connected.</footer>
-  </main>
-
-  <aside class="rightbar">
-    <div class="panel">
-      <h3>👑 Creator spotlight</h3>
-      <div class="creator-card"><div class="avatar pink">A</div><div><strong>Alex Creates</strong><p>Creative lifestyle</p></div></div>
-      <div class="creator-card"><div class="avatar green">Z</div><div><strong>Zara Vibes</strong><p>Fashion & daily life</p></div></div>
-      <div class="creator-card"><div class="avatar">M</div><div><strong>Mike Explore</strong><p>Travel & adventure</p></div></div>
-      <button class="btn outline" style="width:100%" onclick="showPage('explore')">See creators</button>
-    </div>
-    <div class="panel"><h3>🌐 The GLOVIX vision</h3>
-      <p class="muted">One platform for videos, community, creativity and commerce.</p>
-      <hr style="border-color:var(--line)">
-      <p class="notice">Built by mianVerse<br>Mian Abdullah</p>
-    </div>
-  </aside>
+<main>
+<section id="p-home" class="page active">
+ <div class="stories" id="stories"></div>
+ <div style="display:flex;align-items:center;justify-content:space-between;margin:20px 2px 13px"><h2>Your feed</h2><span class="muted">Discover ✨</span></div>
+ <div id="feed"></div>
+</section>
+<section id="p-explore" class="page">
+ <div class="box"><h2>Explore GLOVIX 🌍</h2><p class="muted">Discover photos, videos and creators. Use search to filter posts.</p></div><div id="exploreFeed"></div>
+</section>
+<section id="p-reels" class="page">
+ <div class="box"><h2>Reels ▶</h2><p class="muted">Watch videos from the community.</p></div><div id="reelsFeed"></div>
+</section>
+<section id="p-create" class="page">
+ <div class="box"><h2>Create a post ＋</h2>
+ <label class="muted" for="mediaFile">Choose a photo or video</label><input class="field" type="file" id="mediaFile" accept="image/*,video/*">
+ <label class="muted" for="caption">Write a caption</label><textarea class="field" id="caption" maxlength="1000" placeholder="Share your moment..."></textarea>
+ <label class="muted" for="creatorName">Creator name</label><input class="field" id="creatorName" maxlength="50" placeholder="Your name">
+ <div id="preview"></div><button class="primary" onclick="createPost()">Preview post</button>
+ <p class="notice" style="margin-top:14px">Demo: posts are saved only in this browser session. Public uploads need connected login, database and file storage.</p>
+ </div>
+</section>
+<section id="p-profile" class="page">
+ <div class="box" style="text-align:center"><div class="bigprofile">G</div><h2 id="profileName">GLOVIX Creator</h2><p class="muted">@glovixcreator</p><button class="follow" onclick="editName()">Edit profile</button>
+ <div class="stats"><div><strong id="followers">0</strong><span>Followers</span></div><div><strong id="following">0</strong><span>Following</span></div><div><strong id="likes">0</strong><span>Likes</span></div></div><p class="muted">Create. Connect. Inspire.</p></div>
+ <div class="box"><h2>Your posts</h2><div id="myPosts" class="muted">Your preview posts appear here during this session.</div></div>
+</section>
+<section id="p-messages" class="page"><div class="box"><h2>Messages ✉</h2><p class="muted">A messaging interface needs user accounts and a backend to send messages to other people.</p><input id="demoMessage" class="field" placeholder="Write a demo message"><button class="primary" onclick="sendDemoMessage()">Test message</button><div id="messageResult"></div></div></section>
+<section id="p-notifications" class="page"><div class="box"><h2>Notifications ♡</h2><p class="muted">Your demo activity appears here. Real-time notifications require backend configuration.</p><div id="noticeList">Welcome to GLOVIX! ✨</div></div></section>
+<section id="p-market" class="page"><div class="box"><h2>Creator marketplace ◇</h2><p class="muted">A preview storefront for creator products. Payments and orders are not connected.</p><div class="productgrid"><div class="product"><div class="art">👕</div><strong>Creator T-Shirt</strong><p class="muted">Wear your own style.</p></div><div class="product"><div class="art">🧥</div><strong>Street Hoodie</strong><p class="muted">Creator collection.</p></div><div class="product"><div class="art">🧢</div><strong>Creator Cap</strong></div><div class="product"><div class="art">🎨</div><strong>Digital Art</strong></div></div></div></section>
+</main>
+<aside class="right">
+ <div class="box"><h3>Suggested for you</h3><div id="suggestions"></div></div>
+ <div class="box"><h3>About GLOVIX</h3><p class="muted">A social platform concept for sharing moments, connecting with creators and discovering content worldwide.</p><p class="notice">© 2026 GLOVIX · mianVerse</p></div>
+</aside>
 </div>
-
-<nav class="mobile-nav">
-  <button onclick="showPage('home')"><span>⌂</span>Home</button>
-  <button onclick="showPage('explore')"><span>⌕</span>Explore</button>
-  <button onclick="showPage('upload')"><span>＋</span>Create</button>
-  <button onclick="showPage('following')"><span>♡</span>Following</button>
-  <button onclick="showPage('profile')"><span>◉</span>Profile</button>
+<nav class="mobile">
+ <button onclick="page('home')"><span>⌂</span>Home</button><button onclick="page('explore')"><span>⌕</span>Explore</button><button onclick="page('reels')"><span>▷</span>Reels</button><button onclick="page('create')"><span>＋</span>Create</button><button onclick="page('profile')"><span>◉</span>Profile</button>
 </nav>
-<div id="toast" role="status" aria-live="polite"></div>
-
+<div id="toast"></div>
 <script>
-const demoVideos = [
-  {
-    id:"v1",name:"Alex Creates",handle:"@alexcreates",avatar:"A",
-    style:"",caption:"Chasing big dreams and enjoying the little moments. ✨ #lifestyle #glovix",
-    url:"https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
-    likes:1280,views:24600,comments:["Beautiful vibes! 💜","Love this video"],category:"popular"
-  },
-  {
-    id:"v2",name:"Zara Vibes",handle:"@zaravibes",avatar:"Z",
-    style:"pink",caption:"A little color, a little creativity, and a whole lot of confidence. 💫 #style",
-    url:"https://www.w3schools.com/html/mov_bbb.mp4",
-    likes:865,views:12300,comments:["Amazing!","More videos please 🔥"],category:"new"
-  }
+const demos=[
+{id:1,name:"Alex Creates",handle:"@alexcreates",letter:"A",caption:"A little beauty in the everyday world ✨ #nature #glovix",url:"https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",kind:"video",likes:1280,comments:["Beautiful vibes! 💜","Amazing video!"],views:24600},
+{id:2,name:"Zara Vibes",handle:"@zaravibes",letter:"Z",caption:"Create your own style. Be yourself. 💫 #style #fashion",url:"https://www.w3schools.com/html/mov_bbb.mp4",kind:"video",likes:865,comments:["Love it!","More please 🔥"],views:12300}
 ];
-let state = {
-  likes:JSON.parse(localStorage.getItem("glovix_likes")||"[]"),
-  follows:JSON.parse(localStorage.getItem("glovix_follows")||"[]"),
-  comments:JSON.parse(localStorage.getItem("glovix_comments")||"{}"),
-  name:localStorage.getItem("glovix_name")||"GLOVIX Creator",
-  filter:"all"
-};
-let currentPage="home";
-let uploadObjectUrl=null;
-
-function saveState(){
-  localStorage.setItem("glovix_likes",JSON.stringify(state.likes));
-  localStorage.setItem("glovix_follows",JSON.stringify(state.follows));
-  localStorage.setItem("glovix_comments",JSON.stringify(state.comments));
-  localStorage.setItem("glovix_name",state.name);
-}
-function escapeHTML(value){
-  return String(value).replace(/[&<>"']/g,c=>({
-    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
-  }[c]));
-}
-function notify(message){
-  const el=document.getElementById("toast");
-  el.textContent=message;el.style.display="block";
-  clearTimeout(notify.timer);
-  notify.timer=setTimeout(()=>el.style.display="none",2600);
-}
-function showPage(page){
-  currentPage=page;
-  document.querySelectorAll(".page").forEach(el=>el.classList.remove("active"));
-  const target=document.getElementById("page-"+page);
-  if(target)target.classList.add("active");
-  document.querySelectorAll(".navitem").forEach(el=>{
-    el.classList.toggle("active",el.dataset.page===page);
-  });
-  if(page==="profile")renderProfile();
-  if(page==="explore")renderCreators();
-  if(page==="following")renderFollowing();
-  window.scrollTo({top:0,behavior:"smooth"});
-}
-function getComments(video){
-  return state.comments[video.id]||video.comments;
-}
-function videoCard(v){
-  const liked=state.likes.includes(v.id);
-  const followed=state.follows.includes(v.handle);
-  const comments=getComments(v);
-  return `<article class="video-card" data-video="${v.id}" data-name="${escapeHTML(v.name.toLowerCase())}">
-    <div class="video-head">
-      <div class="avatar ${v.style}">${escapeHTML(v.avatar)}</div>
-      <div class="user-info"><strong>${escapeHTML(v.name)}</strong><small>${escapeHTML(v.handle)} · Creator</small></div>
-      <button class="follow ${followed?"following":""}" onclick="toggleFollow('${v.handle}')">${followed?"✓ Following":"+ Follow"}</button>
-    </div>
-    <div class="video-stage">
-      <video controls playsinline preload="metadata" src="${v.url}"></video>
-    </div>
-    <div class="video-caption"><p>${escapeHTML(v.caption)}</p></div>
-    <div class="video-actions">
-      <button class="action ${liked?"liked":""}" onclick="toggleLike('${v.id}')">${liked?"♥":"♡"} ${formatCount(v.likes+(liked?1:0))}</button>
-      <button class="action" onclick="toggleComments('${v.id}')">💬 ${comments.length}</button>
-      <button class="action" onclick="shareVideo('${v.id}')">↗ Share</button>
-      <span class="views">▶ ${formatCount(v.views)} views</span>
-    </div>
-    <div class="comments" id="comments-${v.id}">
-      <div class="comment-list">${comments.map(c=>`<div class="comment">${escapeHTML(c)}<br><small>Community comment · demo</small></div>`).join("")}</div>
-      <form class="comment-form" onsubmit="addComment(event,'${v.id}')">
-        <input id="comment-input-${v.id}" maxlength="250" placeholder="Write a comment..." required>
-        <button type="submit">Send</button>
-      </form>
-    </div>
-  </article>`;
-}
-function formatCount(n){
-  return n>=1000000?(n/1000000).toFixed(1)+"M":n>=1000?(n/1000).toFixed(1)+"K":String(n);
-}
-function renderFeed(){
-  const query=document.getElementById("searchInput").value.trim().toLowerCase();
-  let videos=demoVideos.filter(v=>(v.name+" "+v.handle+" "+v.caption).toLowerCase().includes(query));
-  if(state.filter==="popular")videos.sort((a,b)=>b.likes-a.likes);
-  if(state.filter==="following")videos=videos.filter(v=>state.follows.includes(v.handle));
-  document.getElementById("videoFeed").innerHTML=videos.map(videoCard).join("");
-  document.getElementById("emptyFeed").style.display=videos.length?"none":"block";
-  renderFollowing();
-}
-function filterFeed(filter,button){
-  state.filter=filter;
-  document.querySelectorAll("#page-home .tab").forEach(b=>b.classList.remove("active"));
-  button.classList.add("active");
-  renderFeed();
-}
-function toggleLike(id){
-  state.likes=state.likes.includes(id)?state.likes.filter(x=>x!==id):[...state.likes,id];
-  saveState();renderFeed();renderProfile();
-}
-function toggleFollow(handle){
-  state.follows=state.follows.includes(handle)?state.follows.filter(x=>x!==handle):[...state.follows,handle];
-  saveState();renderFeed();renderCreators();renderProfile();renderFollowing();
-}
-function toggleComments(id){
-  const box=document.getElementById("comments-"+id);
-  if(box)box.classList.toggle("open");
-}
-function addComment(event,id){
-  event.preventDefault();
-  const input=document.getElementById("comment-input-"+id);
-  const comment=input.value.trim();if(!comment)return;
-  state.comments[id]=state.comments[id]||demoVideos.find(v=>v.id===id).comments.slice();
-  state.comments[id].push(comment);
-  saveState();renderFeed();
-  const box=document.getElementById("comments-"+id);
-  if(box)box.classList.add("open");
-  notify("Comment added in this browser.");
-}
-function shareVideo(id){
-  const url=location.href.split("#")[0]+"#"+id;
-  if(navigator.share){
-    navigator.share({title:"GLOVIX video",text:"Check out this video on GLOVIX!",url}).catch(()=>{});
-  }else if(navigator.clipboard){
-    navigator.clipboard.writeText(url).then(()=>notify("Link copied!")).catch(()=>notify("Sharing is not available here."));
-  }else notify("Copy your browser address to share this demo.");
-}
-function renderFollowing(){
-  const videos=demoVideos.filter(v=>state.follows.includes(v.handle));
-  const box=document.getElementById("followingFeed");
-  if(!box)return;
-  box.innerHTML=videos.map(videoCard).join("");
-  document.getElementById("followingEmpty").style.display=videos.length?"none":"block";
-}
-function renderCreators(){
-  const box=document.getElementById("creatorList");if(!box)return;
-  const query=document.getElementById("searchInput").value.trim().toLowerCase();
-  const creators=demoVideos.filter(v=>(v.name+" "+v.handle).toLowerCase().includes(query));
-  box.innerHTML=creators.map(v=>`<div class="creator-card">
-    <div class="avatar ${v.style}">${escapeHTML(v.avatar)}</div>
-    <div style="flex:1"><strong>${escapeHTML(v.name)}</strong><p>${escapeHTML(v.handle)}</p></div>
-    <button class="follow ${state.follows.includes(v.handle)?"following":""}" onclick="toggleFollow('${v.handle}')">${state.follows.includes(v.handle)?"✓ Following":"+ Follow"}</button>
-  </div>`).join("")||"<p class='muted'>No creators found.</p>";
-}
-function renderProfile(){
-  document.getElementById("profileName").textContent=state.name;
-  document.getElementById("profileFollowers").textContent=""+state.follows.length;
-  document.getElementById("profileFollowing").textContent=""+state.follows.length;
-  document.getElementById("profileLikes").textContent=""+state.likes.length;
-  document.getElementById("profileActivity").innerHTML=
-    `<p>♥ Videos liked: <strong>${state.likes.length}</strong></p>
-     <p>＋ Creators followed: <strong>${state.follows.length}</strong></p>
-     <p class="notice">These numbers are local demo data, not real public account statistics.</p>`;
-}
-function editProfile(){
-  const newName=prompt("Enter your display name:",state.name);
-  if(newName&&newName.trim()){
-    state.name=newName.trim().slice(0,40);saveState();renderProfile();
-    notify("Display name updated on this browser.");
-  }
-}
-document.getElementById("searchInput").addEventListener("input",()=>{
-  renderFeed();renderCreators();
-});
-document.getElementById("videoFile").addEventListener("change",event=>{
-  const file=event.target.files[0];if(!file)return;
-  if(uploadObjectUrl)URL.revokeObjectURL(uploadObjectUrl);
-  uploadObjectUrl=URL.createObjectURL(file);
-  const video=document.getElementById("uploadPreview");
-  video.src=uploadObjectUrl;video.style.display="block";
-});
-function publishPreview(){
-  const file=document.getElementById("videoFile").files[0];
-  const caption=document.getElementById("postCaption").value.trim();
-  const name=document.getElementById("postUsername").value.trim()||state.name;
-  if(!file){notify("Please choose a video first.");return;}
-  document.getElementById("uploadResult").innerHTML=
-    `<div class="panel"><h3>Preview ready ✨</h3>
-    <p><strong>${escapeHTML(name)}</strong></p>
-    <p>${escapeHTML(caption||"My new GLOVIX video!")}</p>
-    <p class="notice">File: ${escapeHTML(file.name)}. This post has not been published online.</p></div>`;
-  notify("Preview created in your browser.");
-}
-function filterInit(){
-  renderFeed();renderCreators();renderProfile();
-}
-filterInit();
+let posts=[...demos],liked=JSON.parse(localStorage.getItem("gv_liked")||"[]"),followed=JSON.parse(localStorage.getItem("gv_followed")||"[]"),myName=localStorage.getItem("gv_name")||"GLOVIX Creator",activity=[];
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function toast(s){let t=document.getElementById("toast");t.textContent=s;t.style.display="block";clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>t.style.display="none",2600)}
+function save(){localStorage.setItem("gv_liked",JSON.stringify(liked));localStorage.setItem("gv_followed",JSON.stringify(followed));localStorage.setItem("gv_name",myName)}
+function page(p){document.querySelectorAll(".page").forEach(x=>x.classList.remove("active"));document.getElementById("p-"+p).classList.add("active");document.querySelectorAll(".nav").forEach(x=>x.classList.toggle("active",x.dataset.p===p));if(p==="profile")renderProfile();window.scrollTo({top:0,behavior:"smooth"})}
+function fmt(n){return n>=1000000?(n/1000000).toFixed(1)+"M":n>=1000?(n/1000).toFixed(1)+"K":n}
+function postHTML(v){let isLiked=liked.includes(v.id),isFollowing=followed.includes(v.handle);return `<article class="post" data-name="${esc((v.name+" "+v.caption).toLowerCase())}"><div class="post-head"><div class="avatar">${esc(v.letter||"G")}</div><div class="user"><strong>${esc(v.name)}</strong><small>${esc(v.handle||"@creator")}</small></div>${v.id>2?"":`<button class="follow ${isFollowing?"following":""}" onclick="toggleFollow('${esc(v.handle)}')">${isFollowing?"Following":"Follow"}</button>`}</div><div class="media">${v.kind==="image"?`<img src="${v.url}" alt="Post image">`:`<video controls playsinline preload="metadata" src="${v.url}"></video>`}</div><div class="post-actions"><button class="iconbtn ${isLiked?"liked":""}" aria-label="Like post" onclick="toggleLike(${v.id})">${isLiked?"♥":"♡"}</button><button class="iconbtn" aria-label="Comments" onclick="document.getElementById('c'+v.id).focus()">♧</button><button class="iconbtn" aria-label="Share" onclick="sharePost(${v.id})">➤</button><span class="muted" style="margin-left:auto">▶ ${fmt(v.views||0)} views</span></div><div class="post-text"><strong>${fmt(v.likes+(isLiked?1:0))} likes</strong><p><strong>${esc(v.name)}</strong> ${esc(v.caption)}</p><div class="commentlist" id="list${v.id}">${(v.comments||[]).map(c=>`<div>${esc(c)}</div>`).join("")}</div></div><form class="commentform" onsubmit="addComment(event,${v.id})"><input id="c${v.id}" maxlength="300" placeholder="Add a comment..." required><button>Post</button></form></article>`}
+function render(){let q=document.getElementById("search").value.toLowerCase();let html=posts.filter(v=>(v.name+" "+v.caption).toLowerCase().includes(q)).map(postHTML).join("");document.getElementById("feed").innerHTML=html||'<div class="box">No posts found. Try another search.</div>';document.getElementById("exploreFeed").innerHTML=html;document.getElementById("reelsFeed").innerHTML=posts.filter(v=>v.kind==="video"&&(v.name+" "+v.caption).toLowerCase().includes(q)).map(postHTML).join("")||'<div class="box">No videos found.</div>';document.getElementById("stories").innerHTML=[{n:"Your story",l:"＋"},{n:"Alex",l:"A"},{n:"Zara",l:"Z"},{n:"Discover",l:"✦"}].map(s=>`<div class="story" onclick="toast('Stories require online storage in the full app.')"><div class="story-ring"><div class="story-face">${s.l}</div></div>${s.n}</div>`).join("");document.getElementById("suggestions").innerHTML=demos.map(v=>`<div class="profile-line"><div class="avatar">${v.letter}</div><div class="user"><strong>${esc(v.name)}</strong><small>${esc(v.handle)}</small></div><button class="follow ${followed.includes(v.handle)?"following":""}" onclick="toggleFollow('${v.handle}')">${followed.includes(v.handle)?"✓":"Follow"}</button></div>`).join("");renderProfile()}
+function toggleLike(id){liked=liked.includes(id)?liked.filter(x=>x!==id):[...liked,id];save();render();toast("Like updated in this browser.")}
+function toggleFollow(h){followed=followed.includes(h)?followed.filter(x=>x!==h):[...followed,h];save();render();toast(followed.includes(h)?"Following creator":"Unfollowed creator")}
+function addComment(e,id){e.preventDefault();let input=document.getElementById("c"+id),v=posts.find(x=>x.id===id);if(v){v.comments.push(input.value.trim());activity.unshift("You commented on "+v.name);render();toast("Comment added in this session.")}}
+function sharePost(id){let u=location.href.split("#")[0]+"#post-"+id;if(navigator.share)navigator.share({title:"GLOVIX",url:u}).catch(()=>{});else if(navigator.clipboard)navigator.clipboard.writeText(u).then(()=>toast("Link copied")).catch(()=>toast(u));else toast(u)}
+function renderProfile(){document.getElementById("profileName").textContent=myName;document.getElementById("followers").textContent=followed.length;document.getElementById("following").textContent=followed.length;document.getElementById("likes").textContent=liked.length;document.getElementById("myPosts").innerHTML=posts.filter(x=>x.own).map(postHTML).join("")||"No posts created in this session yet."}
+function editName(){let n=prompt("Your display name",myName);if(n&&n.trim()){myName=n.trim().slice(0,50);save();render();toast("Profile name updated.")}}
+let nextId=10,previewUrl=null;
+document.getElementById("mediaFile").addEventListener("change",e=>{let f=e.target.files[0];if(!f)return;if(previewUrl)URL.revokeObjectURL(previewUrl);previewUrl=URL.createObjectURL(f);document.getElementById("preview").innerHTML=f.type.startsWith("video/")?`<video controls style="width:100%;max-height:350px" src="${previewUrl}"></video>`:`<img style="max-width:100%;border-radius:12px" src="${previewUrl}" alt="Upload preview">`});
+function createPost(){let f=document.getElementById("mediaFile").files[0];if(!f){toast("Choose a photo or video first.");return}if(!previewUrl){toast("Wait for the preview.");return}let cap=document.getElementById("caption").value.trim(),name=document.getElementById("creatorName").value.trim()||myName;posts.unshift({id:nextId++,name,handle:"@localcreator",letter:name[0].toUpperCase(),caption:cap,url:previewUrl,kind:f.type.startsWith("image/")?"image":"video",likes:0,comments:[],views:0,own:true});activity.unshift("Created a post");render();toast("Preview post added for this session.");page("home")}
+function sendDemoMessage(){let v=document.getElementById("demoMessage").value.trim();if(!v)return toast("Write a message first.");document.getElementById("messageResult").innerHTML="<p class='muted'>Demo message: "+esc(v)+"</p><p class='notice'>Only displayed here; not sent to another user.</p>";document.getElementById("demoMessage").value=""}
+document.getElementById("search").addEventListener("input",render);
+render();
 </script>
 </body>
 </html>
