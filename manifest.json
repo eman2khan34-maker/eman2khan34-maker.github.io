@@ -1,0 +1,16 @@
+{
+  "name": "GLOVIX - Your World Without Limits",
+  "short_name": "GLOVIX",
+  "start_url": "/GLOVIX/",
+  "scope": "/GLOVIX/",
+  "display": "standalone",
+  "background_color": "#050510",
+  "theme_color": "#00e5ff",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/5968/5968967.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
