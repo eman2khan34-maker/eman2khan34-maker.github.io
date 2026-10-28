@@ -3,355 +3,316 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2283215295274944" crossoriging="anonymous"></script>
-<title>GLOVIX — Connect the World</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2283215295274944" crossorigin="anonymous"></script>
+<title>GLOVIX — Short Videos. Big Dreams.</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#101018;color:#fff;font-family:Arial,sans-serif}
-header{position:sticky;top:0;background:#171722;padding:16px 20px;border-bottom:1px solid #30303d;display:flex;justify-content:space-between;align-items:center;z-index:2}
-.logo{font-size:27px;font-weight:900;letter-spacing:2px;background:linear-gradient(90deg,#a855f7,#ec4899,#38bdf8);color:transparent;background-clip:text}
-button{border:0;border-radius:9px;padding:11px 15px;background:#a855f7;color:white;font-weight:bold;cursor:pointer}
-button:hover{opacity:.85}
-input,textarea{width:100%;padding:12px;margin:7px 0;background:#222230;border:1px solid #414154;border-radius:9px;color:white}
-main{max-width:650px;margin:24px auto;padding:0 14px}
-.card,.panel{background:#191923;border:1px solid #30303d;border-radius:14px;margin-bottom:18px;padding:16px}
-h2,h3{margin-top:5px}
-.muted{color:#aaaabc;font-size:13px}
-.post-image{width:100%;max-height:600px;object-fit:contain;background:#09090d;border-radius:9px;margin-top:10px}
-.actions{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
-nav{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;padding:12px;background:#171722}
-nav button{background:#29293a}
-.hidden{display:none!important}
-#notice{padding:10px;color:#d8b4fe}
-a{color:#c4b5fd}
+:root{--pink:#ff267d;--cyan:#20e7f5;--bg:#070910;--panel:#111522;--muted:#9299ad}
+body{margin:0;background:var(--bg);color:#fff;font-family:Arial,sans-serif}
+button,input,textarea{font:inherit}
+button{cursor:pointer;border:0;color:white;border-radius:10px;padding:11px 15px;background:#252b3b}
+button:hover{filter:brightness(1.2)}
+.primary{background:linear-gradient(110deg,var(--pink),#a52cff)}
+header{height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;border-bottom:1px solid #242839;background:#0a0d16;position:sticky;top:0;z-index:5}
+.logo{font-size:27px;font-weight:900;letter-spacing:1px}
+.logo span{color:var(--pink)}
+.layout{display:grid;grid-template-columns:220px minmax(0,1fr);max-width:1200px;margin:auto;min-height:calc(100vh - 68px)}
+aside{padding:20px 14px;border-right:1px solid #242839}
+.menu{display:flex;flex-direction:column;gap:9px}
+.menu button{text-align:left;background:transparent;padding:14px}
+.menu button.active,.menu button:hover{background:#202235;color:#fff}
+.promo{margin-top:30px;padding:16px;border:1px solid #35314a;border-radius:16px;background:linear-gradient(145deg,#17142c,#111522)}
+main{padding:22px;min-width:0}
+h1{font-size:28px;margin:0 0 8px}
+.muted{color:var(--muted);font-size:13px;line-height:1.6}
+.page{display:none}
+.page.active{display:block}
+.card{background:var(--panel);border:1px solid #292e40;border-radius:16px;padding:17px;margin-bottom:16px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:15px 0}
+.stat{background:#1b2030;border-radius:12px;padding:15px;text-align:center}
+.stat strong{display:block;font-size:20px;color:var(--cyan);margin-bottom:5px}
+.feed{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.video-card{padding:0;overflow:hidden}
+.video-box{height:330px;background:linear-gradient(145deg,#202c45,#45204e,#080a11);display:flex;align-items:center;justify-content:center;position:relative}
+.video-box video{width:100%;height:100%;object-fit:cover}
+.play-icon{font-size:48px;text-shadow:0 3px 20px #000}
+.video-info{padding:13px}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+input,textarea{display:block;width:100%;padding:13px;margin:10px 0;background:#080c16;border:1px solid #353c50;border-radius:10px;color:#fff}
+input[type=file]{padding:9px}
+label{font-size:13px;color:#c3c8d7}
+.profile-head{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.avatar{width:75px;height:75px;border-radius:50%;background:linear-gradient(140deg,var(--pink),#6e4cff,var(--cyan));display:grid;place-items:center;font-size:30px;font-weight:bold}
+.badge{color:var(--cyan)}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.tile{height:145px;background:linear-gradient(145deg,#29254c,#111522);border-radius:12px;display:grid;place-items:center;text-align:center;padding:8px}
+.row{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.bottom-nav{display:none}
+footer{text-align:center;color:var(--muted);padding:24px;border-top:1px solid #242839}
+@media(max-width:760px){
+ .layout{display:block}
+ aside{display:none}
+ main{padding:13px;padding-bottom:85px}
+ header{padding:0 14px}
+ .feed{grid-template-columns:1fr}
+ .video-box{height:58vh;max-height:580px}
+ .bottom-nav{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:8;background:#0c101b;border-top:1px solid #292e40;justify-content:space-around;padding:9px 3px}
+ .bottom-nav button{background:transparent;padding:8px 5px;font-size:12px}
+ .grid3{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
 </style>
 </head>
 <body>
 <header>
-  <div class="logo">GLOVIX</div>
-  <button id="accountBtn" onclick="showAuth()">Login / Sign up</button>
+  <div class="logo">GLOV<span>IX</span></div>
+  <button class="primary" onclick="openPage('auth')">Login / Sign up</button>
 </header>
 
-<nav>
-  <button onclick="showPage('home')">🏠 Home</button>
-  <button onclick="showPage('explore')">🌍 Explore</button>
-  <button onclick="showPage('create')">＋ Create Post</button>
-  <button onclick="showPage('profile')">👤 Profile</button>
-</nav>
+<div class="layout">
+<aside>
+  <div class="menu">
+    <button class="active" onclick="openPage('home',this)">▶ &nbsp; For You</button>
+    <button onclick="openPage('discover',this)">🌍 &nbsp; Discover</button>
+    <button onclick="openPage('upload',this)">＋ &nbsp; Create Video</button>
+    <button onclick="openPage('live',this)">🔴 &nbsp; Live</button>
+    <button onclick="openPage('profile',this)">👤 &nbsp; Profile</button>
+    <button onclick="openPage('wallet',this)">💰 &nbsp; Wallet & Earnings</button>
+    <button onclick="openPage('settings',this)">⚙ &nbsp; Settings</button>
+  </div>
+  <div class="promo">
+    <h3>✨ Creator Rewards</h3>
+    <p class="muted">Share your creativity. Build your audience. Explore future earning opportunities.</p>
+    <button class="primary" onclick="openPage('wallet')">Explore rewards</button>
+  </div>
+</aside>
 
 <main>
-  <div id="notice">Welcome to GLOVIX — Connect the World.</div>
+<section id="home" class="page active">
+  <div class="row">
+    <div><h1>For You ✨</h1><p class="muted">Discover videos from around the world.</p></div>
+    <button onclick="openPage('upload')">＋ Create</button>
+  </div>
+  <div class="feed" id="feed"></div>
+</section>
 
-  <section id="home">
-    <div class="panel">
-      <h2>Welcome to GLOVIX 🌎</h2>
-      <p class="muted">Share your moments, discover creators and connect with people around the world.</p>
-      <button onclick="showAuth()">Create your account</button>
+<section id="discover" class="page">
+  <h1>Discover 🌍</h1>
+  <p class="muted">Explore creators, trends and new videos.</p>
+  <div class="card">
+    <input id="search" placeholder="Search creators or hashtags..." oninput="searchPosts()">
+    <div class="actions">
+      <button onclick="filterPosts('All')">For You</button>
+      <button onclick="filterPosts('Music')">🎵 Music</button>
+      <button onclick="filterPosts('Gaming')">🎮 Gaming</button>
+      <button onclick="filterPosts('Style')">✨ Style</button>
     </div>
-    <div id="feed"></div>
-  </section>
+  </div>
+  <div class="feed" id="discoverFeed"></div>
+</section>
 
-  <section id="explore" class="hidden">
-    <div class="panel">
-      <h2>Explore 🌍</h2>
-      <p class="muted">Discover public posts from the GLOVIX community.</p>
-    </div>
-    <div id="exploreFeed"></div>
-  </section>
+<section id="upload" class="page">
+  <div class="card">
+    <h1>Create Video 🎬</h1>
+    <p class="muted">Select a video from your device and add a caption.</p>
+    <label>Choose video</label>
+    <input id="videoFile" type="file" accept="video/*">
+    <label>Caption</label>
+    <textarea id="caption" rows="3" placeholder="Write a caption and add #hashtags"></textarea>
+    <label>Category</label>
+    <select id="category" style="width:100%;padding:12px;background:#080c16;color:white;border-radius:10px">
+      <option>Entertainment</option><option>Music</option><option>Gaming</option><option>Style</option><option>Education</option>
+    </select>
+    <p class="muted">Prototype uploads are only available in this browser session.</p>
+    <button class="primary" onclick="publishVideo()">Publish Video</button>
+    <p id="uploadMessage" class="muted"></p>
+  </div>
+</section>
 
-  <section id="create" class="hidden">
-    <div class="panel">
-      <h2>Create a post</h2>
-      <p class="muted">Login first to share your photo or video.</p>
-      <input id="mediaFile" type="file" accept="image/*,video/*">
-      <textarea id="caption" placeholder="Write a caption..."></textarea>
-      <button onclick="createPost()">Share Post</button>
+<section id="profile" class="page">
+  <div class="card">
+    <div class="profile-head">
+      <div class="avatar" id="avatar">G</div>
+      <div><h1 id="profileName">Your Creator Profile</h1><p class="muted" id="profileHandle">@creator</p><span class="badge">✦ Creator profile</span></div>
     </div>
-  </section>
+    <div class="stats">
+      <div class="stat"><strong id="postCount">0</strong>Videos</div>
+      <div class="stat"><strong id="followerCount">0</strong>Followers</div>
+      <div class="stat"><strong id="likeCount">0</strong>Likes</div>
+    </div>
+    <button class="primary" onclick="openPage('auth')">Create / Login</button>
+    <button onclick="editProfile()">Edit Profile</button>
+  </div>
+  <div class="grid3" id="profileVideos"></div>
+</section>
 
-  <section id="profile" class="hidden">
-    <div class="panel">
-      <h2>Your Profile</h2>
-      <p id="profileEmail" class="muted">Login to see your profile.</p>
-      <input id="username" placeholder="Choose a username">
-      <input id="bio" placeholder="Write a short bio">
-      <button onclick="saveProfile()">Save Profile</button>
-      <div id="stats"></div>
-      <button onclick="logout()">Logout</button>
-    </div>
-    <div id="myPosts"></div>
-  </section>
+<section id="auth" class="page">
+  <div class="card">
+    <div class="logo">GLOV<span>IX</span></div>
+    <h1>Join the community</h1>
+    <p class="muted">Create your creator profile or sign in.</p>
+    <input id="nameInput" placeholder="Username">
+    <input id="emailInput" type="email" placeholder="Email address">
+    <input id="passwordInput" type="password" placeholder="Password">
+    <button class="primary" onclick="demoSignup()">Create Account</button>
+    <button onclick="demoLogin()">Login</button>
+    <p id="authMessage" class="muted">Demo only: connect a secure backend for real accounts.</p>
+  </div>
+</section>
 
-  <section id="auth" class="hidden">
-    <div class="panel">
-      <h2>Join GLOVIX ✨</h2>
-      <p class="muted">Create an account or log in.</p>
-      <input id="authUsername" placeholder="Username (for sign up)">
-      <input id="authEmail" type="email" placeholder="Email address">
-      <input id="authPassword" type="password" placeholder="Password (minimum 6 characters)">
-      <div class="actions">
-        <button onclick="signup()">Create Account</button>
-        <button onclick="login()">Login</button>
-      </div>
-      <p class="muted">Use a valid email address. Email confirmation may be required.</p>
+<section id="live" class="page">
+  <div class="card">
+    <h1>🔴 Live Studio</h1>
+    <p class="muted">Live streaming feature preview.</p>
+    <div class="video-box" style="border-radius:12px;height:280px"><span class="play-icon">🔴 LIVE</span></div>
+    <p>Real live broadcasting requires a streaming service and server setup.</p>
+    <button class="primary" onclick="alert('Live streaming needs backend setup.')">Start Live</button>
+  </div>
+</section>
+
+<section id="wallet" class="page">
+  <div class="card">
+    <h1>💰 Creator Wallet</h1>
+    <p class="muted">Your creator earnings dashboard preview.</p>
+    <div class="stats">
+      <div class="stat"><strong>$0.00</strong>Available</div>
+      <div class="stat"><strong id="walletViews">0</strong>Video views</div>
+      <div class="stat"><strong>—</strong>Rewards</div>
     </div>
-  </section>
+    <p class="muted">This is not real money or a payment balance. Earnings require an approved monetization program, eligibility rules and a payment provider.</p>
+  </div>
+</section>
+
+<section id="settings" class="page">
+  <div class="card">
+    <h1>Settings ⚙</h1>
+    <button onclick="alert('Connect authentication to manage your account securely.')">Account</button>
+    <button onclick="alert('Privacy controls need backend support.')">Privacy</button>
+    <button onclick="alert('Notification settings coming with backend integration.')">Notifications</button>
+    <button onclick="alert('Help centre setup required.')">Help & Support</button>
+    <p class="muted">GLOVIX · Short Videos. Big Dreams.</p>
+  </div>
+</section>
 </main>
+</div>
 
-<script type="module">
-import { createClient } from
-'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+<div class="bottom-nav">
+  <button onclick="openPage('home')">🏠<br>Home</button>
+  <button onclick="openPage('discover')">🌍<br>Discover</button>
+  <button onclick="openPage('upload')">＋<br>Create</button>
+  <button onclick="openPage('wallet')">💰<br>Wallet</button>
+  <button onclick="openPage('profile')">👤<br>Profile</button>
+</div>
 
-/* STEP 2: Replace these with your Supabase project details */
-const SUPABASE_URL = "PASTE_YOUR_PROJECT_URL_HERE";
-const SUPABASE_KEY = "PASTE_YOUR_PUBLISHABLE_KEY_HERE";
+<footer>GLOVIX · Short Videos. Big Dreams. <br>Build · Share · Discover</footer>
 
-let db = null;
-let user = null;
+<script>
+let posts = [];
+let currentUser = null;
+let likes = new Set();
 
-const $ = id => document.getElementById(id);
-const say = message => $('notice').textContent = message;
-
-window.showPage = function(page) {
-  ['home','explore','create','profile','auth'].forEach(id =>
-    $(id).classList.toggle('hidden', id !== page)
-  );
-  if (page === 'home' || page === 'explore') loadFeed();
-  if (page === 'profile') loadProfile();
-};
-
-window.showAuth = () => showPage('auth');
-
-function ready() {
-  if (!db) {
-    say('Setup required: add your Supabase URL and publishable key in index.html.');
-    return false;
-  }
-  return true;
+function openPage(id,button){
+ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+ document.getElementById(id).classList.add('active');
+ document.querySelectorAll('.menu button').forEach(b=>b.classList.remove('active'));
+ if(button) button.classList.add('active');
+ if(id==='profile') renderProfile();
+ if(id==='discover') renderPosts('discoverFeed');
 }
 
-window.signup = async function() {
-  if (!ready()) return;
-  const email = $('authEmail').value.trim();
-  const password = $('authPassword').value;
-  const username = $('authUsername').value.trim().toLowerCase();
-
-  if (!email || password.length < 6 || !/^[a-z0-9_]{3,20}$/.test(username)) {
-    say('Enter a valid email, password of at least 6 characters, and username (3–20 letters, numbers or underscores).');
-    return;
-  }
-
-  const { error } = await db.auth.signUp({
-    email, password, options: { data: { username } }
-  });
-
-  if (error) return say(error.message);
-  say('Account request submitted. Check your email if confirmation is required, then log in.');
-};
-
-window.login = async function() {
-  if (!ready()) return;
-  const { data, error } = await db.auth.signInWithPassword({
-    email: $('authEmail').value.trim(),
-    password: $('authPassword').value
-  });
-  if (error) return say(error.message);
-  user = data.user;
-  say('Login successful!');
-  showPage('home');
-  await loadFeed();
-};
-
-window.logout = async function() {
-  if (!ready()) return;
-  const { error } = await db.auth.signOut();
-  if (error) return say(error.message);
-  user = null;
-  $('accountBtn').textContent = 'Login / Sign up';
-  say('You have logged out.');
-  showPage('home');
-};
-
-window.saveProfile = async function() {
-  if (!ready()) return;
-  if (!user) return say('Please log in first.');
-
-  const username = $('username').value.trim().toLowerCase();
-  const bio = $('bio').value.trim();
-
-  if (!/^[a-z0-9_]{3,20}$/.test(username))
-    return say('Username must be 3–20 letters, numbers or underscores.');
-
-  const { error } = await db.from('profiles').upsert({
-    id: user.id, username, bio
-  });
-  if (error) return say(error.message);
-  say('Profile saved!');
-  await loadProfile();
-};
-
-window.createPost = async function() {
-  if (!ready()) return;
-  if (!user) return say('Create an account or log in first.');
-
-  const file = $('mediaFile').files[0];
-  const caption = $('caption').value.trim();
-
-  if (!file) return say('Please select a photo or video.');
-  if (!file.type.startsWith('image/') && !file.type.startsWith('video/'))
-    return say('Please choose an image or video.');
-  if (file.size > 50 * 1024 * 1024)
-    return say('File must be smaller than 50 MB.');
-
-  const ext = file.name.split('.').pop().replace(/[^a-zA-Z0-9]/g,'') || 'bin';
-  const path = `${user.id}/${crypto.randomUUID()}.${ext}`;
-
-  say('Uploading media...');
-  const { error: uploadError } = await db.storage.from('posts').upload(path, file);
-  if (uploadError) return say(uploadError.message);
-
-  const { data: urlData } = db.storage.from('posts').getPublicUrl(path);
-  const { error } = await db.from('posts').insert({
-    user_id: user.id,
-    media_url: urlData.publicUrl,
-    media_type: file.type.startsWith('video/') ? 'video' : 'image',
-    caption
-  });
-
-  if (error) return say(error.message);
-  $('mediaFile').value = '';
-  $('caption').value = '';
-  say('Your post has been published!');
-  showPage('home');
-  await loadFeed();
-};
-
-async function loadFeed() {
-  if (!db) return;
-  const { data, error } = await db.from('posts')
-    .select('id,user_id,media_url,media_type,caption,created_at,profiles(username)')
-    .order('created_at', { ascending: false }).limit(50);
-
-  if (error) {
-    $('feed').innerHTML = '<div class="card">Could not load posts. Check your Supabase setup.</div>';
-    return;
-  }
-
-  const html = (data || []).map(p => {
-    const username = p.profiles?.username || 'creator';
-    const media = p.media_type === 'video'
-      ? `<video class="post-image" controls src="${escapeAttr(p.media_url)}"></video>`
-      : `<img class="post-image" src="${escapeAttr(p.media_url)}" alt="Post">`;
-
-    return `<article class="card">
-      <strong>@${escapeHTML(username)}</strong>
-      <p>${escapeHTML(p.caption || '')}</p>
-      ${media}
-      <div class="actions">
-        <button onclick="likePost('${p.id}')">❤️ Like</button>
-        <button onclick="commentPost('${p.id}')">💬 Comment</button>
-        ${user && user.id === p.user_id
-          ? `<button onclick="deletePost('${p.id}')">🗑 Delete</button>` : ''}
-      </div>
-      <div id="comments-${p.id}"></div>
-      <p class="muted">${new Date(p.created_at).toLocaleString()}</p>
-    </article>`;
-  }).join('');
-
-  $('feed').innerHTML = html || '<div class="card">No posts yet. Be the first to share!</div>';
-  $('exploreFeed').innerHTML = html || '<div class="card">No public posts yet.</div>';
+function safe(s){
+ return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 }
 
-function escapeHTML(value) {
-  return String(value).replace(/[&<>"']/g, c => ({
-    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
-  })[c]);
-}
-function escapeAttr(value) { return escapeHTML(value); }
-
-window.likePost = async function(postId) {
-  if (!ready()) return;
-  if (!user) return say('Please log in to like posts.');
-  const { error } = await db.from('likes').upsert(
-    { user_id: user.id, post_id: postId },
-    { onConflict: 'user_id,post_id', ignoreDuplicates: true }
-  );
-  say(error ? error.message : 'Post liked ❤️');
-};
-
-window.commentPost = async function(postId) {
-  if (!ready()) return;
-  if (!user) return say('Please log in to comment.');
-  const body = prompt('Write your comment:');
-  if (!body || !body.trim()) return;
-  const { error } = await db.from('comments').insert({
-    user_id: user.id, post_id: postId, body: body.trim()
-  });
-  say(error ? error.message : 'Comment added!');
-};
-
-window.deletePost = async function(postId) {
-  if (!ready() || !user) return;
-  if (!confirm('Delete this post?')) return;
-  const { error } = await db.from('posts').delete()
-    .eq('id', postId).eq('user_id', user.id);
-  say(error ? error.message : 'Post deleted.');
-  await loadFeed();
-  await loadProfile();
-};
-
-async function loadProfile() {
-  if (!db) return;
-  if (!user) {
-    $('profileEmail').textContent = 'Login to see your profile.';
-    $('stats').textContent = '';
-    $('myPosts').innerHTML = '';
-    return;
-  }
-
-  $('profileEmail').textContent = user.email || '';
-  const { data: profile } = await db.from('profiles').select('*').eq('id', user.id).maybeSingle();
-  $('username').value = profile?.username || '';
-  $('bio').value = profile?.bio || '';
-
-  const { count: posts } = await db.from('posts').select('*', { count:'exact', head:true }).eq('user_id', user.id);
-  const { count: followers } = await db.from('follows').select('*', { count:'exact', head:true }).eq('following_id', user.id);
-  const { count: following } = await db.from('follows').select('*', { count:'exact', head:true }).eq('follower_id', user.id);
-  $('stats').textContent = `Posts: ${posts || 0} · Followers: ${followers || 0} · Following: ${following || 0}`;
-
-  const { data } = await db.from('posts').select('id,user_id,media_url,media_type,caption,created_at,profiles(username)').eq('user_id',user.id).order('created_at',{ascending:false});
-  $('myPosts').innerHTML = (data || []).map(p =>
-    `<div class="card"><p>${escapeHTML(p.caption || '')}</p><a href="${escapeAttr(p.media_url)}" target="_blank" rel="noopener">Open post media</a><button onclick="deletePost('${p.id}')">Delete</button></div>`
-  ).join('') || '<div class="card">You have not posted yet.</div>';
+function renderPosts(target='feed',query='',category='All'){
+ const root=document.getElementById(target);
+ const items=posts.filter(p=>
+   (category==='All'||p.category===category)&&
+   (p.caption+' '+p.name).toLowerCase().includes(query.toLowerCase())
+ );
+ root.innerHTML=items.map(p=>`
+ <article class="card video-card">
+  <div class="video-box">
+   ${p.url?`<video controls playsinline src="${p.url}"></video>`:`<span class="play-icon">▶</span>`}
+  </div>
+  <div class="video-info">
+   <strong>@${safe(p.name)}</strong>
+   <p>${safe(p.caption)}</p>
+   <div class="actions">
+    <button onclick="likeVideo(${p.id})">❤️ ${p.likes}</button>
+    <button onclick="commentVideo(${p.id})">💬 Comment</button>
+    <button onclick="followCreator('${safe(p.name)}')">＋ Follow</button>
+    <button onclick="shareVideo(${p.id})">↗ Share</button>
+   </div>
+   <p class="muted">${p.views} views · ${safe(p.category)}</p>
+  </div>
+ </article>`).join('')||'<div class="card">No videos yet. Create the first one!</div>';
 }
 
-async function start() {
-  if (SUPABASE_URL.includes('PASTE_') || SUPABASE_KEY.includes('PASTE_')) {
-    say('Step 2: Connect your free Supabase project to activate real accounts.');
-    return;
-  }
-  try {
-    db = createClient(SUPABASE_URL, SUPABASE_KEY);
-    const { data } = await db.auth.getSession();
-    user = data.session?.user || null;
-    $('accountBtn').textContent = user ? 'Account active' : 'Login / Sign up';
-    if (user) await loadProfile();
-    await loadFeed();
-
-    db.auth.onAuthStateChange((_event, session) => {
-      user = session?.user || null;
-      $('accountBtn').textContent = user ? 'Account active' : 'Login / Sign up';
-      setTimeout(async () => {
-        await loadFeed();
-        await loadProfile();
-      }, 0);
-    });
-  } catch (e) {
-    say('Connection error: ' + e.message);
-  }
+function publishVideo(){
+ const file=document.getElementById('videoFile').files[0];
+ const caption=document.getElementById('caption').value.trim();
+ const message=document.getElementById('uploadMessage');
+ if(!file){message.textContent='Please choose a video first.';return}
+ if(!file.type.startsWith('video/')){message.textContent='Please select a video file.';return}
+ if(file.size>100*1024*1024){message.textContent='Please choose a video under 100 MB.';return}
+ const url=URL.createObjectURL(file);
+ posts.unshift({id:Date.now(),name:currentUser||'guest_creator',caption,url,category:document.getElementById('category').value,likes:0,views:0});
+ message.textContent='Video added to this prototype.';
+ document.getElementById('videoFile').value='';
+ document.getElementById('caption').value='';
+ renderPosts();
+ openPage('home');
 }
-start();
+
+function likeVideo(id){
+ const p=posts.find(x=>x.id===id);if(!p)return;
+ if(!likes.has(id)){p.likes++;likes.add(id)}else{p.likes--;likes.delete(id)}
+ renderPosts();renderPosts('discoverFeed');
+}
+function commentVideo(id){
+ const text=prompt('Write a comment:');
+ if(text&&text.trim()) alert('Comment preview: '+text.trim()+' — real comments need a database.');
+}
+function followCreator(name){alert('Follow @'+name+' — real following needs user accounts and a database.')}
+function shareVideo(id){
+ if(navigator.share) navigator.share({title:'GLOVIX video',text:'Watch this video on GLOVIX'});
+ else alert('Video ID: '+id+' — public sharing links need hosting.');
+}
+function searchPosts(){renderPosts('discoverFeed',document.getElementById('search').value)}
+function filterPosts(category){renderPosts('discoverFeed','',category)}
+
+function demoSignup(){
+ const name=document.getElementById('nameInput').value.trim();
+ const email=document.getElementById('emailInput').value.trim();
+ const password=document.getElementById('passwordInput').value;
+ if(!name||!email||password.length<6){document.getElementById('authMessage').textContent='Enter username, email and a password of at least 6 characters.';return}
+ currentUser=name.replace(/\s+/g,'_');
+ document.getElementById('authMessage').textContent='Demo profile created in this page only. Connect backend for a real account.';
+ updateProfile();
+ openPage('profile');
+}
+function demoLogin(){
+ document.getElementById('authMessage').textContent='Real login is not enabled yet. Connect Supabase or Firebase authentication.';
+}
+function updateProfile(){
+ document.getElementById('profileName').textContent=currentUser||'Your Creator Profile';
+ document.getElementById('profileHandle').textContent='@'+(currentUser||'creator');
+ document.getElementById('avatar').textContent=(currentUser||'G').charAt(0).toUpperCase();
+}
+function renderProfile(){
+ updateProfile();
+ const own=posts.filter(p=>p.name===(currentUser||'guest_creator'));
+ document.getElementById('postCount').textContent=own.length;
+ document.getElementById('followerCount').textContent='0';
+ document.getElementById('likeCount').textContent=own.reduce((sum,p)=>sum+p.likes,0);
+ document.getElementById('profileVideos').innerHTML=own.map(p=>`<div class="tile">▶<br>${safe(p.caption||'Video')}</div>`).join('');
+}
+function editProfile(){
+ const name=prompt('Enter your username:',currentUser||'');
+ if(name&&name.trim()){currentUser=name.trim().replace(/\s+/g,'_');updateProfile();renderProfile()}
+}
+renderPosts();
 </script>
 </body>
 </html>
