@@ -27,7 +27,7 @@ import {getFirestore,doc,getDoc,setDoc,updateDoc,addDoc,collection,query,orderBy
 import {getStorage,ref,uploadBytesResumable,getDownloadURL} from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-storage.js';
 
 // Replace these values with the exact Firebase Web App config from Firebase Console.
-const firebaseConfig={apiKey:'YOUR_FIREBASE_API_KEY',authDomain:'YOUR_PROJECT_ID.firebaseapp.com',projectId:'YOUR_PROJECT_ID',storageBucket:'YOUR_STORAGE_BUCKET',messagingSenderId:'YOUR_MESSAGING_SENDER_ID',appId:'YOUR_FIREBASE_APP_ID'};
+const firebaseConfig={apiKey:"AIzaSyCXn3NFLxGNpUEgWdXNVSONz6-uTHKG78o",authdomain:"glovix-bfdec.firebaseapp.com",projecId:"glovix-bfdec",storageBucKet:"glovix-bfdec.firebasestorage.app",messgingsenderId:"223762437338",appId:"1:223762437338:web:230026374f9112936901e3",measurementId:"G-JDN1ZT5CS5"};
 const $=s=>document.querySelector(s); const $$=s=>[...document.querySelectorAll(s)];
 let app,auth,db,storage,user=null,me=null,posts=[],stories=[],authMode='login',activePage='home',observer=null;
 const configured=Object.values(firebaseConfig).every(v=>v && !String(v).includes('YOUR_'));
