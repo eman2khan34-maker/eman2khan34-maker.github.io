@@ -1,485 +1,508 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#000000">
-  <script async src="https://pagead2.googleesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2283215255274944" crossorigin="anonymous"></script>
-<title>GLOVIX | MADE IN MIAN ABDULLAH</title>
-<style>
-:root{
- --bg:#000;--card:#101014;--line:#29292f;--white:#fff;--muted:#a5a5ad;
- --yellow:#feda75;--pink:#d62976;--purple:#4f5bd5;
- --gradient:linear-gradient(115deg,#feda75 0%,#fa7e1e 25%,#d62976 55%,#962fbf 75%,#4f5bd5 100%);
-}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--white);font-family:Arial,sans-serif;padding-bottom:95px}
-button,input,textarea{font:inherit}
-button{cursor:pointer}
-.hidden{display:none!important}
-header{position:sticky;top:0;z-index:10;background:#000f;border-bottom:1px solid var(--line);padding:11px 15px;display:flex;align-items:center;justify-content:space-between}
-.logo{font-weight:950;font-size:30px;letter-spacing:-1.5px;background:var(--gradient);color:transparent;background-clip:text;-webkit-background-clip:text}
-.credit{font-size:9px;letter-spacing:1.4px;color:#dca9cb;margin-top:3px}
-main{max-width:650px;margin:auto;padding:12px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:14px;margin-bottom:13px}
-h2{font-size:19px;margin:5px 0 13px}
-input,textarea{width:100%;background:#09090b;color:white;border:1px solid #35353d;border-radius:11px;padding:13px;margin:5px 0}
-textarea{min-height:75px;resize:vertical}
-.btn{background:#24242b;border:1px solid #363640;color:white;padding:11px 15px;border-radius:10px}
-.primary{background:var(--gradient);color:#fff;border:0;font-weight:bold}
-.nav{position:fixed;bottom:0;left:0;right:0;z-index:30;display:flex;justify-content:space-around;align-items:center;background:#09090bf7;border-top:1px solid #29292f;padding:7px 2px calc(7px + env(safe-area-inset-bottom))}
-.nav button{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;background:none;border:0;color:#aaa;font-size:10px;padding:4px 0}
-.nav .ico{font-size:30px;line-height:1.1}
-.nav button.active{color:#fff}
-.nav button.active .ico{background:var(--gradient);color:transparent;background-clip:text;-webkit-background-clip:text}
-.stories{display:flex;gap:13px;overflow-x:auto;padding:9px 0}
-.story{flex:0 0 62px;text-align:center;font-size:11px;cursor:pointer}
-.ring{width:59px;height:59px;padding:3px;margin:auto auto 5px;border-radius:50%;background:var(--gradient)}
-.ring img,.ring span{width:100%;height:100%;object-fit:cover;border:3px solid #101014;border-radius:50%;display:grid;place-items:center;background:#222}
-.post{padding:0;overflow:hidden}
-.posthead{display:flex;align-items:center;gap:10px;padding:12px}
-.avatar{width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid var(--pink);background:#25202d;flex-shrink:0}
-.media{width:100%;max-height:75vh;display:block;object-fit:contain;background:#000}
-.caption{padding:12px;white-space:pre-wrap;overflow-wrap:anywhere}
-.actions{display:flex;gap:10px;padding:7px 10px}
-.actions button{border:0;background:none;color:white;padding:8px 3px}
-.comment-box{padding:12px;border-top:1px solid var(--line)}
-.comment-list{max-height:190px;overflow:auto;margin-bottom:10px}
-.comment{padding:5px 0;font-size:13px;overflow-wrap:anywhere}
-.comment-form{display:flex;gap:6px}
-.comment-form input{flex:1;min-width:0}
-.muted{color:var(--muted);font-size:12px}
-.upload-box{min-height:190px;border:2px dashed #b73c8b;border-radius:18px;background:radial-gradient(ellipse at top,#d629762b,transparent 70%),#0b0b0e;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:10px;padding:22px;margin:12px 0;cursor:pointer}
-.upload-box .bigplus{font-size:58px;line-height:1;background:var(--gradient);color:transparent;background-clip:text;-webkit-background-clip:text}
-.upload-box input{display:none}
-.preview img,.preview video{max-width:100%;max-height:300px;border-radius:12px}
-.reels{height:calc(100dvh - 160px);overflow-y:auto;scroll-snap-type:y mandatory}
-.reel{height:100%;min-height:450px;position:relative;background:#111;scroll-snap-align:start;margin-bottom:12px;border-radius:15px;overflow:hidden}
-.reel video{width:100%;height:100%;object-fit:contain}
-.reelinfo{position:absolute;bottom:0;left:0;right:0;padding:50px 15px 17px;background:linear-gradient(transparent,#000d)}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
-.tile{aspect-ratio:1;background:#222;overflow:hidden}
-.tile img,.tile video{width:100%;height:100%;object-fit:cover}
-.row{display:flex;align-items:center;gap:10px}
-.status{font-size:13px;color:#ff9ac9;overflow-wrap:anywhere;margin-top:8px}
-.swatches{display:flex;gap:12px;flex-wrap:wrap;margin:14px 0}
-.swatch{width:53px;height:53px;border:2px solid white;border-radius:13px}
-#authScreen{min-height:100vh;display:grid;place-items:center;padding:18px}
-.authbox{width:min(420px,100%);background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px}
-#storyViewer{position:fixed;inset:0;z-index:60;background:#000e;display:grid;place-items:center;padding:12px}
-.storycard{width:min(420px,100%);height:85vh;position:relative;background:#111}
-.storycard img,.storycard video{width:100%;height:100%;object-fit:contain}
-@media(min-width:700px){main{padding-top:20px}}
-</style>
-</head>
-<body>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <title>GLOVIX — Made in Mian Abdullah</title>
 
-<div id="authScreen">
- <div class="authbox">
-  <div class="logo">GLOVIX</div>
-  <div class="credit">MADE IN MIAN ABDULLAH</div>
-  <h2 id="authTitle">Welcome to GLOVIX</h2>
-  <form id="authForm">
-   <input id="username" class="hidden" placeholder="Choose username" maxlength="30">
-   <input id="email" type="email" placeholder="Email address" required>
-   <input id="password" type="password" placeholder="Password (6+ characters)" minlength="6" required>
-   <button class="btn primary" id="authButton" style="width:100%">Login</button>
-  </form>
-  <p><button class="btn" id="toggleAuth">Create account</button></p>
-  <button class="btn" id="resetPassword">Forgot password?</button>
-  <div id="authStatus" class="status"></div>
-  <p class="credit">MADE IN MIAN ABDULLAH</p>
- </div>
-</div>
+  <!-- Google AdSense: kept in the HEAD -->
+  <script async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2283215274944"
+    crossorigin="anonymous"></script>
 
-<div id="app" class="hidden">
-<header>
- <div><div class="logo">GLOVIX</div><div class="credit">MADE IN MIAN ABDULLAH</div></div>
- <button class="btn" onclick="go('settings')" aria-label="Settings">⚙️</button>
-</header>
-<main>
- <section id="home">
-  <div class="card">
-   <div class="row" style="justify-content:space-between"><h2>Stories</h2><button class="btn" onclick="go('create')">＋ Add</button></div>
-   <div class="stories" id="stories"></div>
-  </div>
-  <div id="feed"></div>
- </section>
-
- <section id="reels" class="hidden"><h2>Reels</h2><div id="reelsFeed" class="reels"></div></section>
-
- <section id="search" class="hidden">
-  <div class="card"><h2>Search</h2><input id="searchInput" placeholder="Search username or caption..."><div id="searchResults"></div></div>
- </section>
-
- <section id="create" class="hidden">
-  <div class="card">
-   <h2>Create post</h2>
-   <label class="upload-box" for="mediaInput">
-    <span class="bigplus">＋</span><strong>Tap to upload photo or video</strong>
-    <span class="muted">Choose from your device</span>
-    <input id="mediaInput" type="file" accept="image/*,video/*">
-   </label>
-   <div class="preview" id="preview"></div>
-   <textarea id="caption" placeholder="Write a caption..."></textarea>
-   <button class="btn primary" id="publish" style="width:100%">Share post</button>
-   <div id="uploadStatus" class="status"></div>
-   <hr style="border-color:var(--line);margin:24px 0">
-   <h2>24-hour Story</h2>
-   <label class="upload-box" for="storyInput">
-    <span class="bigplus">◉</span><strong>Tap to add a story</strong>
-    <span class="muted">Photo or video · 24 hours</span>
-    <input id="storyInput" type="file" accept="image/*,video/*">
-   </label>
-   <input id="storyCaption" placeholder="Story caption (optional)">
-   <button class="btn primary" id="publishStory">Publish story</button>
-   <div id="storyStatus" class="status"></div>
-  </div>
- </section>
-
- <section id="profile" class="hidden">
-  <div class="card">
-   <div class="row"><img id="profileAvatar" class="avatar" alt=""><div><h2 id="profileName">@user</h2><div id="profileBio" class="muted"></div></div></div>
-   <p id="profileStats"></p>
-   <button class="btn" id="editProfile">Edit profile</button>
-   <div id="editBox" class="hidden">
-    <input id="editUsername" placeholder="Username"><input id="editBio" placeholder="Bio">
-    <label class="upload-box" for="avatarInput"><strong>Tap to change profile photo</strong><input id="avatarInput" type="file" accept="image/*"></label>
-    <button class="btn primary" id="saveProfile">Save profile</button><div id="profileStatus" class="status"></div>
-   </div>
-   <h2>Your posts</h2><div id="profileGrid" class="grid"></div>
-  </div>
- </section>
-
- <section id="settings" class="hidden">
-  <div class="card">
-   <h2>Settings</h2><p>Choose gradient theme</p>
-   <div class="swatches">
-    <button class="swatch" data-theme="instagram" style="background:linear-gradient(135deg,#feda75,#d62976,#4f5bd5)" aria-label="Instagram"></button>
-    <button class="swatch" data-theme="sunset" style="background:linear-gradient(135deg,#ff9966,#ff5e62,#8e54e9)" aria-label="Sunset"></button>
-    <button class="swatch" data-theme="ocean" style="background:linear-gradient(135deg,#00c6ff,#0072ff,#6a11cb)" aria-label="Ocean"></button>
-    <button class="swatch" data-theme="mint" style="background:linear-gradient(135deg,#a8ff78,#78ffd6,#36d1dc)" aria-label="Mint"></button>
-   </div>
-   <p class="muted">Black background · Theme saved in this browser</p>
-   <button class="btn" id="logout">Log out</button>
-   <p class="credit">MADE IN MIAN ABDULLAH</p>
-  </div>
- </section>
-</main>
-
-<nav class="nav">
- <button class="active" data-page="home"><span class="ico">⌂</span>Home</button>
- <button data-page="reels"><span class="ico">▶</span>Reels</button>
- <button data-page="search"><span class="ico">⌕</span>Search</button>
- <button data-page="create"><span class="ico">＋</span>Create</button>
- <button data-page="profile"><span class="ico">◉</span>Profile</button>
- <button data-page="settings"><span class="ico">⚙</span>Settings</button>
-</nav>
-</div>
-
-<div id="storyViewer" class="hidden">
- <div class="storycard">
-  <button id="closeStory" class="btn" style="position:absolute;top:8px;right:8px;z-index:3">✕</button>
-  <div id="storyContent" style="height:100%"></div>
- </div>
-</div>
-
-<script type="module">
-import {initializeApp} from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-import {getAuth,onAuthStateChanged,createUserWithEmailAndPassword,signInWithEmailAndPassword,signOut,sendPasswordResetEmail,updateProfile} from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
-import {getFirestore,collection,doc,getDoc,getDocs,addDoc,setDoc,updateDoc,deleteDoc,query,orderBy,limit,serverTimestamp} from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
-import {getStorage,ref,uploadBytesResumable,getDownloadURL} from "https://www.gstatic.com/firebasejs/9.23.0/firebase-storage.js";
-
-/* Paste your real Firebase web configuration here */
-const firebaseConfig={
- apiKey:"YOUR_FIREBASE_API_KEY",
- authDomain:"YOUR_PROJECT_ID.firebaseapp.com",
- projectId:"YOUR_PROJECT_ID",
- storageBucket:"YOUR_STORAGE_BUCKET",
- messagingSenderId:"YOUR_MESSAGING_SENDER_ID",
- appId:"YOUR_FIREBASE_APP_ID"
-};
-
-const ready=!Object.values(firebaseConfig).some(v=>v.startsWith("YOUR_"));
-let auth,db,storage,user=null,me={},posts=[],stories=[];
-const $=s=>document.querySelector(s);
-const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const uname=()=>me.username||user?.displayName||"user";
-const mediaURL=p=>p.mediaURL||p.image||p.videoURL||p.video||"";
-const isVideo=p=>p.mediaType==="video"||!!p.videoURL||!!p.video;
-
-function toast(s){alert(s)}
-function go(page){
- document.querySelectorAll("main section").forEach(x=>x.classList.add("hidden"));
- $("#"+page).classList.remove("hidden");
- document.querySelectorAll(".nav button").forEach(x=>x.classList.toggle("active",x.dataset.page===page));
- if(page==="profile")loadProfile();
- if(page==="reels")renderReels();
-}
-document.querySelectorAll(".nav button").forEach(b=>b.onclick=()=>go(b.dataset.page));
-
-let signup=false;
-$("#toggleAuth").onclick=()=>{
- signup=!signup;$("#username").classList.toggle("hidden",!signup);$("#username").required=signup;
- $("#authTitle").textContent=signup?"Create your account":"Welcome to GLOVIX";
- $("#authButton").textContent=signup?"Sign up":"Login";
- $("#toggleAuth").textContent=signup?"I already have an account":"Create account";
-};
-$("#authForm").onsubmit=async e=>{
- e.preventDefault();$("#authStatus").textContent="Please wait...";
- try{
-  if(signup){
-   const name=$("#username").value.trim().replace(/^@/,"");
-   if(!/^[a-zA-Z0-9._]{2,30}$/.test(name))throw Error("Username must be 2–30 letters, numbers, dots or underscores.");
-   const c=await createUserWithEmailAndPassword(auth,$("#email").value.trim(),$("#password").value);
-   await updateProfile(c.user,{displayName:name});
-   await setDoc(doc(db,"users",c.user.uid),{uid:c.user.uid,username:name,bio:"",photoURL:"",createdAt:serverTimestamp()});
-  }else await signInWithEmailAndPassword(auth,$("#email").value.trim(),$("#password").value);
- }catch(e){$("#authStatus").textContent=e.message}
-};
-$("#resetPassword").onclick=async()=>{
- const email=$("#email").value.trim();if(!email){$("#authStatus").textContent="Enter your email first.";return}
- try{await sendPasswordResetEmail(auth,email);$("#authStatus").textContent="Reset email sent."}
- catch(e){$("#authStatus").textContent=e.message}
-};
-
-async function upload(file,path,status){
- if(!file)throw Error("Choose a file first.");
- if(!/^(image|video)\//.test(file.type))throw Error("Choose an image or video.");
- if(file.size>100*1024*1024)throw Error("Maximum upload size is 100 MB.");
- const task=uploadBytesResumable(ref(storage,path),file);
- return new Promise((resolve,reject)=>task.on("state_changed",s=>{
-  status.textContent="Uploading "+Math.round(s.bytesTransferred/s.totalBytes*100)+"%";
- },reject,async()=>resolve(await getDownloadURL(task.snapshot.ref))));
-}
-async function ensureUser(){
- const r=doc(db,"users",user.uid),s=await getDoc(r);
- if(s.exists())me=s.data();
- else{me={uid:user.uid,username:user.displayName||"user",bio:"",photoURL:""};await setDoc(r,{...me,createdAt:serverTimestamp()})}
-}
-function avatar(photo,name){
- return photo?`<img class="avatar" src="${esc(photo)}" alt="">`:`<div class="avatar" style="display:grid;place-items:center">${esc((name||"U")[0].toUpperCase())}</div>`;
-}
-async function loadFeed(){
- try{
-  const snap=await getDocs(query(collection(db,"post"),orderBy("createdAt","desc"),limit(100)));
-  posts=snap.docs.map(d=>({id:d.id,...d.data()}));renderFeed();
- }catch(e){$("#feed").innerHTML=`<div class="card status">Feed error: ${esc(e.message)}. Check Firestore rules.</div>`}
-}
-function makePost(p){
- const el=document.createElement("article");el.className="card post";el.dataset.postid=p.id;
- const url=mediaURL(p);
- el.innerHTML=`
- <div class="posthead">${avatar(p.photoURL,p.username)}<div><strong>@${esc(p.username||"user")}</strong><div class="muted">MADE IN MIAN ABDULLAH</div></div></div>
- ${url?(isVideo(p)?`<video class="media" src="${esc(url)}" controls playsinline preload="metadata"></video>`:`<img class="media" src="${esc(url)}" alt="Post">`):""}
- ${(p.caption||p.text)?`<div class="caption">${esc(p.caption||p.text)}</div>`:""}
- <div class="actions"><button data-like>${Array.isArray(p.likes)&&p.likes.includes(user.uid)?"❤️":"🤍"} ${Array.isArray(p.likes)?p.likes.length:0}</button><button data-comments>💬 Comment</button><button data-share>↗ Share</button></div>
- <div class="comment-box hidden" data-commentbox>
-  <div class="comment-list" data-commentlist>Open to load comments.</div>
-  <div class="comment-form"><input data-commenttext maxlength="500" placeholder="Write a comment..."><button class="btn primary" data-send>Post</button></div>
- </div>`;
- /* Handlers are deliberately outside innerHTML */
- el.querySelector("[data-like]").onclick=()=>like(p,el);
- el.querySelector("[data-comments]").onclick=()=>showComments(p,el);
- el.querySelector("[data-send]").onclick=()=>comment(p,el);
- el.querySelector("[data-share]").onclick=()=>share(p);
- return el;
-}
-function renderFeed(){
- const f=$("#feed");f.replaceChildren();
- if(!posts.length){f.innerHTML='<div class="card">No posts yet. Tap Create to share your first post.</div>';return}
- posts.forEach(p=>f.append(makePost(p)));
-}
-async function like(p,el){
- try{
-  const old=Array.isArray(p.likes)?p.likes:[];
-  p.likes=old.includes(user.uid)?old.filter(x=>x!==user.uid):[...old,user.uid];
-  await updateDoc(doc(db,"post",p.id),{likes:p.likes});
-  el.querySelector("[data-like]").textContent=(p.likes.includes(user.uid)?"❤️ ":"🤍 ")+p.likes.length;
- }catch(e){toast("Like failed: "+e.message)}
-}
-async function showComments(p,el){
- const box=el.querySelector("[data-commentbox]");box.classList.toggle("hidden");
- if(box.classList.contains("hidden"))return;
- const list=el.querySelector("[data-commentlist]");list.textContent="Loading...";
- try{
-  const snap=await getDocs(query(collection(db,"post",p.id,"comments"),orderBy("createdAt","asc"),limit(100)));
-  list.replaceChildren();
-  if(snap.empty){list.textContent="No comments yet.";return}
-  snap.forEach(d=>{const c=d.data(),line=document.createElement("div");line.className="comment";line.innerHTML=`<strong>@${esc(c.username||"user")}</strong> ${esc(c.text||c.comment||"")}`;list.append(line)});
- }catch(e){list.textContent="Comments error: "+e.message}
-}
-async function comment(p,el){
- const input=el.querySelector("[data-commenttext]"),text=input.value.trim();if(!text)return;
- const btn=el.querySelector("[data-send]");btn.disabled=true;
- try{
-  await addDoc(collection(db,"post",p.id,"comments"),{uid:user.uid,username:uname(),text,createdAt:serverTimestamp()});
-  input.value="";
-  const box=el.querySelector("[data-commentbox]");
-  if(box.classList.contains("hidden"))box.classList.remove("hidden");
-  await showComments(p,el);
- }catch(e){toast("Comment failed: "+e.message)}
- finally{btn.disabled=false}
-}
-async function share(p){
- const url=location.href.split("#")[0]+"#post-"+p.id;
- try{if(navigator.share)await navigator.share({title:"GLOVIX",text:p.caption||p.text||"GLOVIX post",url});else{await navigator.clipboard.writeText(url);toast("Link copied")}}
- catch(e){if(e.name!=="AbortError")toast("Sharing failed")}
-}
-
-$("#mediaInput").onchange=()=>{
- const f=$("#mediaInput").files[0],p=$("#preview");p.replaceChildren();if(!f)return;
- const el=document.createElement(f.type.startsWith("video/")?"video":"img");
- el.src=URL.createObjectURL(f);if(el.tagName==="VIDEO")el.controls=true;p.append(el);
-};
-$("#publish").onclick=async()=>{
- const f=$("#mediaInput").files[0],caption=$("#caption").value.trim(),status=$("#uploadStatus"),btn=$("#publish");
- if(!f&&!caption){status.textContent="Select media or enter a caption.";return}
- btn.disabled=true;
- try{
-  let url="",type="";
-  if(f){type=f.type.startsWith("video/")?"video":"image";url=await upload(f,`postMedia/${user.uid}/${Date.now()}_${f.name.replace(/[^a-zA-Z0-9._-]/g,"_")}`,status)}
-  await addDoc(collection(db,"post"),{uid:user.uid,username:uname(),photoURL:me.photoURL||"",text:caption,caption,mediaURL:url,image:type==="image"?url:"",videoURL:type==="video"?url:"",mediaType:type,likes:[],createdAt:serverTimestamp()});
-  $("#mediaInput").value="";$("#caption").value="";$("#preview").replaceChildren();status.textContent="Post published!";
-  await loadFeed();go("home");
- }catch(e){status.textContent="Upload failed: "+e.message}
- finally{btn.disabled=false}
-};
-$("#publishStory").onclick=async()=>{
- const f=$("#storyInput").files[0],status=$("#storyStatus");if(!f){status.textContent="Choose a story photo or video.";return}
- try{
-  const type=f.type.startsWith("video/")?"video":"image";
-  const url=await upload(f,`stories/${user.uid}/${Date.now()}_${f.name.replace(/[^a-zA-Z0-9._-]/g,"_")}`,status);
-  await addDoc(collection(db,"stories"),{uid:user.uid,username:uname(),photoURL:me.photoURL||"",mediaURL:url,mediaType:type,caption:$("#storyCaption").value.trim(),createdAt:serverTimestamp(),expiresAt:new Date(Date.now()+86400000)});
-  status.textContent="Story published!";$("#storyInput").value="";$("#storyCaption").value="";await loadStories();
- }catch(e){status.textContent=e.message}
-};
-async function loadStories(){
- try{
-  const s=await getDocs(query(collection(db,"stories"),orderBy("createdAt","desc"),limit(100)));
-  stories=s.docs.map(d=>({id:d.id,...d.data()})).filter(x=>{
-   const t=x.expiresAt?.toDate?x.expiresAt.toDate().getTime():new Date(x.expiresAt||0).getTime();return t>Date.now();
-  });
-  const row=$("#stories");row.replaceChildren();
-  const add=document.createElement("div");add.className="story";add.innerHTML='<div class="ring"><span>＋</span></div><div>Your story</div>';add.onclick=()=>go("create");row.append(add);
-  stories.forEach(s=>{
-   const x=document.createElement("div");x.className="story";
-   x.innerHTML=`<div class="ring">${s.photoURL?`<img src="${esc(s.photoURL)}">`:`<span>${esc((s.username||"U")[0])}</span>`}</div><div>@${esc(s.username||"user")}</div>`;
-   x.onclick=()=>openStory(s);row.append(x);
-  });
- }catch(e){console.warn(e)}
-}
-function openStory(s){
- $("#storyContent").innerHTML=`${s.mediaType==="video"?`<video src="${esc(s.mediaURL)}" autoplay controls playsinline></video>`:`<img src="${esc(s.mediaURL)}">`}<div style="position:absolute;bottom:0;padding:18px;background:#0009;width:100%">@${esc(s.username)}<br>${esc(s.caption||"")}<div class="credit">MADE IN MIAN ABDULLAH</div></div>`;
- $("#storyViewer").classList.remove("hidden");
-}
-$("#closeStory").onclick=()=>$("#storyViewer").classList.add("hidden");
-
-function renderReels(){
- const box=$("#reelsFeed");box.replaceChildren();
- const list=posts.filter(p=>isVideo(p)&&mediaURL(p));
- if(!list.length){box.innerHTML='<div class="card">No videos yet. Upload a video to see Reels.</div>';return}
- list.forEach(p=>{
-  const el=document.createElement("div");el.className="reel";
-  el.innerHTML=`<video src="${esc(mediaURL(p))}" controls muted playsinline loop></video><div class="reelinfo"><strong>@${esc(p.username||"user")}</strong><p>${esc(p.caption||p.text||"")}</p><button class="btn" data-like>❤️ ${Array.isArray(p.likes)?p.likes.length:0}</button><div class="credit">MADE IN MIAN ABDULLAH</div></div>`;
-  el.querySelector("[data-like]").onclick=async()=>{
-   const old=Array.isArray(p.likes)?p.likes:[];
-   p.likes=old.includes(user.uid)?old.filter(x=>x!==user.uid):[...old,user.uid];
-   try{await updateDoc(doc(db,"post",p.id),{likes:p.likes});el.querySelector("[data-like]").textContent="❤️ "+p.likes.length}catch(e){toast(e.message)}
-  };
-  box.append(el);
- });
- const observer=new IntersectionObserver(entries=>entries.forEach(e=>{
-  if(e.isIntersecting)e.target.play().catch(()=>{});else e.target.pause();
- }),{threshold:.7});
- box.querySelectorAll("video").forEach(v=>observer.observe(v));
-}
-
-$("#searchInput").oninput=async()=>{
- const q=$("#searchInput").value.trim().toLowerCase(),box=$("#searchResults");box.replaceChildren();if(!q)return;
- posts.filter(p=>(p.username||"").toLowerCase().includes(q)||(p.caption||p.text||"").toLowerCase().includes(q)).forEach(p=>{
-  const el=document.createElement("div");el.className="card";el.innerHTML=`<strong>@${esc(p.username||"user")}</strong><p>${esc(p.caption||p.text||"")}</p><button class="btn">View post</button>`;
-  el.querySelector("button").onclick=()=>{go("home");setTimeout(()=>document.querySelector(`[data-postid="${CSS.escape(p.id)}"]`)?.scrollIntoView({behavior:"smooth"}),100)};box.append(el);
- });
- try{
-  const s=await getDocs(query(collection(db,"users"),limit(100)));
-  s.docs.map(d=>d.data()).filter(x=>(x.username||"").toLowerCase().includes(q)&&x.uid!==user.uid).forEach(x=>{
-   const el=document.createElement("div");el.className="card";el.innerHTML=`<strong>@${esc(x.username||"user")}</strong> <button class="btn" data-follow>Follow</button>`;
-   el.querySelector("[data-follow]").onclick=()=>follow(x);box.append(el);
-  });
- }catch(e){console.warn(e)}
-};
-async function follow(x){
- try{
-  const a=doc(db,"follows",x.uid,"users",user.uid),exists=await getDoc(a);
-  if(exists.exists()){
-   await deleteDoc(a);await deleteDoc(doc(db,"following",user.uid,"users",x.uid));toast("Unfollowed");
-  }else{
-   await setDoc(a,{uid:user.uid,username:uname(),createdAt:serverTimestamp()});
-   await setDoc(doc(db,"following",user.uid,"users",x.uid),{uid:x.uid,username:x.username||"user",createdAt:serverTimestamp()});toast("Following");
+  <!-- Firebase v10.7.1 import map -->
+  <script type="importmap">
+  {
+    "imports": {
+      "firebase/app": "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js",
+      "firebase/auth": "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js"
+    }
   }
- }catch(e){toast("Follow failed: "+e.message)}
-}
-async function loadProfile(){
- $("#profileName").textContent="@"+uname();$("#profileBio").textContent=me.bio||"MADE IN MIAN ABDULLAH";$("#profileAvatar").src=me.photoURL||"";
- try{
-  const [a,b]=await Promise.all([getDocs(collection(db,"follows",user.uid,"users")),getDocs(collection(db,"following",user.uid,"users"))]);
-  $("#profileStats").textContent=`${posts.filter(p=>p.uid===user.uid).length} posts · ${a.size} followers · ${b.size} following`;
- }catch(e){$("#profileStats").textContent=`${posts.filter(p=>p.uid===user.uid).length} posts`}
- const grid=$("#profileGrid");grid.replaceChildren();
- posts.filter(p=>p.uid===user.uid).forEach(p=>{
-  const x=document.createElement("div");x.className="tile";const url=mediaURL(p);
-  if(url)x.innerHTML=isVideo(p)?`<video src="${esc(url)}" muted></video>`:`<img src="${esc(url)}">`;else x.textContent=p.caption||p.text||"Post";
-  grid.append(x);
- });
-}
-$("#editProfile").onclick=()=>{
- $("#editBox").classList.toggle("hidden");$("#editUsername").value=me.username||"";$("#editBio").value=me.bio||"";
-};
-$("#saveProfile").onclick=async()=>{
- const name=$("#editUsername").value.trim().replace(/^@/,""),bio=$("#editBio").value.trim(),f=$("#avatarInput").files[0],status=$("#profileStatus");
- if(!/^[a-zA-Z0-9._]{2,30}$/.test(name)){status.textContent="Enter a valid username.";return}
- try{
-  let photoURL=me.photoURL||"";
-  if(f)photoURL=await upload(f,`profilePhotos/${user.uid}/${Date.now()}_${f.name.replace(/[^a-zA-Z0-9._-]/g,"_")}`,status);
-  await updateDoc(doc(db,"users",user.uid),{username:name,bio,photoURL});
-  await updateProfile(user,{displayName:name,photoURL});me={...me,username:name,bio,photoURL};
-  status.textContent="Profile updated.";await loadProfile();await loadFeed();
- }catch(e){status.textContent=e.message}
-};
+  </script>
 
-const themes={
- instagram:["#feda75","#d62976","#4f5bd5"],
- sunset:["#ff9966","#ff5e62","#8e54e9"],
- ocean:["#00c6ff","#0072ff","#6a11cb"],
- mint:["#a8ff78","#78ffd6","#36d1dc"]
-};
-function applyTheme(name){
- const c=themes[name]||themes.instagram;
- document.documentElement.style.setProperty("--yellow",c[0]);
- document.documentElement.style.setProperty("--pink",c[1]);
- document.documentElement.style.setProperty("--purple",c[2]);
- document.documentElement.style.setProperty("--gradient",`linear-gradient(115deg,${c[0]},${c[1]},${c[2]})`);
- try{localStorage.setItem("glovix-theme",name)}catch(e){}
-}
-document.querySelectorAll("[data-theme]").forEach(b=>b.onclick=()=>applyTheme(b.dataset.theme));
-try{applyTheme(localStorage.getItem("glovix-theme")||"instagram")}catch(e){applyTheme("instagram")}
-$("#logout").onclick=()=>signOut(auth);
+  <style>
+    :root {
+      --black: #000000;
+      --panel: #101010;
+      --line: #292929;
+      --gradient: linear-gradient(115deg, #fa7e1e, #d6262fbf, #4f5bd5);
+    }
 
-if(ready){
- try{
-  const app=initializeApp(firebaseConfig);auth=getAuth(app);db=getFirestore(app);storage=getStorage(app);
-  onAuthStateChanged(auth,async u=>{
-   user=u;
-   if(!u){me={};$("#authScreen").classList.remove("hidden");$("#app").classList.add("hidden");return}
-   $("#authScreen").classList.add("hidden");$("#app").classList.remove("hidden");
-   try{await ensureUser();await Promise.all([loadFeed(),loadStories()]);go("home");await loadProfile()}
-   catch(e){toast("Firebase error: "+e.message)}
-  });
- }catch(e){$("#authStatus").textContent=e.message}
-}else{
- $("#authStatus").textContent="Firebase setup required: replace YOUR_ values in firebaseConfig.";
-}
-</script>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #000000;
+      color: #ffffff;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    header {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 6%;
+      border-bottom: 1px solid #222;
+      background: #000;
+      position: sticky;
+      top: 0;
+      z-index: 5;
+    }
+
+    .logo {
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      margin: 0;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .made {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      color: #aaa;
+      margin-top: 5px;
+    }
+
+    .gradient-text {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    main {
+      width: 100%;
+      max-width: 460px;
+      margin: 38px auto;
+      padding: 0 16px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 26px;
+      box-shadow: 0 12px 40px #000;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin: 0 0 8px;
+    }
+
+    .subtitle {
+      color: #aaa;
+      line-height: 1.6;
+      font-size: 14px;
+      margin-bottom: 23px;
+    }
+
+    label {
+      display: block;
+      margin: 15px 0 7px;
+      font-size: 13px;
+      color: #ddd;
+    }
+
+    input {
+      width: 100%;
+      background: #080808;
+      color: #fff;
+      border: 1px solid #353535;
+      border-radius: 10px;
+      padding: 14px;
+      font-size: 15px;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #d94b6a;
+      box-shadow: 0 0 0 2px #d94b6a22;
+    }
+
+    button {
+      font-size: 14px;
+      font-weight: bold;
+      border: 0;
+      border-radius: 10px;
+      padding: 13px 15px;
+      cursor: pointer;
+      transition: opacity .2s;
+    }
+
+    button:disabled {
+      opacity: .5;
+      cursor: not-allowed;
+    }
+
+    .primary {
+      width: 100%;
+      margin-top: 18px;
+      color: #fff;
+      background: var(--gradient);
+    }
+
+    .secondary {
+      width: 100%;
+      margin-top: 10px;
+      color: #fff;
+      background: #242424;
+      border: 1px solid #393939;
+    }
+
+    .small-btn {
+      background: transparent;
+      color: #ff8b8b;
+      padding: 8px 0;
+    }
+
+    #message {
+      display: none;
+      padding: 12px;
+      border-radius: 9px;
+      margin-top: 16px;
+      font-size: 13px;
+      line-height: 1.5;
+      overflow-wrap: anywhere;
+      background: #191919;
+      border: 1px solid #333;
+    }
+
+    #message.show { display: block; }
+    #message.error { color: #ff8585; }
+    #message.success { color: #9ce6b0; }
+
+    #dashboard { display: none; }
+    #dashboard.show { display: block; }
+
+    .profile-icon {
+      width: 75px;
+      height: 75px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      margin-bottom: 18px;
+      background: var(--gradient);
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+    .account-email {
+      overflow-wrap: anywhere;
+      color: #bbb;
+      line-height: 1.6;
+    }
+
+    .notice {
+      color: #999;
+      font-size: 12px;
+      line-height: 1.6;
+      margin-top: 18px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px 12px 35px;
+      color: #888;
+      font-size: 11px;
+      letter-spacing: 1.3px;
+      line-height: 2;
+    }
+
+    @media (max-width: 480px) {
+      header { padding: 12px 16px; }
+      .logo { font-size: 30px; }
+      main { margin: 25px auto; }
+      .card { padding: 21px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div>
+      <div class="logo">GLOVIX</div>
+      <div class="made">MADE IN MIAN ABDULLAH</div>
+    </div>
+    <div class="gradient-text" style="font-weight:bold">CONNECT GLOBALLY</div>
+  </header>
+
+  <main>
+    <section class="card" id="authCard">
+      <h1><span class="gradient-text">Welcome</span> to GLOVIX</h1>
+      <p class="subtitle">
+        Create your account or sign in to continue.
+        <br>MADE IN MIAN ABDULLAH
+      </p>
+
+      <form id="authForm">
+        <label for="email">Email address</label>
+        <input
+          id="email"
+          type="email"
+          placeholder="you@example.com"
+          autocomplete="email"
+          required
+        >
+
+        <label for="password">Password</label>
+        <input
+          id="password"
+          type="password"
+          placeholder="At least 6 characters"
+          autocomplete="current-password"
+          minlength="6"
+          required
+        >
+
+        <button class="primary" id="loginButton" type="submit">
+          LOG IN
+        </button>
+
+        <button class="secondary" id="signupButton" type="button">
+          CREATE NEW ACCOUNT
+        </button>
+
+        <button class="small-btn" id="resetButton" type="button">
+          Forgot password?
+        </button>
+      </form>
+
+      <div id="message" role="status" aria-live="polite"></div>
+
+      <p class="notice">
+        By continuing, you agree to use GLOVIX responsibly.
+        Keep your password private.
+        <br>MADE IN MIAN ABDULLAH
+      </p>
+    </section>
+
+    <section class="card" id="dashboard">
+      <div class="profile-icon">G</div>
+      <h1>You're <span class="gradient-text">signed in!</span></h1>
+      <p class="subtitle">Welcome to your GLOVIX account.</p>
+      <p class="account-email" id="accountEmail"></p>
+      <p class="made">MADE IN MIAN ABDULLAH</p>
+      <button class="secondary" id="logoutButton" type="button">
+        LOG OUT
+      </button>
+      <div id="dashboardMessage" class="notice"></div>
+    </section>
+  </main>
+
+  <footer>
+    GLOVIX © <span id="year"></span><br>
+    MADE IN MIAN ABDULLAH · MADE WITH CARE
+  </footer>
+
+  <script type="module">
+    import { initializeApp }
+      from "firebase/app";
+
+    import {
+      initializeAuth,
+      browserLocalPersistence,
+      createUserWithEmailAndPassword,
+      signInWithEmailAndPassword,
+      signOut,
+      onAuthStateChanged,
+      sendPasswordResetEmail
+    } from "firebase/auth";
+
+    // Firebase Web App configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCxN3NFLXGNpUEWdXNVSONS-z6-uTMKG78o",
+      authDomain: "glovix-bfdec.firebaseapp.com",
+      projectId: "glovix-bfdec",
+      storageBucket: "glovix-bfdec.firebasestorage.app",
+      messagingSenderId: "223762437338",
+      appId: "1:223762437338:web:230026374f9112936901e3",
+      measurementId: "G-JDN1ZT5CS5"
+    };
+
+    const app = initializeApp(firebaseConfig);
+
+    // Explicit local persistence; no popup or redirect resolver needed.
+    // This page uses email/password, not phone-number reCAPTCHA.
+    const auth = initializeAuth(app, {
+      persistence: browserLocalPersistence
+    });
+
+    const authCard = document.getElementById("authCard");
+    const dashboard = document.getElementById("dashboard");
+    const messageBox = document.getElementById("message");
+    const loginButton = document.getElementById("loginButton");
+    const signupButton = document.getElementById("signupButton");
+    const resetButton = document.getElementById("resetButton");
+    const logoutButton = document.getElementById("logoutButton");
+    const authForm = document.getElementById("authForm");
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    function showMessage(text, type = "error") {
+      messageBox.textContent = text;
+      messageBox.className = "show " + type;
+    }
+
+    function firebaseMessage(error) {
+      const messages = {
+        "auth/email-already-in-use":
+          "This email already has an account. Please log in.",
+        "auth/invalid-email":
+          "Please enter a valid email address.",
+        "auth/weak-password":
+          "Choose a stronger password with at least 6 characters.",
+        "auth/invalid-credential":
+          "Email or password is incorrect.",
+        "auth/user-not-found":
+          "No account found. Please create an account first.",
+        "auth/wrong-password":
+          "Email or password is incorrect.",
+        "auth/too-many-requests":
+          "Too many attempts. Please wait and try again.",
+        "auth/network-request-failed":
+          "Network error. Check your internet connection.",
+        "auth/operation-not-allowed":
+          "Email/password login is disabled in Firebase Console. Enable it under Authentication → Sign-in method.",
+        "auth/unauthorized-domain":
+          "This website domain is not authorized. Add your exact GitHub Pages hostname in Firebase Authentication settings.",
+        "auth/invalid-api-key":
+          "Firebase API key is invalid. Copy the correct Web App config from Firebase Console."
+      };
+
+      return messages[error.code] ||
+        (error.message || "Something went wrong.") +
+        " (Code: " + (error.code || "unknown") + ")";
+    }
+
+    function getCredentials() {
+      return {
+        email: document.getElementById("email").value.trim(),
+        password: document.getElementById("password").value
+      };
+    }
+
+    function setBusy(busy) {
+      loginButton.disabled = busy;
+      signupButton.disabled = busy;
+      resetButton.disabled = busy;
+      loginButton.textContent = busy ? "PLEASE WAIT..." : "LOG IN";
+    }
+
+    // Login function
+    async function login() {
+      const { email, password } = getCredentials();
+
+      if (!email || !password) {
+        showMessage("Please enter your email and password.");
+        return;
+      }
+
+      setBusy(true);
+
+      try {
+        await signInWithEmailAndPassword(auth, email, password);
+        showMessage("Login successful!", "success");
+      } catch (error) {
+        console.error("Login error:", error);
+        showMessage(firebaseMessage(error));
+      } finally {
+        setBusy(false);
+      }
+    }
+
+    // Signup function
+    async function signup() {
+      const { email, password } = getCredentials();
+
+      if (!email || !password) {
+        showMessage("Enter an email and password to create your account.");
+        return;
+      }
+
+      if (password.length < 6) {
+        showMessage("Password must be at least 6 characters.");
+        return;
+      }
+
+      setBusy(true);
+
+      try {
+        await createUserWithEmailAndPassword(auth, email, password);
+        showMessage("Account created successfully!", "success");
+      } catch (error) {
+        console.error("Signup error:", error);
+        showMessage(firebaseMessage(error));
+      } finally {
+        setBusy(false);
+      }
+    }
+
+    authForm.addEventListener("submit", event => {
+      event.preventDefault();
+      login();
+    });
+
+    signupButton.addEventListener("click", signup);
+
+    resetButton.addEventListener("click", async () => {
+      const email = document.getElementById("email").value.trim();
+
+      if (!email) {
+        showMessage("Enter your email first, then click Forgot password.");
+        return;
+      }
+
+      try {
+        await sendPasswordResetEmail(auth, email);
+        showMessage(
+          "If an account exists for this email, a password reset email has been sent.",
+          "success"
+        );
+      } catch (error) {
+        console.error("Password reset error:", error);
+        showMessage(firebaseMessage(error));
+      }
+    });
+
+    logoutButton.addEventListener("click", async () => {
+      try {
+        await signOut(auth);
+      } catch (error) {
+        console.error("Logout error:", error);
+        document.getElementById("dashboardMessage").textContent =
+          firebaseMessage(error);
+      }
+    });
+
+    // Keep the interface synchronized with Firebase login state.
+    onAuthStateChanged(auth, user => {
+      if (user) {
+        authCard.style.display = "none";
+        dashboard.classList.add("show");
+        document.getElementById("accountEmail").textContent =
+          user.email || "Signed-in GLOVIX member";
+      } else {
+        authCard.style.display = "block";
+        dashboard.classList.remove("show");
+        messageBox.className = "";
+        messageBox.textContent = "";
+      }
+    });
+
+    // Expose requested functions for optional browser-console testing.
+    window.login = login;
+    window.signup = signup;
+  </script>
 </body>
 </html>
