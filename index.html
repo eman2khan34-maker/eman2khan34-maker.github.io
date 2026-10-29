@@ -2,331 +2,410 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2283215295274944" crossorigin="anonymous"></script>
-<script src="https://www.gatatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"><script>
-<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
-<script>
- const firebaseConfig = {
-  apiKey: "AIzaSyCXn3NFLxGNpUEgWdXNVSONz6-uTMKG78o",
-  authDomain: "glovix-bfdec.firebaseapp.com",
-  projectId: "glovix-bfdec",
-  storageBucket: "glovix-bfdec.firebasestorage.app",
-  messagingSenderId: "223762437338",
-  appId: "1:223762437338:web:230026374f9112936901e3",
- };
- firebase.initializeApp(firebaseConfig);
-</script>
-<title>GLOVIX — Short Videos. Big Dreams.</title>
-<style>
-*{box-sizing:border-box}
-:root{--pink:#ff267d;--cyan:#20e7f5;--bg:#070910;--panel:#111522;--muted:#9299ad}
-body{margin:0;background:var(--bg);color:#fff;font-family:Arial,sans-serif}
-button,input,textarea{font:inherit}
-button{cursor:pointer;border:0;color:white;border-radius:10px;padding:11px 15px;background:#252b3b}
-button:hover{filter:brightness(1.2)}
-.primary{background:linear-gradient(110deg,var(--pink),#a52cff)}
-header{height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;border-bottom:1px solid #242839;background:#0a0d16;position:sticky;top:0;z-index:5}
-.logo{font-size:27px;font-weight:900;letter-spacing:1px}
-.logo span{color:var(--pink)}
-.layout{display:grid;grid-template-columns:220px minmax(0,1fr);max-width:1200px;margin:auto;min-height:calc(100vh - 68px)}
-aside{padding:20px 14px;border-right:1px solid #242839}
-.menu{display:flex;flex-direction:column;gap:9px}
-.menu button{text-align:left;background:transparent;padding:14px}
-.menu button.active,.menu button:hover{background:#202235;color:#fff}
-.promo{margin-top:30px;padding:16px;border:1px solid #35314a;border-radius:16px;background:linear-gradient(145deg,#17142c,#111522)}
-main{padding:22px;min-width:0}
-h1{font-size:28px;margin:0 0 8px}
-.muted{color:var(--muted);font-size:13px;line-height:1.6}
-.page{display:none}
-.page.active{display:block}
-.card{background:var(--panel);border:1px solid #292e40;border-radius:16px;padding:17px;margin-bottom:16px}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:15px 0}
-.stat{background:#1b2030;border-radius:12px;padding:15px;text-align:center}
-.stat strong{display:block;font-size:20px;color:var(--cyan);margin-bottom:5px}
-.feed{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-.video-card{padding:0;overflow:hidden}
-.video-box{height:330px;background:linear-gradient(145deg,#202c45,#45204e,#080a11);display:flex;align-items:center;justify-content:center;position:relative}
-.video-box video{width:100%;height:100%;object-fit:cover}
-.play-icon{font-size:48px;text-shadow:0 3px 20px #000}
-.video-info{padding:13px}
-.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
-input,textarea{display:block;width:100%;padding:13px;margin:10px 0;background:#080c16;border:1px solid #353c50;border-radius:10px;color:#fff}
-input[type=file]{padding:9px}
-label{font-size:13px;color:#c3c8d7}
-.profile-head{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-.avatar{width:75px;height:75px;border-radius:50%;background:linear-gradient(140deg,var(--pink),#6e4cff,var(--cyan));display:grid;place-items:center;font-size:30px;font-weight:bold}
-.badge{color:var(--cyan)}
-.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
-.tile{height:145px;background:linear-gradient(145deg,#29254c,#111522);border-radius:12px;display:grid;place-items:center;text-align:center;padding:8px}
-.row{display:flex;justify-content:space-between;align-items:center;gap:10px}
-.bottom-nav{display:none}
-footer{text-align:center;color:var(--muted);padding:24px;border-top:1px solid #242839}
-@media(max-width:760px){
- .layout{display:block}
- aside{display:none}
- main{padding:13px;padding-bottom:85px}
- header{padding:0 14px}
- .feed{grid-template-columns:1fr}
- .video-box{height:58vh;max-height:580px}
- .bottom-nav{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:8;background:#0c101b;border-top:1px solid #292e40;justify-content:space-around;padding:9px 3px}
- .bottom-nav button{background:transparent;padding:8px 5px;font-size:12px}
- .grid3{grid-template-columns:repeat(3,minmax(0,1fr))}
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090914">
+  <title>GLOVIX - Made in Mian Abdullah</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #090914;
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      background: #101020;
+      border-bottom: 1px solid #292943;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-size: 27px;
+      font-weight: 900;
+      color: #9b7cff;
+      letter-spacing: 2px;
+    }
+    .tagline { font-size: 9px; color: #aaa; margin-top: 4px; }
+    main { max-width: 650px; margin: auto; padding: 16px; }
+    .card {
+      background: #141426;
+      border: 1px solid #292943;
+      border-radius: 16px;
+      padding: 18px;
+      margin-bottom: 16px;
+    }
+    h2 { margin-top: 0; }
+    input, textarea {
+      display: block;
+      width: 100%;
+      background: #090914;
+      border: 1px solid #343451;
+      border-radius: 9px;
+      padding: 12px;
+      color: white;
+      margin: 10px 0;
+      font-size: 15px;
+    }
+    button {
+      border: 0;
+      border-radius: 9px;
+      padding: 11px 15px;
+      background: #8b5cf6;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      margin: 4px 3px 4px 0;
+    }
+    button.secondary { background: #292943; }
+    button:disabled { opacity: .5; cursor: wait; }
+    nav { display: flex; flex-wrap: wrap; gap: 5px; }
+    nav button { flex: 1; min-width: 75px; }
+    .hidden { display: none !important; }
+    .muted { color: #aaa; font-size: 13px; }
+    .video {
+      width: 100%;
+      max-height: 520px;
+      background: black;
+      border-radius: 12px;
+      margin-top: 10px;
+    }
+    .status { color: #bca7ff; white-space: pre-wrap; }
+    .username { font-weight: bold; color: #c5b2ff; }
+    footer { text-align: center; color: #888; padding: 25px 10px; font-size: 12px; }
+  </style>
 </head>
 <body>
 <header>
-  <div class="logo">GLOV<span>IX</span></div>
-  <button class="primary" onclick="openPage('auth')">Login / Sign up</button>
+  <div>
+    <div class="logo">GLOVIX ✦</div>
+    <div class="tagline">MADE IN MIAN ABDULLAH</div>
+  </div>
+  <button id="logoutBtn" class="secondary hidden">Logout</button>
 </header>
 
-<div class="layout">
-<aside>
-  <div class="menu">
-    <button class="active" onclick="openPage('home',this)">▶ &nbsp; For You</button>
-    <button onclick="openPage('discover',this)">🌍 &nbsp; Discover</button>
-    <button onclick="openPage('upload',this)">＋ &nbsp; Create Video</button>
-    <button onclick="openPage('live',this)">🔴 &nbsp; Live</button>
-    <button onclick="openPage('profile',this)">👤 &nbsp; Profile</button>
-    <button onclick="openPage('wallet',this)">💰 &nbsp; Wallet & Earnings</button>
-    <button onclick="openPage('settings',this)">⚙ &nbsp; Settings</button>
-  </div>
-  <div class="promo">
-    <h3>✨ Creator Rewards</h3>
-    <p class="muted">Share your creativity. Build your audience. Explore future earning opportunities.</p>
-    <button class="primary" onclick="openPage('wallet')">Explore rewards</button>
-  </div>
-</aside>
-
 <main>
-<section id="home" class="page active">
-  <div class="row">
-    <div><h1>For You ✨</h1><p class="muted">Discover videos from around the world.</p></div>
-    <button onclick="openPage('upload')">＋ Create</button>
-  </div>
-  <div class="feed" id="feed"></div>
-</section>
+  <section class="card">
+    <h2>Welcome to GLOVIX 🌍</h2>
+    <p class="muted">Discover videos. Share your creativity. Connect with the world.</p>
+    <nav>
+      <button onclick="showPage('home')">Home</button>
+      <button onclick="showPage('discover')">Discover</button>
+      <button onclick="showPage('auth')">Login / Signup</button>
+      <button onclick="showPage('upload')">Upload</button>
+      <button onclick="showPage('profile')">Profile</button>
+    </nav>
+  </section>
 
-<section id="discover" class="page">
-  <h1>Discover 🌍</h1>
-  <p class="muted">Explore creators, trends and new videos.</p>
-  <div class="card">
-    <input id="search" placeholder="Search creators or hashtags..." oninput="searchPosts()">
-    <div class="actions">
-      <button onclick="filterPosts('All')">For You</button>
-      <button onclick="filterPosts('Music')">🎵 Music</button>
-      <button onclick="filterPosts('Gaming')">🎮 Gaming</button>
-      <button onclick="filterPosts('Style')">✨ Style</button>
-    </div>
-  </div>
-  <div class="feed" id="discoverFeed"></div>
-</section>
+  <section id="auth" class="card">
+    <h2>Join GLOVIX</h2>
+    <input id="username" placeholder="Username (signup only)">
+    <input id="email" type="email" placeholder="Email address">
+    <input id="password" type="password" placeholder="Password (minimum 6 characters)">
+    <button id="signupBtn">Create Account</button>
+    <button id="loginBtn" class="secondary">Login</button>
+    <button id="resetBtn" class="secondary">Reset Password</button>
+    <p id="authStatus" class="status"></p>
+  </section>
 
-<section id="upload" class="page">
-  <div class="card">
-    <h1>Create Video 🎬</h1>
-    <p class="muted">Select a video from your device and add a caption.</p>
-    <label>Choose video</label>
+  <section id="home" class="card">
+    <h2>🌟 Latest Videos</h2>
+    <p class="muted">Public videos shared on GLOVIX.</p>
+    <button id="refreshBtn">Refresh Feed</button>
+    <div id="feed"><p class="muted">Loading videos...</p></div>
+  </section>
+
+  <section id="discover" class="card hidden">
+    <h2>🔎 Discover</h2>
+    <input id="searchInput" placeholder="Search video captions or usernames">
+    <button id="searchBtn">Search</button>
+    <div id="searchResults"></div>
+  </section>
+
+  <section id="upload" class="card hidden">
+    <h2>📹 Upload Video</h2>
+    <p class="muted">Sign in first. Video size limit: 50 MB in this page.</p>
+    <input id="caption" maxlength="300" placeholder="Write a caption">
     <input id="videoFile" type="file" accept="video/*">
-    <label>Caption</label>
-    <textarea id="caption" rows="3" placeholder="Write a caption and add #hashtags"></textarea>
-    <label>Category</label>
-    <select id="category" style="width:100%;padding:12px;background:#080c16;color:white;border-radius:10px">
-      <option>Entertainment</option><option>Music</option><option>Gaming</option><option>Style</option><option>Education</option>
-    </select>
-    <p class="muted">Prototype uploads are only available in this browser session.</p>
-    <button class="primary" onclick="publishVideo()">Publish Video</button>
-    <p id="uploadMessage" class="muted"></p>
-  </div>
-</section>
+    <button id="uploadBtn">Upload Video</button>
+    <p id="uploadStatus" class="status"></p>
+  </section>
 
-<section id="profile" class="page">
-  <div class="card">
-    <div class="profile-head">
-      <div class="avatar" id="avatar">G</div>
-      <div><h1 id="profileName">Your Creator Profile</h1><p class="muted" id="profileHandle">@creator</p><span class="badge">✦ Creator profile</span></div>
-    </div>
-    <div class="stats">
-      <div class="stat"><strong id="postCount">0</strong>Videos</div>
-      <div class="stat"><strong id="followerCount">0</strong>Followers</div>
-      <div class="stat"><strong id="likeCount">0</strong>Likes</div>
-    </div>
-    <button class="primary" onclick="openPage('auth')">Create / Login</button>
-    <button onclick="editProfile()">Edit Profile</button>
-  </div>
-  <div class="grid3" id="profileVideos"></div>
-</section>
+  <section id="profile" class="card hidden">
+    <h2>👤 My Profile</h2>
+    <p id="profileEmail" class="muted">Login to view your profile.</p>
+    <input id="profileUsername" maxlength="30" placeholder="Your username">
+    <textarea id="bio" maxlength="160" placeholder="About you"></textarea>
+    <button id="saveProfileBtn">Save Profile</button>
+    <p id="profileStatus" class="status"></p>
+  </section>
 
-<section id="auth" class="page">
-  <div class="card">
-    <div class="logo">GLOV<span>IX</span></div>
-    <h1>Join the community</h1>
-    <p class="muted">Create your creator profile or sign in.</p>
-    <input id="nameInput" placeholder="Username">
-    <input id="emailInput" type="email" placeholder="Email address">
-    <input id="passwordInput" type="password" placeholder="Password">
-    <button class="primary" onclick="demoSignup()">Create Account</button>
-    <button onclick="demoLogin()">Login</button>
-    <p id="authMessage" class="muted">Demo only: connect a secure backend for real accounts.</p>
-  </div>
-</section>
-
-<section id="live" class="page">
-  <div class="card">
-    <h1>🔴 Live Studio</h1>
-    <p class="muted">Live streaming feature preview.</p>
-    <div class="video-box" style="border-radius:12px;height:280px"><span class="play-icon">🔴 LIVE</span></div>
-    <p>Real live broadcasting requires a streaming service and server setup.</p>
-    <button class="primary" onclick="alert('Live streaming needs backend setup.')">Start Live</button>
-  </div>
-</section>
-
-<section id="wallet" class="page">
-  <div class="card">
-    <h1>💰 Creator Wallet</h1>
-    <p class="muted">Your creator earnings dashboard preview.</p>
-    <div class="stats">
-      <div class="stat"><strong>$0.00</strong>Available</div>
-      <div class="stat"><strong id="walletViews">0</strong>Video views</div>
-      <div class="stat"><strong>—</strong>Rewards</div>
-    </div>
-    <p class="muted">This is not real money or a payment balance. Earnings require an approved monetization program, eligibility rules and a payment provider.</p>
-  </div>
-</section>
-
-<section id="settings" class="page">
-  <div class="card">
-    <h1>Settings ⚙</h1>
-    <button onclick="alert('Connect authentication to manage your account securely.')">Account</button>
-    <button onclick="alert('Privacy controls need backend support.')">Privacy</button>
-    <button onclick="alert('Notification settings coming with backend integration.')">Notifications</button>
-    <button onclick="alert('Help centre setup required.')">Help & Support</button>
-    <p class="muted">GLOVIX · Short Videos. Big Dreams.</p>
-  </div>
-</section>
+  <section class="card">
+    <h2>⚙️ Settings</h2>
+    <button class="secondary" onclick="document.body.style.background='#090914';document.body.style.color='#fff'">Dark Theme</button>
+    <button class="secondary" onclick="document.body.style.background='#f3f0ff';document.body.style.color='#171329'">Light Theme</button>
+    <p class="muted">GLOVIX — Made in Mian Abdullah</p>
+  </section>
 </main>
-</div>
 
-<div class="bottom-nav">
-  <button onclick="openPage('home')">🏠<br>Home</button>
-  <button onclick="openPage('discover')">🌍<br>Discover</button>
-  <button onclick="openPage('upload')">＋<br>Create</button>
-  <button onclick="openPage('wallet')">💰<br>Wallet</button>
-  <button onclick="openPage('profile')">👤<br>Profile</button>
-</div>
+<footer>GLOVIX © 2026 · Made in Mian Abdullah</footer>
 
-<footer>GLOVIX · Short Videos. Big Dreams. <br>Build · Share · Discover</footer>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import {
+    getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword,
+    updateProfile, signOut, onAuthStateChanged, sendPasswordResetEmail
+  } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+  import {
+    getFirestore, doc, setDoc, getDoc, addDoc, collection,
+    query, orderBy, limit, getDocs, serverTimestamp
+  } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+  import {
+    getStorage, ref, uploadBytesResumable, getDownloadURL
+  } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
 
-<script>
-let posts = [];
-let currentUser = null;
-let likes = new Set();
+  // IMPORTANT: Replace these placeholder values with your Firebase project config.
+  const firebaseConfig = {
+    apiKey: "YOUR_FIREBASE_API_KEY",
+    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_STORAGE_BUCKET",
+    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+    appId: "YOUR_FIREBASE_APP_ID"
+  };
 
-function openPage(id,button){
- document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
- document.getElementById(id).classList.add('active');
- document.querySelectorAll('.menu button').forEach(b=>b.classList.remove('active'));
- if(button) button.classList.add('active');
- if(id==='profile') renderProfile();
- if(id==='discover') renderPosts('discoverFeed');
-}
+  const configured = !Object.values(firebaseConfig).some(v =>
+    v.startsWith("YOUR_")
+  );
 
-function safe(s){
- return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-}
+  let auth, db, storage, currentUser = null;
 
-function renderPosts(target='feed',query='',category='All'){
- const root=document.getElementById(target);
- const items=posts.filter(p=>
-   (category==='All'||p.category===category)&&
-   (p.caption+' '+p.name).toLowerCase().includes(query.toLowerCase())
- );
- root.innerHTML=items.map(p=>`
- <article class="card video-card">
-  <div class="video-box">
-   ${p.url?`<video controls playsinline src="${p.url}"></video>`:`<span class="play-icon">▶</span>`}
-  </div>
-  <div class="video-info">
-   <strong>@${safe(p.name)}</strong>
-   <p>${safe(p.caption)}</p>
-   <div class="actions">
-    <button onclick="likeVideo(${p.id})">❤️ ${p.likes}</button>
-    <button onclick="commentVideo(${p.id})">💬 Comment</button>
-    <button onclick="followCreator('${safe(p.name)}')">＋ Follow</button>
-    <button onclick="shareVideo(${p.id})">↗ Share</button>
-   </div>
-   <p class="muted">${p.views} views · ${safe(p.category)}</p>
-  </div>
- </article>`).join('')||'<div class="card">No videos yet. Create the first one!</div>';
-}
+  const $ = id => document.getElementById(id);
+  const safe = value => String(value ?? "").replace(/[&<>"']/g, c => ({
+    "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
+  })[c]);
 
-function publishVideo(){
- const file=document.getElementById('videoFile').files[0];
- const caption=document.getElementById('caption').value.trim();
- const message=document.getElementById('uploadMessage');
- if(!file){message.textContent='Please choose a video first.';return}
- if(!file.type.startsWith('video/')){message.textContent='Please select a video file.';return}
- if(file.size>100*1024*1024){message.textContent='Please choose a video under 100 MB.';return}
- const url=URL.createObjectURL(file);
- posts.unshift({id:Date.now(),name:currentUser||'guest_creator',caption,url,category:document.getElementById('category').value,likes:0,views:0});
- message.textContent='Video added to this prototype.';
- document.getElementById('videoFile').value='';
- document.getElementById('caption').value='';
- renderPosts();
- openPage('home');
-}
+  window.showPage = function(page) {
+    ["auth", "home", "discover", "upload", "profile"].forEach(id => {
+      $(id).classList.toggle("hidden", id !== page);
+    });
+    if (page === "home") loadFeed();
+    if (page === "profile") loadProfile();
+  };
 
-function likeVideo(id){
- const p=posts.find(x=>x.id===id);if(!p)return;
- if(!likes.has(id)){p.likes++;likes.add(id)}else{p.likes--;likes.delete(id)}
- renderPosts();renderPosts('discoverFeed');
-}
-function commentVideo(id){
- const text=prompt('Write a comment:');
- if(text&&text.trim()) alert('Comment preview: '+text.trim()+' — real comments need a database.');
-}
-function followCreator(name){alert('Follow @'+name+' — real following needs user accounts and a database.')}
-function shareVideo(id){
- if(navigator.share) navigator.share({title:'GLOVIX video',text:'Watch this video on GLOVIX'});
- else alert('Video ID: '+id+' — public sharing links need hosting.');
-}
-function searchPosts(){renderPosts('discoverFeed',document.getElementById('search').value)}
-function filterPosts(category){renderPosts('discoverFeed','',category)}
+  function message(id, text) { $(id).textContent = text; }
 
-function demoSignup(){
- const name=document.getElementById('nameInput').value.trim();
- const email=document.getElementById('emailInput').value.trim();
- const password=document.getElementById('passwordInput').value;
- if(!name||!email||password.length<6){document.getElementById('authMessage').textContent='Enter username, email and a password of at least 6 characters.';return}
- currentUser=name.replace(/\s+/g,'_');
- document.getElementById('authMessage').textContent='Demo profile created in this page only. Connect backend for a real account.';
- updateProfile();
- openPage('profile');
-}
-function demoLogin(){
- document.getElementById('authMessage').textContent='Real login is not enabled yet. Connect Supabase or Firebase authentication.';
-}
-function updateProfile(){
- document.getElementById('profileName').textContent=currentUser||'Your Creator Profile';
- document.getElementById('profileHandle').textContent='@'+(currentUser||'creator');
- document.getElementById('avatar').textContent=(currentUser||'G').charAt(0).toUpperCase();
-}
-function renderProfile(){
- updateProfile();
- const own=posts.filter(p=>p.name===(currentUser||'guest_creator'));
- document.getElementById('postCount').textContent=own.length;
- document.getElementById('followerCount').textContent='0';
- document.getElementById('likeCount').textContent=own.reduce((sum,p)=>sum+p.likes,0);
- document.getElementById('profileVideos').innerHTML=own.map(p=>`<div class="tile">▶<br>${safe(p.caption||'Video')}</div>`).join('');
-}
-function editProfile(){
- const name=prompt('Enter your username:',currentUser||'');
- if(name&&name.trim()){currentUser=name.trim().replace(/\s+/g,'_');updateProfile();renderProfile()}
-}
-renderPosts();
+  if (!configured) {
+    message("authStatus",
+      "Setup required: Add your real Firebase config in index.html first.");
+    $("feed").innerHTML =
+      '<p class="muted">Firebase setup is required to load real videos.</p>';
+  } else {
+    try {
+      const app = initializeApp(firebaseConfig);
+      auth = getAuth(app);
+      db = getFirestore(app);
+      storage = getStorage(app);
+
+      onAuthStateChanged(auth, async user => {
+        currentUser = user;
+        $("logoutBtn").classList.toggle("hidden", !user);
+        $("profileEmail").textContent = user ? user.email : "Please login first.";
+        if (user) await loadProfile();
+        await loadFeed();
+      });
+    } catch (error) {
+      message("authStatus", "Firebase setup error: " + error.message);
+    }
+  }
+
+  $("signupBtn").onclick = async () => {
+    if (!auth) return message("authStatus", "Add Firebase configuration first.");
+    const name = $("username").value.trim();
+    const email = $("email").value.trim();
+    const password = $("password").value;
+    if (!name) return message("authStatus", "Please enter a username.");
+    try {
+      const result = await createUserWithEmailAndPassword(auth, email, password);
+      await updateProfile(result.user, { displayName: name });
+      await setDoc(doc(db, "profiles", result.user.uid), {
+        uid: result.user.uid,
+        username: name,
+        bio: "",
+        createdAt: serverTimestamp()
+      });
+      message("authStatus", "Account created successfully!");
+      showPage("profile");
+    } catch (e) {
+      message("authStatus", e.message);
+    }
+  };
+
+  $("loginBtn").onclick = async () => {
+    if (!auth) return message("authStatus", "Add Firebase configuration first.");
+    try {
+      await signInWithEmailAndPassword(
+        auth, $("email").value.trim(), $("password").value
+      );
+      message("authStatus", "Login successful!");
+      showPage("home");
+    } catch (e) {
+      message("authStatus", e.message);
+    }
+  };
+
+  $("resetBtn").onclick = async () => {
+    if (!auth) return message("authStatus", "Add Firebase configuration first.");
+    const email = $("email").value.trim();
+    if (!email) return message("authStatus", "Enter your email first.");
+    try {
+      await sendPasswordResetEmail(auth, email);
+      message("authStatus", "Password reset email sent. Check your inbox.");
+    } catch (e) {
+      message("authStatus", e.message);
+    }
+  };
+
+  $("logoutBtn").onclick = async () => {
+    if (!auth) return;
+    try { await signOut(auth); message("authStatus", "Logged out."); }
+    catch (e) { message("authStatus", e.message); }
+  };
+
+  async function loadProfile() {
+    if (!currentUser || !db) return;
+    try {
+      const snap = await getDoc(doc(db, "profiles", currentUser.uid));
+      if (snap.exists()) {
+        const data = snap.data();
+        $("profileUsername").value = data.username || currentUser.displayName || "";
+        $("bio").value = data.bio || "";
+      }
+    } catch (e) {
+      message("profileStatus", e.message);
+    }
+  }
+
+  $("saveProfileBtn").onclick = async () => {
+    if (!currentUser) return message("profileStatus", "Please login first.");
+    const username = $("profileUsername").value.trim();
+    const bio = $("bio").value.trim();
+    if (!username) return message("profileStatus", "Enter a username.");
+    try {
+      await setDoc(doc(db, "profiles", currentUser.uid), {
+        uid: currentUser.uid, username, bio
+      }, { merge: true });
+      await updateProfile(currentUser, { displayName: username });
+      message("profileStatus", "Profile saved!");
+      await loadFeed();
+    } catch (e) {
+      message("profileStatus", e.message);
+    }
+  };
+
+  $("uploadBtn").onclick = async () => {
+    if (!currentUser) return message("uploadStatus", "Please login first.");
+    const file = $("videoFile").files[0];
+    const caption = $("caption").value.trim();
+    if (!file) return message("uploadStatus", "Choose a video first.");
+    if (!file.type.startsWith("video/"))
+      return message("uploadStatus", "Please select a video file.");
+    if (file.size > 50 * 1024 * 1024)
+      return message("uploadStatus", "Video must be smaller than 50 MB.");
+
+    $("uploadBtn").disabled = true;
+    try {
+      const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, "_");
+      const path = `videos/${currentUser.uid}/${Date.now()}_${safeName}`;
+      const task = uploadBytesResumable(ref(storage, path), file);
+      await new Promise((resolve, reject) => {
+        task.on("state_changed", snapshot => {
+          const percent = Math.round(
+            snapshot.bytesTransferred / snapshot.totalBytes * 100
+          );
+          message("uploadStatus", `Uploading: ${percent}%`);
+        }, reject, resolve);
+      });
+      const videoURL = await getDownloadURL(task.snapshot.ref);
+      const profile = await getDoc(doc(db, "profiles", currentUser.uid));
+      const username = profile.exists()
+        ? profile.data().username || currentUser.displayName || "User"
+        : currentUser.displayName || "User";
+      await addDoc(collection(db, "posts"), {
+        uid: currentUser.uid,
+        username,
+        caption,
+        videoURL,
+        createdAt: serverTimestamp()
+      });
+      message("uploadStatus", "Video uploaded successfully!");
+      $("caption").value = "";
+      $("videoFile").value = "";
+      await loadFeed();
+      showPage("home");
+    } catch (e) {
+      message("uploadStatus", "Upload failed: " + e.message);
+    } finally {
+      $("uploadBtn").disabled = false;
+    }
+  };
+
+  async function getPosts() {
+    if (!db) return [];
+    const q = query(collection(db, "posts"), orderBy("createdAt", "desc"), limit(50));
+    const snaps = await getDocs(q);
+    return snaps.docs.map(d => ({ id: d.id, ...d.data() }));
+  }
+
+  function renderPosts(container, posts) {
+    container.replaceChildren();
+    if (!posts.length) {
+      container.innerHTML = '<p class="muted">No videos yet. Be the first to upload!</p>';
+      return;
+    }
+    posts.forEach(post => {
+      const card = document.createElement("article");
+      card.className = "card";
+      card.innerHTML = `
+        <div class="username">${safe(post.username || "GLOVIX user")}</div>
+        <p>${safe(post.caption || "")}</p>
+        <video class="video" controls playsinline preload="metadata"
+          src="${safe(post.videoURL || "")}"></video>
+        <p class="muted">GLOVIX video</p>`;
+      container.appendChild(card);
+    });
+  }
+
+  async function loadFeed() {
+    if (!db) return;
+    try {
+      renderPosts($("feed"), await getPosts());
+    } catch (e) {
+      $("feed").textContent = "Could not load feed: " + e.message;
+    }
+  }
+
+  $("refreshBtn").onclick = loadFeed;
+
+  $("searchBtn").onclick = async () => {
+    if (!db) return message("searchResults", "Set up Firebase first.");
+    const term = $("searchInput").value.trim().toLowerCase();
+    try {
+      const posts = await getPosts();
+      const matches = posts.filter(p =>
+        String(p.caption || "").toLowerCase().includes(term) ||
+        String(p.username || "").toLowerCase().includes(term)
+      );
+      renderPosts($("searchResults"), matches);
+    } catch (e) {
+      message("searchResults", "Search error: " + e.message);
+    }
+  };
 </script>
 </body>
 </html>
