@@ -119,11 +119,11 @@ progress{width:100%;height:10px;accent-color:#d94a7c}
     <button class="primary full" type="submit" id="loginBtn">Log In</button>
     <button class="secondary full" type="button" id="signupBtn">Create Account</button>
     <button class="secondary full" type="button" id="resetBtn">Forgot Password?</button>
+    <button class="secondary full" type="button" id="googleBtn"onclick="googleLogin()">Continue with Google</button>
   </form>
-  <div id="message" role="status" aria-live="polite"></div>
-  <p class="small-note">Use your own account. Never share your password.</p>
+    <div id="message" role="status" aria-live="polite"></div>
+    <p class="small-note">Use your own account. Never share your password.</p>p>
 </section>
-
 <div id="app">
   <main>
     <section class="stories">
@@ -137,7 +137,6 @@ progress{width:100%;height:10px;accent-color:#d94a7c}
     <div class="search-wrap" id="searchWrap" style="display:none">
       <input id="searchInput" placeholder="Search captions or creators...">
     </div>
-
     <section id="uploadPanel" class="panel">
       <h3>🎬 Create a Reel</h3>
       <label for="captionInput">Caption</label>
