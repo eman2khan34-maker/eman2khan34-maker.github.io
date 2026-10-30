@@ -2,506 +2,623 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#000000">
-  <title>GLOVIX — Made in Mian Abdullah</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#080808">
+<title>GLOVIX — Made in Mian Abdullah</title>
 
-  <!-- Google AdSense: kept in the HEAD -->
-  <script async
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2283215274944"
-    crossorigin="anonymous"></script>
-
-  <!-- Firebase v10.7.1 import map -->
-  <script type="importmap">
-  {
-    "imports": {
-      "firebase/app": "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js",
-      "firebase/auth": "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js"
-    }
-  }
-  </script>
-
-  <style>
-    :root {
-      --black: #000000;
-      --panel: #101010;
-      --line: #292929;
-      --gradient: linear-gradient(115deg, #fa7e1e, #d6262fbf, #4f5bd5);
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background: #000000;
-      color: #ffffff;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    header {
-      min-height: 76px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 14px 6%;
-      border-bottom: 1px solid #222;
-      background: #000;
-      position: sticky;
-      top: 0;
-      z-index: 5;
-    }
-
-    .logo {
-      font-size: 30px;
-      font-weight: 900;
-      letter-spacing: 1px;
-      margin: 0;
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .made {
-      font-size: 10px;
-      letter-spacing: 1.5px;
-      color: #aaa;
-      margin-top: 5px;
-    }
-
-    .gradient-text {
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    main {
-      width: 100%;
-      max-width: 460px;
-      margin: 38px auto;
-      padding: 0 16px;
-    }
-
-    .card {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 26px;
-      box-shadow: 0 12px 40px #000;
-    }
-
-    h1 {
-      font-size: 28px;
-      margin: 0 0 8px;
-    }
-
-    .subtitle {
-      color: #aaa;
-      line-height: 1.6;
-      font-size: 14px;
-      margin-bottom: 23px;
-    }
-
-    label {
-      display: block;
-      margin: 15px 0 7px;
-      font-size: 13px;
-      color: #ddd;
-    }
-
-    input {
-      width: 100%;
-      background: #080808;
-      color: #fff;
-      border: 1px solid #353535;
-      border-radius: 10px;
-      padding: 14px;
-      font-size: 15px;
-      outline: none;
-    }
-
-    input:focus {
-      border-color: #d94b6a;
-      box-shadow: 0 0 0 2px #d94b6a22;
-    }
-
-    button {
-      font-size: 14px;
-      font-weight: bold;
-      border: 0;
-      border-radius: 10px;
-      padding: 13px 15px;
-      cursor: pointer;
-      transition: opacity .2s;
-    }
-
-    button:disabled {
-      opacity: .5;
-      cursor: not-allowed;
-    }
-
-    .primary {
-      width: 100%;
-      margin-top: 18px;
-      color: #fff;
-      background: var(--gradient);
-    }
-
-    .secondary {
-      width: 100%;
-      margin-top: 10px;
-      color: #fff;
-      background: #242424;
-      border: 1px solid #393939;
-    }
-
-    .small-btn {
-      background: transparent;
-      color: #ff8b8b;
-      padding: 8px 0;
-    }
-
-    #message {
-      display: none;
-      padding: 12px;
-      border-radius: 9px;
-      margin-top: 16px;
-      font-size: 13px;
-      line-height: 1.5;
-      overflow-wrap: anywhere;
-      background: #191919;
-      border: 1px solid #333;
-    }
-
-    #message.show { display: block; }
-    #message.error { color: #ff8585; }
-    #message.success { color: #9ce6b0; }
-
-    #dashboard { display: none; }
-    #dashboard.show { display: block; }
-
-    .profile-icon {
-      width: 75px;
-      height: 75px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      margin-bottom: 18px;
-      background: var(--gradient);
-      font-size: 30px;
-      font-weight: bold;
-    }
-
-    .account-email {
-      overflow-wrap: anywhere;
-      color: #bbb;
-      line-height: 1.6;
-    }
-
-    .notice {
-      color: #999;
-      font-size: 12px;
-      line-height: 1.6;
-      margin-top: 18px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 25px 12px 35px;
-      color: #888;
-      font-size: 11px;
-      letter-spacing: 1.3px;
-      line-height: 2;
-    }
-
-    @media (max-width: 480px) {
-      header { padding: 12px 16px; }
-      .logo { font-size: 30px; }
-      main { margin: 25px auto; }
-      .card { padding: 21px; }
-    }
-  </style>
+<style>
+:root{
+  --bg:#080808;--panel:#141414;--line:#292929;--text:#fff;--muted:#aaa;
+  --grad:linear-gradient(115deg,#fa7e1e,#d6262f,#4f5bd5);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif}
+button,input,textarea{font:inherit}
+button{cursor:pointer}
+header{
+  position:sticky;top:0;z-index:10;background:#080808f5;
+  border-bottom:1px solid var(--line);padding:12px 15px;
+  display:flex;align-items:center;justify-content:space-between
+}
+.logo{font-size:28px;font-weight:900;letter-spacing:1px}
+.gradient-text{
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent
+}
+.made{font-size:9px;letter-spacing:1.5px;color:#aaa;margin-top:4px}
+.header-btn,.primary{
+  color:white;border:0;border-radius:10px;padding:11px 15px;
+  background:var(--grad);font-weight:bold
+}
+main{max-width:650px;margin:auto;padding-bottom:95px}
+#authPanel{max-width:420px;margin:28px auto;padding:18px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:17px}
+input,textarea{
+  width:100%;padding:13px;margin:7px 0 12px;border:1px solid #393939;
+  border-radius:9px;background:#090909;color:white;outline:none
+}
+label{font-size:13px;color:#ddd}
+.full{width:100%;margin:5px 0}
+.secondary{background:#272727;color:#fff;border:1px solid #3b3b3b;border-radius:9px;padding:10px}
+#message{font-size:13px;color:#ff9e9e;line-height:1.5;overflow-wrap:anywhere;margin-top:12px}
+#authPanel .sub{color:var(--muted);font-size:13px;line-height:1.6}
+#app{display:none}
+.stories{display:flex;gap:15px;overflow-x:auto;padding:15px;border-bottom:1px solid var(--line)}
+.story{flex:0 0 68px;text-align:center;font-size:11px;color:#ddd;overflow:hidden}
+.ring{width:61px;height:61px;border-radius:50%;padding:3px;background:var(--grad);margin:0 auto 6px}
+.ring-inner{width:100%;height:100%;border-radius:50%;border:3px solid #080808;background:#262626;
+display:grid;place-items:center;font-size:22px;font-weight:bold;overflow:hidden}
+.ring-inner img{width:100%;height:100%;object-fit:cover}
+.section-title{padding:15px 15px 5px;font-weight:bold}
+.search-wrap{padding:10px 14px}
+.search-wrap input{margin:0}
+.post{border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:12px}
+.post-head{display:flex;align-items:center;gap:10px;padding:12px 14px}
+.avatar{height:39px;width:39px;flex:0 0 39px;border-radius:50%;background:var(--grad);
+display:grid;place-items:center;font-weight:bold}
+.post-user{font-size:13px;font-weight:bold;overflow-wrap:anywhere}
+.post-date{font-size:11px;color:var(--muted);margin-top:4px}
+.video-box{background:#000;max-height:75vh;min-height:240px;display:flex;justify-content:center}
+.video-box video{width:100%;max-height:75vh;object-fit:contain;background:#000}
+.caption{padding:11px 14px;font-size:14px;line-height:1.5;overflow-wrap:anywhere;white-space:pre-wrap}
+.actions{display:flex;flex-wrap:wrap;gap:5px;padding:0 10px}
+.action{border:0;background:transparent;color:white;border-radius:7px;padding:9px 8px;font-size:12px}
+.action:hover{background:#252525}
+.action.liked{color:#ff5475}
+.comment-area{display:none;padding:10px 14px}
+.comment-area.show{display:block}
+.comment-list{font-size:12px;line-height:1.6;color:#ddd}
+.comment-row{padding:7px 0;border-bottom:1px solid #292929;overflow-wrap:anywhere}
+.comment-form{display:flex;gap:6px;align-items:center}
+.comment-form input{margin:8px 0;min-width:0}
+.comment-form button{flex-shrink:0}
+.empty{text-align:center;color:#aaa;padding:35px 20px;line-height:1.7}
+#uploadProgressWrap{display:none;margin-top:12px}
+progress{width:100%;height:10px;accent-color:#d94a7c}
+#uploadPercent{font-size:12px;color:#ddd}
+#uploadPanel{display:none;margin:14px}
+#profilePanel{display:none;margin:14px}
+#profilePanel h3{overflow-wrap:anywhere}
+.bottom-nav{
+  position:fixed;bottom:0;left:0;right:0;z-index:20;background:#080808f5;
+  border-top:1px solid #292929;display:flex;justify-content:space-around;
+  padding:9px 3px calc(9px + env(safe-area-inset-bottom))
+}
+.nav-btn{background:none;border:0;color:#aaa;min-width:48px;font-size:11px;padding:4px}
+.nav-btn .ico{font-size:22px;display:block;margin-bottom:4px}
+.nav-btn.active{color:#fff}
+.nav-btn.active .ico{background:var(--grad);background-clip:text;-webkit-background-clip:text;color:transparent}
+.small-note{font-size:11px;color:#888;line-height:1.6}
+@media(min-width:700px){
+  main{margin-top:10px}
+  .stories{border:1px solid var(--line);border-radius:12px;margin:12px}
+  .post{border:1px solid var(--line);border-radius:12px;margin:12px 0;overflow:hidden}
+}
+</style>
 </head>
-
 <body>
-  <header>
-    <div>
-      <div class="logo">GLOVIX</div>
-      <div class="made">MADE IN MIAN ABDULLAH</div>
-    </div>
-    <div class="gradient-text" style="font-weight:bold">CONNECT GLOBALLY</div>
-  </header>
 
+<header>
+  <div>
+    <div class="logo gradient-text">GLOVIX</div>
+    <div class="made">MADE IN MIAN ABDULLAH</div>
+  </div>
+  <button class="header-btn" id="topUpload">＋ Upload</button>
+</header>
+
+<section id="authPanel" class="panel">
+  <h2 class="gradient-text">Welcome to GLOVIX</h2>
+  <p class="sub">Share your moments with the world.<br>MADE IN MIAN ABDULLAH</p>
+  <form id="authForm">
+    <label for="displayName">Username (for new accounts)</label>
+    <input id="displayName" placeholder="Your name" autocomplete="nickname">
+    <label for="email">Email</label>
+    <input id="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+    <label for="password">Password</label>
+    <input id="password" type="password" placeholder="At least 6 characters" minlength="6" autocomplete="current-password" required>
+    <button class="primary full" type="submit" id="loginBtn">Log In</button>
+    <button class="secondary full" type="button" id="signupBtn">Create Account</button>
+    <button class="secondary full" type="button" id="resetBtn">Forgot Password?</button>
+  </form>
+  <div id="message" role="status" aria-live="polite"></div>
+  <p class="small-note">Use your own account. Never share your password.</p>
+</section>
+
+<div id="app">
   <main>
-    <section class="card" id="authCard">
-      <h1><span class="gradient-text">Welcome</span> to GLOVIX</h1>
-      <p class="subtitle">
-        Create your account or sign in to continue.
-        <br>MADE IN MIAN ABDULLAH
-      </p>
-
-      <form id="authForm">
-        <label for="email">Email address</label>
-        <input
-          id="email"
-          type="email"
-          placeholder="you@example.com"
-          autocomplete="email"
-          required
-        >
-
-        <label for="password">Password</label>
-        <input
-          id="password"
-          type="password"
-          placeholder="At least 6 characters"
-          autocomplete="current-password"
-          minlength="6"
-          required
-        >
-
-        <button class="primary" id="loginButton" type="submit">
-          LOG IN
-        </button>
-
-        <button class="secondary" id="signupButton" type="button">
-          CREATE NEW ACCOUNT
-        </button>
-
-        <button class="small-btn" id="resetButton" type="button">
-          Forgot password?
-        </button>
-      </form>
-
-      <div id="message" role="status" aria-live="polite"></div>
-
-      <p class="notice">
-        By continuing, you agree to use GLOVIX responsibly.
-        Keep your password private.
-        <br>MADE IN MIAN ABDULLAH
-      </p>
+    <section class="stories">
+      <div class="story">
+        <div class="ring"><div class="ring-inner">＋</div></div>
+        Your story
+      </div>
+      <div id="storyItems" style="display:flex;gap:15px"></div>
     </section>
 
-    <section class="card" id="dashboard">
-      <div class="profile-icon">G</div>
-      <h1>You're <span class="gradient-text">signed in!</span></h1>
-      <p class="subtitle">Welcome to your GLOVIX account.</p>
-      <p class="account-email" id="accountEmail"></p>
+    <div class="search-wrap" id="searchWrap" style="display:none">
+      <input id="searchInput" placeholder="Search captions or creators...">
+    </div>
+
+    <section id="uploadPanel" class="panel">
+      <h3>🎬 Create a Reel</h3>
+      <label for="captionInput">Caption</label>
+      <textarea id="captionInput" rows="3" maxlength="2000" placeholder="Write a caption..."></textarea>
+      <label for="videoInput">Choose video</label>
+      <input id="videoInput" type="file" accept="video/*">
+      <button id="publishBtn" class="primary full">Upload & Publish</button>
+      <div id="uploadProgressWrap">
+        <progress id="uploadProgress" value="0" max="100"></progress>
+        <div id="uploadPercent">0%</div>
+      </div>
+      <div id="uploadMessage" class="small-note"></div>
+    </section>
+
+    <section id="profilePanel" class="panel">
+      <div class="avatar" id="profileAvatar">G</div>
+      <h3 id="profileName">Your profile</h3>
+      <p id="profileEmail" class="small-note"></p>
+      <p id="profileStats" class="small-note"></p>
+      <button id="showAllBtn" class="secondary">Show all videos</button>
+      <button id="logoutBtn" class="secondary">Log Out</button>
       <p class="made">MADE IN MIAN ABDULLAH</p>
-      <button class="secondary" id="logoutButton" type="button">
-        LOG OUT
-      </button>
-      <div id="dashboardMessage" class="notice"></div>
+    </section>
+
+    <div class="section-title" id="feedTitle">Reels & Posts</div>
+    <section id="feed">
+      <div class="empty">Connecting to GLOVIX...</div>
     </section>
   </main>
 
-  <footer>
-    GLOVIX © <span id="year"></span><br>
-    MADE IN MIAN ABDULLAH · MADE WITH CARE
-  </footer>
+  <nav class="bottom-nav">
+    <button class="nav-btn active" data-tab="home"><span class="ico">⌂</span>Home</button>
+    <button class="nav-btn" data-tab="reels"><span class="ico">▶</span>Reels</button>
+    <button class="nav-btn" data-tab="upload"><span class="ico">＋</span>Upload</button>
+    <button class="nav-btn" data-tab="search"><span class="ico">⌕</span>Search</button>
+    <button class="nav-btn" data-tab="profile"><span class="ico">◎</span>Profile</button>
+  </nav>
+</div>
 
-  <script type="module">
-    import { initializeApp }
-      from "firebase/app";
+<footer style="text-align:center;padding:22px;color:#777;font-size:10px;letter-spacing:1px">
+  GLOVIX · MADE IN MIAN ABDULLAH
+</footer>
 
-    import {
-      initializeAuth,
-      browserLocalPersistence,
-      createUserWithEmailAndPassword,
-      signInWithEmailAndPassword,
-      signOut,
-      onAuthStateChanged,
-      sendPasswordResetEmail
-    } from "firebase/auth";
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import {
+  getAuth, setPersistence, browserLocalPersistence,
+  createUserWithEmailAndPassword, signInWithEmailAndPassword,
+  onAuthStateChanged, signOut, updateProfile, sendPasswordResetEmail
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import {
+  getFirestore, collection, addDoc, doc, getDoc, getDocs,
+  onSnapshot, query, orderBy, where, serverTimestamp,
+  setDoc, deleteDoc
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import {
+  getStorage, ref, uploadBytesResumable, getDownloadURL
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
 
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// Copy the exact config from Firebase Console > Project settings > Your apps.
+// Check apiKey and appId carefully if they do not work.
 const firebaseConfig = {
-  apiKey: "AIzaSyCXn3NFLxGNpUEgWdXNVS0Nz6-uTMKG78o",
+  apiKey: "AIzaSyCXn3NFLXGNpUEWdXNVSONS-z6-uTMKG78o",
   authDomain: "glovix-bfdec.firebaseapp.com",
   projectId: "glovix-bfdec",
   storageBucket: "glovix-bfdec.firebasestorage.app",
   messagingSenderId: "223762437338",
-  appId: "1:223762437338:web:230026374f9112936901e3",
-  measurementId: "G-JDN1ZT5CS5"
+  appId: "1:223762437338:web:2300263744f9112936901e3"
 };
-    const app = initializeApp(firebaseConfig);
 
-    // Explicit local persistence; no popup or redirect resolver needed.
-    // This page uses email/password, not phone-number reCAPTCHA.
-    const auth = initializeAuth(app, {
-      persistence: browserLocalPersistence
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+const storage = getStorage(app);
+
+const $ = id => document.getElementById(id);
+let currentUser = null;
+let allVideos = [];
+let activeTab = "home";
+let stopFeed = null;
+let stopLikes = null;
+let stopComments = {};
+let likedIds = new Set();
+let likeCounts = {};
+let commentCounts = {};
+let followingIds = new Set();
+let followCounts = {};
+let activeFilterUid = null;
+
+function escapeHTML(value) {
+  return String(value ?? "").replace(/[&<>"']/g, ch => ({
+    "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
+  })[ch]);
+}
+function say(text) { $("message").textContent = text; }
+function errorText(error) {
+  const messages = {
+    "auth/email-already-in-use":"This email already has an account. Please log in.",
+    "auth/invalid-email":"Enter a valid email address.",
+    "auth/weak-password":"Choose a stronger password (minimum 6 characters).",
+    "auth/invalid-credential":"Email or password is incorrect.",
+    "auth/operation-not-allowed":"Enable Email/Password in Firebase Authentication settings.",
+    "auth/unauthorized-domain":"Add your exact GitHub Pages hostname to Firebase Authorized domains.",
+    "auth/network-request-failed":"Network error. Check your internet connection.",
+    "permission-denied":"Firebase rules blocked this action. Check Firestore/Storage rules."
+  };
+  return messages[error.code] || (error.message || "Something went wrong.") +
+    " [" + (error.code || "error") + "]";
+}
+function userName(user) {
+  return user?.displayName || user?.email?.split("@")[0] || "GLOVIX User";
+}
+function initials(name) {
+  return (name || "G").trim().slice(0,1).toUpperCase();
+}
+function dateText(ts) {
+  return ts?.toDate ? ts.toDate().toLocaleString() : "Just now";
+}
+function videoOwner(v) {
+  if (typeof v.user === "object" && v.user) {
+    return { uid:v.user.uid || "", name:v.user.name || "GLOVIX User" };
+  }
+  return { uid:v.userId || "", name:String(v.user || "GLOVIX User") };
+}
+function videoURL(v) { return v.videoUrl || v.videourl || v.url || ""; }
+
+function setBusy(busy) {
+  $("loginBtn").disabled = busy;
+  $("signupBtn").disabled = busy;
+  $("loginBtn").textContent = busy ? "Please wait..." : "Log In";
+}
+$("authForm").addEventListener("submit", async e => {
+  e.preventDefault();
+  setBusy(true);
+  try {
+    await signInWithEmailAndPassword(auth, $("email").value.trim(), $("password").value);
+  } catch (error) {
+    say(errorText(error));
+  } finally { setBusy(false); }
+});
+$("signupBtn").addEventListener("click", async () => {
+  const email = $("email").value.trim();
+  const password = $("password").value;
+  const name = $("displayName").value.trim();
+  if (!email || password.length < 6) {
+    say("Enter a valid email and password with at least 6 characters."); return;
+  }
+  setBusy(true);
+  try {
+    const result = await createUserWithEmailAndPassword(auth, email, password);
+    if (name) await updateProfile(result.user, {displayName:name});
+    say("Account created!");
+  } catch (error) { say(errorText(error)); }
+  finally { setBusy(false); }
+});
+$("resetBtn").addEventListener("click", async () => {
+  const email = $("email").value.trim();
+  if (!email) { say("Enter your email first."); return; }
+  try {
+    await sendPasswordResetEmail(auth, email);
+    say("If an account exists, a password reset email has been sent.");
+  } catch (error) { say(errorText(error)); }
+});
+$("logoutBtn").addEventListener("click", () => signOut(auth));
+
+async function startPersistence() {
+  await setPersistence(auth, browserLocalPersistence);
+}
+startPersistence().catch(err => console.error("Persistence error:", err));
+
+function listenFeed() {
+  if (stopFeed) stopFeed();
+  const q = query(collection(db, "videos"), orderBy("createdAt", "desc"));
+  stopFeed = onSnapshot(q, snap => {
+    allVideos = snap.docs.map(d => ({id:d.id, ...d.data()}));
+    buildStories();
+    renderFeed();
+    updateProfileStats();
+  }, err => {
+    $("feed").innerHTML = `<div class="empty">Could not load feed.<br>${escapeHTML(errorText(err))}</div>`;
+  });
+}
+function listenLikes() {
+  if (stopLikes) stopLikes();
+  if (!currentUser) return;
+  stopLikes = onSnapshot(query(collection(db,"likes"),where("userId","==",currentUser.uid)), snap => {
+    likedIds = new Set(snap.docs.map(d => d.data().videoId));
+    renderFeed();
+  }, err => console.warn("Likes:", err));
+}
+function buildStories() {
+  const owners = new Map();
+  for (const v of allVideos) {
+    const o = videoOwner(v);
+    if (o.uid && !owners.has(o.uid)) owners.set(o.uid,o);
+  }
+  $("storyItems").innerHTML = [...owners.values()].slice(0,20).map(o => `
+    <div class="story">
+      <div class="ring"><div class="ring-inner">${escapeHTML(initials(o.name))}</div></div>
+      ${escapeHTML(o.name.slice(0,12))}
+    </div>`).join("");
+}
+function visibleVideos() {
+  let list = [...allVideos];
+  if (activeFilterUid) list = list.filter(v => videoOwner(v).uid === activeFilterUid);
+  if (activeTab === "profile" && currentUser) {
+    list = list.filter(v => videoOwner(v).uid === currentUser.uid);
+  }
+  if (activeTab === "following" && currentUser) {
+    list = list.filter(v => followingIds.has(videoOwner(v).uid));
+  }
+  if (activeTab === "search") {
+    const term = $("searchInput").value.trim().toLowerCase();
+    if (term) list = list.filter(v =>
+      String(v.caption || "").toLowerCase().includes(term) ||
+      videoOwner(v).name.toLowerCase().includes(term)
+    );
+  }
+  return list;
+}
+function renderFeed() {
+  if (!currentUser) return;
+  const list = visibleVideos();
+  $("feedTitle").textContent =
+    activeFilterUid ? "Creator Videos" :
+    activeTab === "profile" ? "My Videos" :
+    activeTab === "search" ? "Search Results" :
+    activeTab === "reels" ? "Reels" : "Latest Videos";
+
+  if (!list.length) {
+    $("feed").innerHTML = `<div class="empty">No videos found.<br>Upload the first video to GLOVIX!</div>`;
+    return;
+  }
+  $("feed").innerHTML = list.map(v => {
+    const owner = videoOwner(v);
+    const url = videoURL(v);
+    const liked = likedIds.has(v.id);
+    const isSelf = owner.uid === currentUser.uid;
+    const following = followingIds.has(owner.uid);
+    return `
+      <article class="post" id="post-${escapeHTML(v.id)}">
+        <div class="post-head">
+          <div class="avatar">${escapeHTML(initials(owner.name))}</div>
+          <div style="min-width:0;flex:1">
+            <div class="post-user">${escapeHTML(owner.name)}</div>
+            <div class="post-date">${escapeHTML(dateText(v.createdAt))}</div>
+          </div>
+          ${owner.uid && !isSelf ? `<button class="secondary" data-follow="${escapeHTML(owner.uid)}">${following ? "Following" : "Subscribe"}</button>` : ""}
+        </div>
+        <div class="video-box">
+          <video controls playsinline preload="metadata" loop src="${escapeHTML(url)}"></video>
+        </div>
+        <div class="actions">
+          <button class="action ${liked ? "liked" : ""}" data-like="${escapeHTML(v.id)}">${liked ? "♥ Liked" : "♡ Like"} · ${likeCounts[v.id] || 0}</button>
+          <button class="action" data-comments="${escapeHTML(v.id)}">💬 Comment · ${commentCounts[v.id] || 0}</button>
+          <button class="action" data-share="${escapeHTML(v.id)}">↗ Share</button>
+        </div>
+        <div class="caption"><strong>${escapeHTML(owner.name)}</strong> ${escapeHTML(v.caption || "")}</div>
+        <div class="comment-area" id="comments-${escapeHTML(v.id)}">
+          <div class="comment-list" id="commentList-${escapeHTML(v.id)}">Open comments to load them.</div>
+          <form class="comment-form" data-commentform="${escapeHTML(v.id)}">
+            <input name="comment" maxlength="1000" placeholder="Add a comment..." required>
+            <button class="primary" type="submit">Send</button>
+          </form>
+        </div>
+      </article>`;
+  }).join("");
+}
+$("feed").addEventListener("click", async e => {
+  const likeBtn = e.target.closest("[data-like]");
+  const commentBtn = e.target.closest("[data-comments]");
+  const shareBtn = e.target.closest("[data-share]");
+  const followBtn = e.target.closest("[data-follow]");
+  if (likeBtn) await toggleLike(likeBtn.dataset.like);
+  if (commentBtn) await toggleComments(commentBtn.dataset.comments);
+  if (shareBtn) await shareVideo(shareBtn.dataset.share);
+  if (followBtn) await toggleFollow(followBtn.dataset.follow);
+});
+$("feed").addEventListener("submit", async e => {
+  const form = e.target.closest("[data-commentform]");
+  if (!form) return;
+  e.preventDefault();
+  const id = form.dataset.commentform;
+  const text = new FormData(form).get("comment").toString().trim();
+  if (!text) return;
+  try {
+    await addDoc(collection(db,"comments"), {
+      videoId:id, userId:currentUser.uid, userName:userName(currentUser),
+      text, createdAt:serverTimestamp()
     });
+    form.reset();
+    await loadComments(id);
+  } catch (err) { alert(errorText(err)); }
+});
 
-    const authCard = document.getElementById("authCard");
-    const dashboard = document.getElementById("dashboard");
-    const messageBox = document.getElementById("message");
-    const loginButton = document.getElementById("loginButton");
-    const signupButton = document.getElementById("signupButton");
-    const resetButton = document.getElementById("resetButton");
-    const logoutButton = document.getElementById("logoutButton");
-    const authForm = document.getElementById("authForm");
-
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
-
-    function showMessage(text, type = "error") {
-      messageBox.textContent = text;
-      messageBox.className = "show " + type;
-    }
-
-    function firebaseMessage(error) {
-      const messages = {
-        "auth/email-already-in-use":
-          "This email already has an account. Please log in.",
-        "auth/invalid-email":
-          "Please enter a valid email address.",
-        "auth/weak-password":
-          "Choose a stronger password with at least 6 characters.",
-        "auth/invalid-credential":
-          "Email or password is incorrect.",
-        "auth/user-not-found":
-          "No account found. Please create an account first.",
-        "auth/wrong-password":
-          "Email or password is incorrect.",
-        "auth/too-many-requests":
-          "Too many attempts. Please wait and try again.",
-        "auth/network-request-failed":
-          "Network error. Check your internet connection.",
-        "auth/operation-not-allowed":
-          "Email/password login is disabled in Firebase Console. Enable it under Authentication → Sign-in method.",
-        "auth/unauthorized-domain":
-          "This website domain is not authorized. Add your exact GitHub Pages hostname in Firebase Authentication settings.",
-        "auth/invalid-api-key":
-          "Firebase API key is invalid. Copy the correct Web App config from Firebase Console."
-      };
-
-      return messages[error.code] ||
-        (error.message || "Something went wrong.") +
-        " (Code: " + (error.code || "unknown") + ")";
-    }
-
-    function getCredentials() {
-      return {
-        email: document.getElementById("email").value.trim(),
-        password: document.getElementById("password").value
-      };
-    }
-
-    function setBusy(busy) {
-      loginButton.disabled = busy;
-      signupButton.disabled = busy;
-      resetButton.disabled = busy;
-      loginButton.textContent = busy ? "PLEASE WAIT..." : "LOG IN";
-    }
-
-    // Login function
-    async function login() {
-      const { email, password } = getCredentials();
-
-      if (!email || !password) {
-        showMessage("Please enter your email and password.");
-        return;
-      }
-
-      setBusy(true);
-
-      try {
-        await signInWithEmailAndPassword(auth, email, password);
-        showMessage("Login successful!", "success");
-      } catch (error) {
-        console.error("Login error:", error);
-        showMessage(firebaseMessage(error));
-      } finally {
-        setBusy(false);
-      }
-    }
-
-    // Signup function
-    async function signup() {
-      const { email, password } = getCredentials();
-
-      if (!email || !password) {
-        showMessage("Enter an email and password to create your account.");
-        return;
-      }
-
-      if (password.length < 6) {
-        showMessage("Password must be at least 6 characters.");
-        return;
-      }
-
-      setBusy(true);
-
-      try {
-        await createUserWithEmailAndPassword(auth, email, password);
-        showMessage("Account created successfully!", "success");
-      } catch (error) {
-        console.error("Signup error:", error);
-        showMessage(firebaseMessage(error));
-      } finally {
-        setBusy(false);
-      }
-    }
-
-    authForm.addEventListener("submit", event => {
-      event.preventDefault();
-      login();
+async function toggleLike(videoId) {
+  const likeId = videoId + "_" + currentUser.uid;
+  const likeRef = doc(db,"likes",likeId);
+  try {
+    const existing = await getDoc(likeRef);
+    if (existing.exists()) await deleteDoc(likeRef);
+    else await setDoc(likeRef,{
+      videoId,userId:currentUser.uid,createdAt:serverTimestamp()
     });
+    await refreshLikeCount(videoId);
+  } catch(err) { alert(errorText(err)); }
+}
+async function refreshLikeCount(videoId) {
+  try {
+    const snap = await getDocs(query(collection(db,"likes"),where("videoId","==",videoId)));
+    likeCounts[videoId] = snap.size;
+    renderFeed();
+  } catch(err) { console.warn(err); }
+}
+async function loadComments(videoId) {
+  const list = $("commentList-" + videoId);
+  if (!list) return;
+  try {
+    const snap = await getDocs(query(collection(db,"comments"),where("videoId","==",videoId)));
+    const docs = snap.docs.map(d=>d.data()).sort((a,b)=>
+      (a.createdAt?.toMillis?.() || 0) - (b.createdAt?.toMillis?.() || 0)
+    );
+    commentCounts[videoId] = docs.length;
+    list.innerHTML = docs.length ? docs.map(c=>`
+      <div class="comment-row"><strong>${escapeHTML(c.userName || "User")}</strong> ${escapeHTML(c.text)}</div>
+    `).join("") : "No comments yet.";
+  } catch(err) { list.textContent = errorText(err); }
+}
+async function toggleComments(videoId) {
+  const area = $("comments-" + videoId);
+  if (!area) return;
+  area.classList.toggle("show");
+  if (area.classList.contains("show")) await loadComments(videoId);
+}
+async function toggleFollow(uid) {
+  if (!uid || uid === currentUser.uid) return;
+  const followId = uid + "_" + currentUser.uid;
+  const followRef = doc(db,"subscriptions",followId);
+  try {
+    const snap = await getDoc(followRef);
+    if (snap.exists()) {
+      await deleteDoc(followRef);
+      followingIds.delete(uid);
+    } else {
+      await setDoc(followRef,{
+        creatorId:uid, subscriberId:currentUser.uid, createdAt:serverTimestamp()
+      });
+      followingIds.add(uid);
+    }
+    renderFeed();
+  } catch(err) { alert(errorText(err)); }
+}
+async function loadFollowing() {
+  if (!currentUser) return;
+  try {
+    const snap = await getDocs(query(collection(db,"subscriptions"),where("subscriberId","==",currentUser.uid)));
+    followingIds = new Set(snap.docs.map(d=>d.data().creatorId));
+    renderFeed();
+  } catch(err) { console.warn("Subscriptions:",err); }
+}
+async function shareVideo(id) {
+  const url = location.href.split("#")[0] + "#video-" + encodeURIComponent(id);
+  try {
+    if (navigator.share) await navigator.share({title:"GLOVIX Reel",url});
+    else if (navigator.clipboard) {
+      await navigator.clipboard.writeText(url);
+      alert("Video link copied!");
+    } else {
+      prompt("Copy this link:",url);
+    }
+  } catch(err) {
+    if (err.name !== "AbortError") alert("Could not share this link.");
+  }
+}
 
-    signupButton.addEventListener("click", signup);
+async function uploadVideo() {
+  const file = $("videoInput").files[0];
+  const caption = $("captionInput").value.trim();
+  if (!file) { $("uploadMessage").textContent = "Please select a video first."; return; }
+  if (!file.type.startsWith("video/")) {
+    $("uploadMessage").textContent = "Select a valid video file."; return;
+  }
+  if (file.size > 100 * 1024 * 1024) {
+    $("uploadMessage").textContent = "Video limit is 100 MB for this page."; return;
+  }
 
-    resetButton.addEventListener("click", async () => {
-      const email = document.getElementById("email").value.trim();
+  $("publishBtn").disabled = true;
+  $("uploadProgressWrap").style.display = "block";
+  $("uploadProgress").value = 0;
+  $("uploadPercent").textContent = "0%";
+  $("uploadMessage").textContent = "Uploading video...";
+  const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g,"_");
+  const path = `videos/${currentUser.uid}/${Date.now()}_${safeName}`;
+  const storageRef = ref(storage,path);
+  const task = uploadBytesResumable(storageRef,file,{contentType:file.type});
 
-      if (!email) {
-        showMessage("Enter your email first, then click Forgot password.");
-        return;
-      }
+  task.on("state_changed", snap => {
+    const percent = Math.round(snap.bytesTransferred / snap.totalBytes * 100);
+    $("uploadProgress").value = percent;
+    $("uploadPercent").textContent = percent + "%";
+  }, error => {
+    $("uploadMessage").textContent = errorText(error);
+    $("publishBtn").disabled = false;
+  }, async () => {
+    try {
+      const videoUrl = await getDownloadURL(task.snapshot.ref);
+      await addDoc(collection(db,"videos"), {
+        videoUrl,
+        caption,
+        user:{
+          uid:currentUser.uid,
+          name:userName(currentUser)
+        },
+        userId:currentUser.uid,
+        createdAt:serverTimestamp()
+      });
+      $("captionInput").value = "";
+      $("videoInput").value = "";
+      $("uploadMessage").textContent = "Video published successfully!";
+      $("uploadProgress").value = 100;
+      $("uploadPercent").textContent = "100%";
+      setTimeout(() => $("uploadPanel").style.display = "none",1200);
+    } catch(error) {
+      $("uploadMessage").textContent = errorText(error);
+    } finally {
+      $("publishBtn").disabled = false;
+    }
+  });
+}
+$("publishBtn").addEventListener("click",uploadVideo);
+$("topUpload").addEventListener("click",() => showTab("upload"));
+function showTab(tab) {
+  activeTab = tab;
+  activeFilterUid = null;
+  $("uploadPanel").style.display = tab === "upload" ? "block" : "none";
+  $("profilePanel").style.display = tab === "profile" ? "block" : "none";
+  $("searchWrap").style.display = tab === "search" ? "block" : "none";
+  document.querySelectorAll(".nav-btn").forEach(b=>b.classList.toggle("active",b.dataset.tab===tab));
+  if (tab === "profile") updateProfileStats();
+  if (tab === "following") loadFollowing();
+  renderFeed();
+  if (tab === "upload") $("uploadPanel").scrollIntoView({behavior:"smooth",block:"start"});
+  else if (tab === "profile") $("profilePanel").scrollIntoView({behavior:"smooth",block:"start"});
+  else window.scrollTo({top:0,behavior:"smooth"});
+}
+document.querySelectorAll(".nav-btn").forEach(b=>b.addEventListener("click",()=>showTab(b.dataset.tab)));
+$("searchInput").addEventListener("input",renderFeed);
+$("showAllBtn").addEventListener("click",()=>showTab("home"));
 
-      try {
-        await sendPasswordResetEmail(auth, email);
-        showMessage(
-          "If an account exists for this email, a password reset email has been sent.",
-          "success"
-        );
-      } catch (error) {
-        console.error("Password reset error:", error);
-        showMessage(firebaseMessage(error));
-      }
-    });
+async function updateProfileStats() {
+  if (!currentUser) return;
+  $("profileName").textContent = userName(currentUser);
+  $("profileEmail").textContent = currentUser.email || "";
+  $("profileAvatar").textContent = initials(userName(currentUser));
+  const mine = allVideos.filter(v=>videoOwner(v).uid===currentUser.uid).length;
+  $("profileStats").textContent = mine + " videos";
+}
+onAuthStateChanged(auth, async user => {
+  currentUser = user;
+  $("authPanel").style.display = user ? "none" : "block";
+  $("app").style.display = user ? "block" : "none";
+  if (!user) {
+    if (stopFeed) stopFeed();
+    if (stopLikes) stopLikes();
+    allVideos = [];
+    $("feed").innerHTML = '<div class="empty">Log in to view GLOVIX.</div>';
+    return;
+  }
+  await loadFollowing();
+  listenFeed();
+  listenLikes();
+  showTab("home");
+});
 
-    logoutButton.addEventListener("click", async () => {
-      try {
-        await signOut(auth);
-      } catch (error) {
-        console.error("Logout error:", error);
-        document.getElementById("dashboardMessage").textContent =
-          firebaseMessage(error);
-      }
-    });
-
-    // Keep the interface synchronized with Firebase login state.
-    onAuthStateChanged(auth, user => {
-      if (user) {
-        authCard.style.display = "none";
-        dashboard.classList.add("show");
-        document.getElementById("accountEmail").textContent =
-          user.email || "Signed-in GLOVIX member";
-      } else {
-        authCard.style.display = "block";
-        dashboard.classList.remove("show");
-        messageBox.className = "";
-        messageBox.textContent = "";
-      }
-    });
-
-    // Expose requested functions for optional browser-console testing.
-    window.login = login;
-    window.signup = signup;
-  </script>
+// Expose requested actions for troubleshooting.
+window.login = async () => {
+  try {
+    await signInWithEmailAndPassword(auth,$("email").value.trim(),$("password").value);
+  } catch(e) { say(errorText(e)); }
+};
+window.signup = async () => $("signupBtn").click();
+</script>
 </body>
 </html>
