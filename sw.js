@@ -1,59 +1,17 @@
 
-const CACHE_NAME = "glovix-v2";
-
-const FILES_TO_CACHE = [
-  "./",
-  "./index.html",
-  "./manifest.json"
-];
-
-// Install and cache app files
-self.addEventListener("install", (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then((cache) => cache.addAll(FILES_TO_CACHE))
-  );
-  self.skipWaiting();
+const CACHE_NAME = "glovix-v3";
+const FILES_TO_CACHE = ["./","./index.html","./manifest.json"];
+self.addEventListener("install",(event)=>{
+event.waitUntil(caches.open(CACHE_NAME).then((cache.addAll(FILES_TO_CACHE)));
+self.skipWaiting();
 });
-
-// Remove old caches
-self.addEventListener("activate", (event) => {
-  event.waitUntil(
-    caches.keys().then((keys) =>
-      Promise.all(
-        keys
-          .filter((key) => key !== CACHE_NAME)
-          .map((key) => caches.delete(key))
-      )
-    )
-  );
-  self.clients.claim();
+self. addEventListener("activate",(event)=>{
+  even.waitUntil9caches.keys().then((keys)=>promise.all(keys.filter((key)=>key!==CACHE_NAME).map((key)=>caches.delete(key)))));
 });
-
-// Serve cached files when offline
-self.addEventListener("fetch", (event) => {
-  if (event.request.method !== "GET") return;
-
-  event.respondWith(
-    fetch(event.request)
-      .then((response) => {
-        if (response.ok) {
-          const copy = response.clone();
-          caches.open(CACHE_NAME)
-            .then((cache) => cache.put(event.request, copy));
-        }
-        return response;
-      })
-      .catch(async () => {
-        const cached = await caches.match(event.request);
-        if (cached) return cached;
-
-        if (event.request.mode === "navigate") {
-          return await caches.match("./index.html") ||
-            Response.error();
-        }
-
-        return Response.error();
-      })
-  );
+self.addEventListener("fetch",(event)=>{
+if(event.request.url.includes("firebase")||event.request.url.includes("google")||event.request.url.includes("identitytoolkit")||event.reqest.url.include("gstatic)||event.request.url.includes("firestore")){
+  return;
+}
+if(event.request.method!=="GET) return;
+event.respondWith(fetch(event.request).catch(()=>caches.match(event.request)));
 });
