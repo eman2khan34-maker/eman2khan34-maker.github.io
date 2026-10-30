@@ -612,12 +612,42 @@ onAuthStateChanged(auth, async user => {
 });
 
 // Expose requested actions for troubleshooting.
-window.login = async () => {
-  try {
-    await signInWithEmailAndPassword(auth,$("email").value.trim(),$("password").value);
-  } catch(e) { say(errorText(e)); }
-};
-window.signup = async () => $("signupBtn").click();
+<!-- LOGIN EMAIL -->
+<input
+  type="email"
+  id="glovix-email"
+  placeholder="Enter your email"
+  required
+>
+
+<!-- LOGIN PASSWORD -->
+<input
+  type="password"
+  id="glovix-password"
+  placeholder="Enter your password"
+  required
+>
+
+<!-- SIGNUP USERNAME -->
+<input
+  type="text"
+  id="glovix-username"
+  placeholder="Choose username"
+>
+
+<button type="button" onclick="window.login()">
+  LOGIN
+</button>
+
+<button type="button" onclick="window.signup()">
+  SIGN UP
+</button>
+
+<button type="button" onclick="window.googleLogin()">
+  CONTINUE WITH GOOGLE
+</button>
+
+<p id="glovix-auth-error"></p>
 </script>
 </body>
 </html>
