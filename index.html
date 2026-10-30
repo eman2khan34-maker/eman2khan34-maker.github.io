@@ -545,21 +545,22 @@
     // ==================================================
 
     const firebaseConfig = {
-      apiKey: "PUT_YOUR_API_KEY_HERE",
-      authDomain: "PUT_YOUR_PROJECT_ID.firebaseapp.com",
-      projectId: "PUT_YOUR_PROJECT_ID",
-      storageBucket: "PUT_YOUR_STORAGE_BUCKET_HERE",
-      appId: "PUT_YOUR_APP_ID_HERE"
+      apiKey: "temp-key-123",
+      authDomain: "glovix-app.firebaseapp.com",
+      projectId: "glovix-app",
+      storageBucket: "glovix-app.appspot.com",
+      appId: "1:000:web:tem"
     };
-
-
-    // Initialize Firebase only once.
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-    const storage = getStorage(app);
-    const googleProvider = new GoogleAuthProvider();
-
-
+    let app,auth,storage,googleProvider;
+    try{
+    app = initializeApp(firebaseConfig);
+    auth = getAuth(app);
+    storage = getStorage(app);
+    googleProvider = new GoogleAuthProvider();
+    } catch(e) {
+      console.log("Firebase off");
+    }
+      
     // ==================================================
     // 2. ELEMENTS
     // ==================================================
