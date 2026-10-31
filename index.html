@@ -2,1321 +2,528 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#000000">
-  <title>GLOVIX — MADE IN MIAN ABDULLAH GULZAR</title>
-
-  <!-- Google AdSense: replace with your real publisher ID -->
-  <script async
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2283215295274944"
-    crossorigin="anonymous"></script>
-
-  <!-- Instagram-style logo font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --black: #000;
-      --card: #121212;
-      --line: #262626;
-      --white: #fff;
-      --muted: #a8a8a8;
-      --pink: #ff3040;
-      --gradient: linear-gradient(45deg,#feda75,#fa7e1e,#d62976,#962fbf);
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      background: var(--black);
-      color: var(--white);
-      font-family: Arial, Helvetica, sans-serif;
-      padding-bottom: 75px;
-    }
-
-    button, input, textarea { font: inherit; }
-    button { cursor: pointer; }
-    .hidden { display: none !important; }
-
-    header {
-      height: 58px;
-      padding: 0 15px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid var(--line);
-      position: sticky;
-      top: 0;
-      background: rgba(0,0,0,.96);
-      z-index: 20;
-    }
-
-    .logo {
-      font-family: "Grand Hotel", cursive;
-      font-size: 38px;
-      letter-spacing: .5px;
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      line-height: 1;
-    }
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .icon-btn {
-      border: 0;
-      color: white;
-      background: transparent;
-      font-size: 26px;
-      padding: 3px;
-    }
-
-    .page {
-      max-width: 620px;
-      margin: auto;
-    }
-
-    .stories {
-      display: flex;
-      gap: 15px;
-      overflow-x: auto;
-      padding: 14px 12px 12px;
-      border-bottom: 1px solid var(--line);
-      scrollbar-width: none;
-    }
-
-    .stories::-webkit-scrollbar { display: none; }
-
-    .story {
-      flex: 0 0 67px;
-      text-align: center;
-      font-size: 11px;
-      color: white;
-      overflow: hidden;
-    }
-
-    .story-ring {
-      width: 64px;
-      height: 64px;
-      padding: 3px;
-      margin: auto auto 5px;
-      border-radius: 50%;
-      background: var(--gradient);
-    }
-
-    .story-ring.seen { background: #555; }
-
-    .story-inner {
-      height: 100%;
-      width: 100%;
-      border: 2px solid black;
-      border-radius: 50%;
-      overflow: hidden;
-      background: #222;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
-
-    .story-inner img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .story-plus {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      background: #0095f6;
-      width: 21px;
-      height: 21px;
-      border: 2px solid black;
-      border-radius: 50%;
-      font-size: 16px;
-      line-height: 17px;
-    }
-
-    .ad-wrap {
-      text-align: center;
-      padding: 9px 5px;
-      overflow: hidden;
-    }
-
-    .ad-label {
-      font-size: 9px;
-      color: #666;
-      margin-bottom: 3px;
-    }
-
-    .post {
-      border-bottom: 1px solid var(--line);
-      margin-bottom: 9px;
-    }
-
-    .post-head {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 11px 12px;
-    }
-
-    .avatar {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      object-fit: cover;
-      background: #333;
-      flex-shrink: 0;
-    }
-
-    .post-user {
-      font-size: 13px;
-      font-weight: bold;
-      flex: 1;
-      overflow-wrap: anywhere;
-    }
-
-    .post-more {
-      border: 0;
-      background: none;
-      color: white;
-      font-size: 22px;
-    }
-
-    .post-media {
-      width: 100%;
-      display: block;
-      max-height: 700px;
-      object-fit: contain;
-      background: #080808;
-    }
-
-    .post-actions {
-      display: flex;
-      align-items: center;
-      padding: 8px 12px 2px;
-      gap: 17px;
-    }
-
-    .action {
-      border: 0;
-      background: none;
-      color: white;
-      font-size: 25px;
-      padding: 0;
-      line-height: 1.2;
-    }
-
-    .action.liked { color: var(--pink); }
-    .action.saved { color: #feda75; }
-
-    .save-action { margin-left: auto; }
-
-    .like-count {
-      font-size: 13px;
-      font-weight: bold;
-      padding: 5px 12px;
-    }
-
-    .caption {
-      font-size: 13px;
-      padding: 2px 12px 13px;
-      line-height: 1.5;
-      overflow-wrap: anywhere;
-    }
-
-    .caption strong { margin-right: 5px; }
-
-    .post-date {
-      font-size: 10px;
-      color: #777;
-      padding: 0 12px 12px;
-    }
-
-    .empty {
-      padding: 50px 20px;
-      text-align: center;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    .bottom-nav {
-      height: 58px;
-      position: fixed;
-      z-index: 30;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: rgba(0,0,0,.97);
-      border-top: 1px solid var(--line);
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-    }
-
-    .nav-btn {
-      background: none;
-      border: 0;
-      color: white;
-      font-size: 25px;
-      min-width: 42px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .nav-upload {
-      width: 34px;
-      height: 30px;
-      border: 2px solid white;
-      border-radius: 9px;
-      font-size: 24px;
-      line-height: 24px;
-    }
-
-    .nav-btn.active { color: #ff70a8; }
-
-    .profile-nav {
-      width: 27px;
-      height: 27px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 1px solid white;
-    }
-
-    /* Login screen */
-
-    #loginScreen {
-      min-height: 80vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 25px;
-    }
-
-    .login-card {
-      width: 100%;
-      max-width: 370px;
-      text-align: center;
-      padding: 30px 22px;
-      border: 1px solid var(--line);
-      border-radius: 13px;
-    }
-
-    .login-card .logo { font-size: 58px; }
-
-    .login-card p {
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.6;
-    }
-
-    .primary {
-      border: 0;
-      border-radius: 8px;
-      padding: 12px 18px;
-      color: white;
-      background: linear-gradient(45deg,#feda75,#fa7e1e,#d62976,#962fbf);
-      font-weight: bold;
-    }
-
-    .google-login {
-      width: 100%;
-      margin-top: 18px;
-      background: #fff;
-      color: #111;
-      border: 0;
-      border-radius: 8px;
-      padding: 12px;
-      font-weight: bold;
-    }
-
-    .error {
-      color: #ff5252 !important;
-      font-size: 12px;
-      overflow-wrap: anywhere;
-    }
-
-    /* Upload modal */
-
-    .modal {
-      position: fixed;
-      inset: 0;
-      z-index: 100;
-      background: rgba(0,0,0,.82);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 15px;
-    }
-
-    .modal-card {
-      background: #181818;
-      border: 1px solid #333;
-      border-radius: 14px;
-      padding: 20px;
-      width: 100%;
-      max-width: 440px;
-      max-height: 90vh;
-      overflow-y: auto;
-    }
-
-    .modal-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 18px;
-    }
-
-    .close-btn {
-      color: white;
-      border: 0;
-      background: none;
-      font-size: 25px;
-    }
-
-    .select-file {
-      border: 1px dashed #666;
-      border-radius: 10px;
-      padding: 24px 10px;
-      text-align: center;
-      color: #bbb;
-      cursor: pointer;
-    }
-
-    #mediaPreview {
-      display: block;
-      width: 100%;
-      max-height: 280px;
-      object-fit: contain;
-      margin-top: 14px;
-      border-radius: 8px;
-    }
-
-    textarea {
-      display: block;
-      width: 100%;
-      margin-top: 15px;
-      min-height: 75px;
-      background: #080808;
-      color: white;
-      border: 1px solid #444;
-      border-radius: 8px;
-      padding: 12px;
-      resize: vertical;
-    }
-
-    .progress {
-      height: 8px;
-      background: #333;
-      border-radius: 20px;
-      margin-top: 15px;
-      overflow: hidden;
-    }
-
-    .progress-bar {
-      width: 0%;
-      height: 100%;
-      background: var(--gradient);
-      transition: width .15s;
-    }
-
-    .progress-text {
-      text-align: center;
-      font-size: 12px;
-      color: #ccc;
-      margin-top: 7px;
-    }
-
-    .profile-panel {
-      padding: 30px 15px;
-      text-align: center;
-    }
-
-    .profile-panel img {
-      width: 85px;
-      height: 85px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
-    .profile-panel h2 { margin-bottom: 5px; }
-
-    footer {
-      text-align: center;
-      padding: 25px 8px;
-      font-size: 10px;
-      color: #666;
-    }
-
-    .fixed-ad {
-      position: fixed;
-      bottom: 58px;
-      z-index: 25;
-      width: 100%;
-      min-height: 50px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #080808;
-      border-top: 1px solid #222;
-      overflow: hidden;
-    }
-
-    body.with-ad { padding-bottom: 128px; }
-
-    body.with-ad .bottom-nav { bottom: 50px; }
-
-    @media (min-width: 700px) {
-      header { padding: 0 calc((100% - 620px)/2); }
-      .stories { margin-top: 8px; }
-      .post { border: 1px solid var(--line); border-radius: 5px; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#000000">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?clinet=ca-pub-2283215925274944" crossor="anonymous"></script>
+<title>GLOVIX - Made in Mian Abdullah Gulzar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#000;color:white;font-family:Inter,Arial,sans-serif}
+button,input,textarea{font:inherit}
+button{cursor:pointer}
+.hidden{display:none!important}
+#auth{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;background:radial-gradient(ellipse at top,#301026,#080808 60%)}
+.authbox{width:100%;max-width:410px;background:#111;border:1px solid #333;border-radius:22px;padding:30px}
+.logo{font-size:43px;font-weight:900;text-align:center;letter-spacing:-3px;background:linear-gradient(90deg,#feda75,#fa7e1e,#d62976,#962fbf);color:transparent;background-clip:text}
+.made{text-align:center;font-size:10px;letter-spacing:2px;color:#aaa;margin:9px 0 25px}
+.authbox h2{text-align:center}
+input,textarea{width:100%;background:#202020;color:white;border:1px solid #393939;border-radius:10px;padding:13px;margin:7px 0;outline:none}
+input:focus,textarea:focus{border-color:#d62976}
+.btn{width:100%;border:0;border-radius:10px;padding:13px;color:white;font-weight:700;background:linear-gradient(100deg,#fa7e1e,#d62976,#962fbf);margin:8px 0}
+.google{background:white;color:#111}
+.switch{text-align:center;color:#aaa;font-size:13px;margin-top:15px}
+.switch span{color:#fa7e1e;cursor:pointer}
+#app{max-width:1200px;margin:auto;min-height:100vh}
+header{height:65px;border-bottom:1px solid #222;display:flex;align-items:center;justify-content:space-between;padding:0 20px;position:sticky;top:0;background:#080808;z-index:10}
+header .logo{font-size:30px}
+.header-actions{display:flex;gap:15px;align-items:center}
+.smallbtn{background:#222;color:white;border:0;padding:10px 14px;border-radius:9px}
+.layout{display:grid;grid-template-columns:220px minmax(0,600px) 250px;justify-content:center;gap:20px}
+.sidebar{padding:22px 12px;position:sticky;top:70px;height:calc(100vh - 70px)}
+.nav{display:block;width:100%;background:transparent;border:0;color:white;text-align:left;padding:15px 12px;font-size:15px;border-radius:10px;margin:4px 0}
+.nav:hover,.nav.active{background:#222}
+main{padding:15px 5px}
+.rightbar{padding:20px 10px;color:#aaa}
+.storyrow{display:flex;gap:17px;overflow-x:auto;padding:12px 0 20px;border-bottom:1px solid #222}
+.story{text-align:center;min-width:65px;font-size:11px;color:#ccc}
+.story img{width:55px;height:55px;border-radius:50%;object-fit:cover;border:2px solid #d62976;padding:2px}
+.story span{display:block;margin-top:6px}
+.feed-title{font-size:17px;margin:20px 0}
+.post{background:#101010;border:1px solid #222;border-radius:13px;margin-bottom:20px;overflow:hidden}
+.posthead{display:flex;align-items:center;gap:10px;padding:13px}
+.avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(45deg,#fa7e1e,#962fbf);object-fit:cover}
+.username{font-size:13px;font-weight:700}
+.postvideo{width:100%;max-height:680px;object-fit:contain;background:#050505;display:block}
+.caption{padding:10px 14px;font-size:13px;overflow-wrap:anywhere}
+.postactions{display:flex;gap:20px;padding:12px 14px}
+.action{background:none;color:white;border:0;font-size:15px}
+.action:hover{color:#fa7e1e}
+.postdate{padding:0 14px 12px;color:#777;font-size:10px}
+.panel{background:#111;border:1px solid #292929;border-radius:13px;padding:15px;margin-bottom:15px}
+.panel h3{margin-top:0}
+#uploadFile{display:none}
+.uploadbox{border:1px dashed #555;padding:22px;text-align:center;border-radius:12px;color:#ccc;cursor:pointer}
+#profileArea{padding:20px}
+#profileArea img{width:80px;height:80px;border-radius:50%;object-fit:cover}
+#message{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#252525;padding:12px 18px;border-radius:12px;z-index:100;display:none;max-width:90%;text-align:center}
+.bottom{display:none;position:fixed;bottom:0;left:0;right:0;background:#080808;border-top:1px solid #333;justify-content:space-around;padding:13px;z-index:20}
+.bottom button{background:none;border:0;color:white;font-size:23px}
+@media(max-width:850px){
+.layout{grid-template-columns:1fr}
+.sidebar,.rightbar{display:none}
+main{padding:10px}
+.bottom{display:flex}
+header{padding:0 12px}
+}
+@media(min-width:851px){main{min-width:0}}
+</style>
 </head>
-
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <div class="logo">Glovix</div>
-    <div class="header-actions">
-      <button class="icon-btn" id="headerLike" title="Notifications">♡</button>
-      <button class="icon-btn" id="headerMessage" title="Messages">➤</button>
-    </div>
-  </header>
+<section id="auth">
+<div class="authbox">
+<div class="logo">GLOVIX</div>
+<div class="made">MADE IN MIAN ABDULLAH GULZAR</div>
+<div id="loginForm">
+<h2>Welcome Back</h2>
+<p style="text-align:center;color:#aaa;font-size:13px">Login to your GLOVIX account</p>
+<input id="email" type="email" placeholder="Email address">
+<input id="password" type="password" placeholder="Password">
+<button class="btn" onclick="login()">LOGIN</button>
+<button class="btn google" onclick="googleLogin()">🌐 Continue with Google</button>
+<p class="switch"><span onclick="forgot()">Forgot password?</span></p>
+<p class="switch">New to GLOVIX? <span onclick="showSignup()">Create account</span></p>
+</div>
+<div id="signupForm" class="hidden">
+<h2>Create Account</h2>
+<input id="newName" placeholder="Your username">
+<input id="newEmail" type="email" placeholder="Email address">
+<input id="newPassword" type="password" placeholder="Create password (6+ characters)">
+<button class="btn" onclick="signup()">SIGN UP</button>
+<button class="btn google" onclick="googleLogin()">🌐 Sign up with Google</button>
+<p class="switch">Already registered? <span onclick="showLogin()">Login</span></p>
+</div>
+</div>
+</section>
 
-  <!-- LOGIN -->
-  <section id="loginScreen">
-    <div class="login-card">
-      <div class="logo">Glovix</div>
-      <p>MADE IN MIAN ABDULLAH GULZAR</p>
-      <p>Share your moments. Discover your world.</p>
-      <button id="googleLogin" class="google-login" type="button">
-        Continue with Google
-      </button>
-      <p id="loginError" class="error" aria-live="polite"></p>
-    </div>
-  </section>
+<section id="app" class="hidden">
+<header>
+<div class="logo">GLOVIX</div>
+<div class="header-actions">
+<button class="smallbtn" onclick="showPage('search')">⌕</button>
+<button class="smallbtn" onclick="showPage('notifications')">♡</button>
+<button class="smallbtn" onclick="logout()">Logout</button>
+</div>
+</header>
 
-  <!-- MAIN APP -->
-  <main id="mainApp" class="page hidden">
+<div class="layout">
+<aside class="sidebar">
+<button class="nav active" onclick="showPage('home')">⌂ &nbsp; Home</button>
+<button class="nav" onclick="showPage('search')">⌕ &nbsp; Search</button>
+<button class="nav" onclick="showPage('upload')">＋ &nbsp; Upload video</button>
+<button class="nav" onclick="showPage('profile')">◉ &nbsp; My Profile</button>
+<button class="nav" onclick="showPage('notifications')">♡ &nbsp; Notifications</button>
+<button class="nav" onclick="logout()">↪ &nbsp; Logout</button>
+<div class="made">MADE IN MIAN ABDULLAH GULZAR</div>
+</aside>
 
-    <!-- STORIES -->
-    <section class="stories" id="stories">
-      <div class="story">
-        <div class="story-ring">
-          <div class="story-inner">
-            <img id="myStoryPhoto"
-              src="https://placehold.co/100x100/222/fff?text=You"
-              alt="Your story">
-            <span class="story-plus">+</span>
-          </div>
-        </div>
-        Your story
-      </div>
+<main>
+<section id="homePage">
+<div class="storyrow">
+<div class="story"><img id="myStory" src="https://placehold.co/60x60/222/fff?text=+"><span>Your profile</span></div>
+<div class="story"><img src="https://placehold.co/60x60/222/fff?text=G"><span>GLOVIX</span></div>
+</div>
+<h3 class="feed-title">For You ✨</h3>
+<div id="feed"><p style="color:#888;text-align:center">Loading videos...</p></div>
+</section>
 
-      <div class="story">
-        <div class="story-ring"><div class="story-inner">
-          <img src="https://i.pravatar.cc/100?img=12" alt="">
-        </div></div>
-        itsshaidanwar
-      </div>
+<section id="uploadPage" class="hidden">
+<h2>＋ Upload Video</h2>
+<div class="panel">
+<label class="uploadbox" for="uploadFile">
+<div style="font-size:35px">＋</div>
+Choose video from your device
+<p style="font-size:11px">MP4, MOV and other supported formats</p>
+</label>
+<input type="file" id="uploadFile" accept="video/*">
+<video id="preview" class="postvideo hidden" controls></video>
+<textarea id="caption" rows="3" placeholder="Write a caption... #GLOVIX"></textarea>
+<button class="btn" onclick="uploadVideo()">POST VIDEO</button>
+<p style="color:#888;font-size:11px">Upload limits depend on your Firebase Storage plan and configuration.</p>
+</div>
+</section>
 
-      <div class="story">
-        <div class="story-ring"><div class="story-inner">
-          <img src="https://i.pravatar.cc/100?img=47" alt="">
-        </div></div>
-        aiza.s79
-      </div>
+<section id="profilePage" class="hidden">
+<h2>My Profile</h2>
+<div id="profileArea" class="panel"></div>
+</section>
 
-      <div class="story">
-        <div class="story-ring"><div class="story-inner">
-          <img src="https://i.pravatar.cc/100?img=15" alt="">
-        </div></div>
-        rayyan-khan
-      </div>
+<section id="searchPage" class="hidden">
+<h2>Search GLOVIX</h2>
+<input id="searchInput" placeholder="Search username..." oninput="searchUsers()">
+<div id="searchResults"></div>
+</section>
 
-      <div class="story">
-        <div class="story-ring"><div class="story-inner">
-          <img src="https://i.pravatar.cc/100?img=32" alt="">
-        </div></div>
-        eman.khan
-      </div>
-    </section>
+<section id="notificationsPage" class="hidden">
+<h2>Notifications</h2>
+<div id="notifications"><p style="color:#888">Your notifications will appear here.</p></div>
+</section>
+</main>
 
-    <!-- TOP AD -->
-    <div class="ad-wrap">
-      <div class="ad-label">ADVERTISEMENT</div>
-      <ins class="adsbygoogle"
-        style="display:block"
-        data-ad-client="ca-pub-1234567890123456"
-        data-ad-slot="1111111111"
-        data-ad-format="auto"
-        data-full-width-responsive="true"></ins>
-    </div>
+<aside class="rightbar">
+<div class="panel">
+<h3>Welcome to GLOVIX</h3>
+<p style="font-size:12px">Create videos. Share moments. Connect with the world.</p>
+</div>
+<div class="panel">
+<p style="font-size:11px">GLOVIX</p>
+<p style="font-size:10px">MADE IN MIAN ABDULLAH GULZAR</p>
+</div>
+</aside>
+</div>
+</section>
 
-    <!-- FEED -->
-    <section id="feed"></section>
+<div class="bottom">
+<button onclick="showPage('home')">⌂</button>
+<button onclick="showPage('search')">⌕</button>
+<button onclick="showPage('upload')">＋</button>
+<button onclick="showPage('notifications')">♡</button>
+<button onclick="showPage('profile')">◉</button>
+</div>
+<div id="message"></div>
 
-    <!-- PROFILE -->
-    <section id="profilePage" class="hidden profile-panel">
-      <img id="profilePhoto" src="https://placehold.co/100x100/222/fff?text=User" alt="Profile">
-      <h2 id="profileName">Your profile</h2>
-      <p id="profileEmail"></p>
-      <p id="profilePostCount">0 posts</p>
-      <button id="logoutBtn" class="primary" type="button">Log out</button>
-    </section>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+import {
+ getAuth,onAuthStateChanged,createUserWithEmailAndPassword,
+ signInWithEmailAndPassword,GoogleAuthProvider,signInWithPopup,
+ sendPasswordResetEmail,signOut,updateProfile
+} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+import {
+ getFirestore,collection,doc,setDoc,getDoc,addDoc,
+ getDocs,query,orderBy,limit,serverTimestamp,
+ onSnapshot,runTransaction,where
+} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+import {
+ getStorage,ref,uploadBytesResumable,getDownloadURL
+} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-storage.js";
 
-    <!-- REELS -->
-    <section id="reelsPage" class="hidden">
-      <div class="empty">🎬<br><strong>GLOVIX REELS</strong><br>Videos from the feed appear here.</div>
-      <div id="reelsFeed"></div>
-    </section>
-
-    <!-- SEARCH -->
-    <section id="searchPage" class="hidden">
-      <div style="padding:20px">
-        <input id="searchInput" type="search" placeholder="Search usernames..."
-          style="width:100%;padding:13px;border-radius:8px;background:#171717;color:white;border:1px solid #333">
-        <div id="searchResults"></div>
-      </div>
-    </section>
-
-    <footer>GLOVIX © 2026 — MADE IN MIAN ABDULLAH GULZAR</footer>
-  </main>
-
-  <!-- BOTTOM NAV -->
-  <nav class="bottom-nav hidden" id="bottomNav">
-    <button class="nav-btn active" data-page="home" title="Home">⌂</button>
-    <button class="nav-btn" data-page="search" title="Search">⌕</button>
-    <button class="nav-btn nav-upload" id="navUpload" title="Upload">+</button>
-    <button class="nav-btn" data-page="reels" title="Reels">▣</button>
-    <button class="nav-btn" data-page="profile" title="Profile">
-      <img id="navProfilePhoto" class="profile-nav"
-        src="https://placehold.co/80x80/222/fff?text=U" alt="Profile">
-    </button>
-  </nav>
-
-  <!-- FIXED BOTTOM AD -->
-  <div class="fixed-ad hidden" id="fixedAd">
-    <ins class="adsbygoogle"
-      style="display:inline-block;width:320px;height:50px"
-      data-ad-client="ca-pub-1234567890123456"
-      data-ad-slot="2222222222"></ins>
-  </div>
-
-  <!-- UPLOAD MODAL -->
-  <div class="modal hidden" id="uploadModal">
-    <div class="modal-card">
-      <div class="modal-head">
-        <strong>Create post</strong>
-        <button class="close-btn" id="closeModal" type="button">×</button>
-      </div>
-
-      <label class="select-file" for="fileInput">
-        ＋ Select photo or video
-        <br><small>Choose a file from your device</small>
-      </label>
-
-      <input id="fileInput" type="file" accept="image/*,video/*" hidden>
-
-      <div id="previewArea"></div>
-      <textarea id="captionInput" maxlength="2200"
-        placeholder="Write a caption..."></textarea>
-
-      <div class="progress hidden" id="progress">
-        <div class="progress-bar" id="progressBar"></div>
-      </div>
-      <div class="progress-text" id="progressText"></div>
-      <p id="uploadError" class="error"></p>
-
-      <button class="primary" id="publishBtn"
-        style="width:100%;margin-top:15px" type="button">
-        Share post
-      </button>
-    </div>
-  </div>
-
-  <script type="module">
-    // =====================================================
-    // FIREBASE SDK
-    // =====================================================
-
-    import { initializeApp }
-      from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
-
-    import {
-      getAuth,
-      GoogleAuthProvider,
-      signInWithPopup,
-      onAuthStateChanged,
-      signOut
-    } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
-
-    import {
-      getFirestore,
-      collection,
-      addDoc,
-      query,
-      orderBy,
-      onSnapshot,
-      serverTimestamp,
-      doc,
-      updateDoc,
-      arrayUnion,
-      arrayRemove,
-      increment,
-      getDoc,
-      setDoc,
-      limit,
-      runTransaction
-    } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
-
-    import {
-      getStorage,
-      ref,
-      uploadBytesResumable,
-      getDownloadURL
-    } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-storage.js";
-
-
-    // =====================================================
-    // FIREBASE CONFIG — VERIFY APP ID IN FIREBASE CONSOLE
-    // =====================================================
-
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+/* =========================================
+   PASTE YOUR FIREBASE CONFIGURATION HERE
+========================================= */
 const firebaseConfig = {
-  apiKey: "AIzaSyCXn3NFLxGNpUEgWdXNVS0Nz6-uTMKG78o",
-  authDomain: "glovix-bfdec.firebaseapp.com",
-  projectId: "glovix-bfdec",
-  storageBucket: "glovix-bfdec.firebasestorage.app",
-  messagingSenderId: "223762437338",
-  appId: "1:223762437338:web:230026374f9112936901e3",
-  measurementId: "G-JDN1ZT5CS5"
+ apiKey: "PASTE_YOUR_API_KEY",
+ authDomain: "YOUR_PROJECT.firebaseapp.com",
+ projectId: "YOUR_PROJECT_ID",
+ storageBucket: "YOUR_PROJECT.firebasestorage.app",
+ messagingSenderId: "YOUR_SENDER_ID",
+ appId: "YOUR_APP_ID"
+};
+/* ========================================= */
+
+const appFirebase=initializeApp(firebaseConfig);
+const auth=getAuth(appFirebase);
+const db=getFirestore(appFirebase);
+const storage=getStorage(appFirebase);
+const provider=new GoogleAuthProvider();
+
+let currentUser=null;
+let unsubscribeFeed=null;
+let selectedFile=null;
+let busy=false;
+
+const $=id=>document.getElementById(id);
+const show=(id)=>$(id).classList.remove("hidden");
+const hide=(id)=>$(id).classList.add("hidden");
+
+function toast(text){
+ const el=$("message");
+ el.textContent=text;
+ el.style.display="block";
+ setTimeout(()=>el.style.display="none",3500);
+}
+function cleanName(s){
+ return String(s||"User").replace(/[<>&"']/g,"").slice(0,30);
+}
+window.showSignup=()=>{hide("loginForm");show("signupForm")};
+window.showLogin=()=>{hide("signupForm");show("loginForm")};
+
+async function saveUser(user,name){
+ const userRef=doc(db,"users",user.uid);
+ const snap=await getDoc(userRef);
+ await setDoc(userRef,{
+  uid:user.uid,
+  username:cleanName(name||user.displayName||user.email.split("@")[0]),
+  email:user.email||"",
+  photo:user.photoURL||"",
+  createdAt:snap.exists()?snap.data().createdAt:serverTimestamp()
+ },{merge:true});
+}
+
+window.signup=async()=>{
+ if(busy)return;
+ const name=$("newName").value.trim();
+ const email=$("newEmail").value.trim();
+ const password=$("newPassword").value;
+ if(!name||!email||password.length<6)return toast("Enter username, email and password (minimum 6 characters).");
+ busy=true;
+ try{
+  const result=await createUserWithEmailAndPassword(auth,email,password);
+  await updateProfile(result.user,{displayName:name});
+  await saveUser(result.user,name);
+  toast("Account created successfully!");
+ }catch(e){toast(e.message)}
+ finally{busy=false}
 };
 
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-    const db = getFirestore(app);
-    const storage = getStorage(app);
-    const googleProvider = new GoogleAuthProvider();
-
-
-    // =====================================================
-    // ELEMENTS AND STATE
-    // =====================================================
-
-    const $ = id => document.getElementById(id);
-
-    let currentUser = null;
-    let allPosts = [];
-    let selectedFile = null;
-    let feedUnsubscribe = null;
-    let uploadTask = null;
-    let uploading = false;
-
-    const loginScreen = $("loginScreen");
-    const mainApp = $("mainApp");
-    const bottomNav = $("bottomNav");
-    const feed = $("feed");
-
-    const modal = $("uploadModal");
-    const fileInput = $("fileInput");
-    const previewArea = $("previewArea");
-    const captionInput = $("captionInput");
-    const progress = $("progress");
-    const progressBar = $("progressBar");
-    const progressText = $("progressText");
-    const uploadError = $("uploadError");
-    const publishBtn = $("publishBtn");
-
-
-    // =====================================================
-    // LOGIN
-    // =====================================================
-
-    $("googleLogin").addEventListener("click", async () => {
-      $("loginError").textContent = "";
-      $("googleLogin").disabled = true;
-      $("googleLogin").textContent = "Signing in...";
-
-      try {
-        await signInWithPopup(auth, googleProvider);
-      } catch (error) {
-        $("loginError").textContent =
-          error.message || "Google login failed.";
-      } finally {
-        $("googleLogin").disabled = false;
-        $("googleLogin").textContent = "Continue with Google";
-      }
-    });
-
-
-    // =====================================================
-    // USER PROFILE
-    // =====================================================
-
-    async function saveUserProfile(user) {
-      const userRef = doc(db, "users", user.uid);
-      const snap = await getDoc(userRef);
-
-      const profile = {
-        uid: user.uid,
-        username: user.displayName || user.email?.split("@")[0] || "GLOVIX User",
-        userphoto: user.photoURL || "",
-        email: user.email || ""
-      };
-
-      if (!snap.exists()) {
-        await setDoc(userRef, {
-          ...profile,
-          createdAt: serverTimestamp()
-        });
-      } else {
-        await setDoc(userRef, profile, { merge: true });
-      }
-
-      return profile;
-    }
-
-
-    // =====================================================
-    // AUTH STATE
-    // =====================================================
-
-    onAuthStateChanged(auth, async user => {
-      currentUser = user;
-
-      if (user) {
-        loginScreen.classList.add("hidden");
-        mainApp.classList.remove("hidden");
-        bottomNav.classList.remove("hidden");
-        $("fixedAd").classList.remove("hidden");
-        document.body.classList.add("with-ad");
-
-        try {
-          const profile = await saveUserProfile(user);
-          const photo = profile.userphoto ||
-            "https://placehold.co/100x100/222/fff?text=User";
-
-          $("navProfilePhoto").src = photo;
-          $("myStoryPhoto").src = photo;
-          $("profilePhoto").src = photo;
-          $("profileName").textContent = profile.username;
-          $("profileEmail").textContent = profile.email;
-
-          startFeed();
-          showPage("home");
-        } catch (error) {
-          console.error("Profile error:", error);
-          alert("Could not load your profile: " + error.message);
-        }
-      } else {
-        loginScreen.classList.remove("hidden");
-        mainApp.classList.add("hidden");
-        bottomNav.classList.add("hidden");
-        $("fixedAd").classList.add("hidden");
-        document.body.classList.remove("with-ad");
-
-        if (feedUnsubscribe) {
-          feedUnsubscribe();
-          feedUnsubscribe = null;
-        }
-      }
-    });
-
-
-    // =====================================================
-    // LOGOUT
-    // =====================================================
-
-    $("logoutBtn").addEventListener("click", async () => {
-      try {
-        await signOut(auth);
-      } catch (error) {
-        alert(error.message);
-      }
-    });
-
-
-    // =====================================================
-    // REAL-TIME FIRESTORE FEED
-    // =====================================================
-
-    function startFeed() {
-      if (feedUnsubscribe) feedUnsubscribe();
-
-      const postsQuery = query(
-        collection(db, "posts"),
-        orderBy("createdAt", "desc"),
-        limit(100)
-      );
-
-      feedUnsubscribe = onSnapshot(postsQuery, snapshot => {
-        allPosts = snapshot.docs.map(item => ({
-          id: item.id,
-          ...item.data()
-        }));
-
-        renderFeed();
-        renderReels();
-
-        $("profilePostCount").textContent =
-          allPosts.filter(p => p.uid === currentUser?.uid).length + " posts";
-      }, error => {
-        console.error("Feed error:", error);
-        feed.innerHTML =
-          '<div class="empty">Could not load posts. Check Firestore rules and indexes.<br>' +
-          escapeHTML(error.message) + '</div>';
-      });
-    }
-
-
-    // =====================================================
-    // SAFE HTML TEXT
-    // =====================================================
-
-    function escapeHTML(value = "") {
-      return String(value).replace(/[&<>"']/g, char => ({
-        "&": "&amp;",
-        "<": "&lt;",
-        ">": "&gt;",
-        '"': "&quot;",
-        "'": "&#039;"
-      })[char]);
-    }
-
-
-    // =====================================================
-    // RENDER POSTS
-    // =====================================================
-
-    function postHTML(post) {
-      const liked = (post.likes || []).includes(currentUser?.uid);
-      const saved = localStorage.getItem("glovix-save-" + post.id) === "yes";
-
-      const username = escapeHTML(post.username || "GLOVIX User");
-      const photo = escapeHTML(post.userphoto ||
-        "https://placehold.co/100x100/222/fff?text=U");
-
-      const media = post.type === "video"
-        ? `<video class="post-media" src="${escapeHTML(post.imageUrl)}"
-             controls playsinline preload="metadata"></video>`
-        : `<img class="post-media" src="${escapeHTML(post.imageUrl)}"
-             alt="GLOVIX post" loading="lazy">`;
-
-      const caption = escapeHTML(post.caption || "");
-
-      return `
-        <article class="post" data-id="${escapeHTML(post.id)}">
-          <div class="post-head">
-            <img class="avatar" src="${photo}" alt="">
-            <div class="post-user">${username}</div>
-            <button class="post-more" data-action="more" title="More">•••</button>
-          </div>
-
-          ${media}
-
-          <div class="post-actions">
-            <button class="action ${liked ? "liked" : ""}"
-              data-action="like" title="Like">${liked ? "♥" : "♡"}</button>
-            <button class="action" data-action="comment" title="Comment">♡</button>
-            <button class="action" data-action="share" title="Share">➤</button>
-            <button class="action save-action ${saved ? "saved" : ""}"
-              data-action="save" title="Save">${saved ? "▣" : "▢"}</button>
-          </div>
-
-          <div class="like-count">${(post.likes || []).length} likes</div>
-          <div class="caption">
-            <strong>${username}</strong>${caption || "MADE IN MIAN ABDULLAH GULZAR"}
-          </div>
-          <div class="post-date">GLOVIX</div>
-        </article>
-      `;
-    }
-
-
-    function renderFeed() {
-      feed.innerHTML = "";
-
-      if (!allPosts.length) {
-        feed.innerHTML =
-          '<div class="empty">Welcome to GLOVIX!<br>Be the first to share a post. 📸</div>';
-        return;
-      }
-
-      allPosts.forEach((post, index) => {
-        feed.insertAdjacentHTML("beforeend", postHTML(post));
-
-        // Ad after every 3 posts.
-        if ((index + 1) % 3 === 0) {
-          feed.insertAdjacentHTML("beforeend", `
-            <div class="ad-wrap">
-              <div class="ad-label">ADVERTISEMENT</div>
-              <ins class="adsbygoogle"
-                style="display:block"
-                data-ad-client="ca-pub-1234567890123456"
-                data-ad-slot="3333333333"
-                data-ad-format="fluid"
-                data-ad-layout="in-article"></ins>
-            </div>
-          `);
-        }
-      });
-
-      // Request ads for newly rendered ad slots.
-      document.querySelectorAll("#feed ins.adsbygoogle:not([data-adsbygoogle-status])")
-        .forEach(ad => {
-          try {
-            (window.adsbygoogle = window.adsbygoogle || []).push({});
-          } catch (error) {
-            console.warn("AdSense:", error.message);
-          }
-        });
-    }
-
-
-    // =====================================================
-    // LIKE / COMMENT / SHARE / SAVE
-    // =====================================================
-
-    feed.addEventListener("click", async event => {
-      const button = event.target.closest("[data-action]");
-      if (!button) return;
-
-      const postElement = button.closest(".post");
-      const postId = postElement?.dataset.id;
-      const post = allPosts.find(p => p.id === postId);
-      if (!post || !currentUser) return;
-
-      const action = button.dataset.action;
-      const postRef = doc(db, "posts", postId);
-
-      try {
-        if (action === "like") {
-          const liked = (post.likes || []).includes(currentUser.uid);
-
-          await updateDoc(postRef, {
-            likes: liked
-              ? arrayRemove(currentUser.uid)
-              : arrayUnion(currentUser.uid)
-          });
-
-          if (!liked) {
-            button.classList.add("liked");
-            button.textContent = "♥";
-          }
-        }
-
-        if (action === "comment") {
-          const comment = prompt("Write your comment:");
-          if (comment && comment.trim()) {
-            await addDoc(collection(db, "posts", postId, "comments"), {
-              uid: currentUser.uid,
-              username: currentUser.displayName ||
-                currentUser.email?.split("@")[0] || "User",
-              text: comment.trim(),
-              createdAt: serverTimestamp()
-            });
-            alert("Comment posted!");
-          }
-        }
-
-        if (action === "share") {
-          const url = location.origin + location.pathname + "?post=" + postId;
-
-          if (navigator.share) {
-            await navigator.share({ title: "GLOVIX", url });
-          } else {
-            await navigator.clipboard.writeText(url);
-            alert("Post link copied!");
-          }
-        }
-
-        if (action === "save") {
-          const key = "glovix-save-" + postId;
-          const wasSaved = localStorage.getItem(key) === "yes";
-
-          if (wasSaved) {
-            localStorage.removeItem(key);
-          } else {
-            localStorage.setItem(key, "yes");
-          }
-
-          button.classList.toggle("saved", !wasSaved);
-          button.textContent = wasSaved ? "▢" : "▣";
-        }
-
-        if (action === "more") {
-          if (post.uid === currentUser.uid) {
-            if (confirm("Delete your post? This will remove the post document.")) {
-              await runTransaction(db, async transaction => {
-                const snap = await transaction.get(postRef);
-                if (!snap.exists()) return;
-                if (snap.data().uid !== currentUser.uid) {
-                  throw new Error("You can only delete your own posts.");
-                }
-                transaction.delete(postRef);
-              });
-            }
-          } else {
-            alert("GLOVIX post options");
-          }
-        }
-
-      } catch (error) {
-        console.error(error);
-        alert("Action failed: " + error.message);
-      }
-    });
-
-
-    // =====================================================
-    // REELS: ALL VIDEO POSTS
-    // =====================================================
-
-    function renderReels() {
-      const videos = allPosts.filter(p => p.type === "video");
-      $("reelsFeed").innerHTML = videos.length
-        ? videos.map(postHTML).join("")
-        : '<div class="empty">No videos yet.<br>Upload a video to start GLOVIX Reels.</div>';
-    }
-
-
-    // =====================================================
-    // BOTTOM NAVIGATION
-    // =====================================================
-
-    function showPage(page) {
-      $("profilePage").classList.add("hidden");
-      $("reelsPage").classList.add("hidden");
-      $("searchPage").classList.add("hidden");
-      feed.classList.add("hidden");
-      $("stories").classList.add("hidden");
-
-      document.querySelectorAll(".nav-btn[data-page]")
-        .forEach(btn => btn.classList.toggle("active", btn.dataset.page === page));
-
-      if (page === "home") {
-        feed.classList.remove("hidden");
-        $("stories").classList.remove("hidden");
-      }
-
-      if (page === "profile") $("profilePage").classList.remove("hidden");
-      if (page === "reels") $("reelsPage").classList.remove("hidden");
-      if (page === "search") $("searchPage").classList.remove("hidden");
-    }
-
-    bottomNav.addEventListener("click", event => {
-      const button = event.target.closest("[data-page]");
-      if (button) showPage(button.dataset.page);
-    });
-
-
-    // =====================================================
-    // SEARCH POSTS BY USERNAME
-    // =====================================================
-
-    $("searchInput").addEventListener("input", event => {
-      const term = event.target.value.toLowerCase().trim();
-      const results = allPosts.filter(post =>
-        (post.username || "").toLowerCase().includes(term)
-      );
-
-      $("searchResults").innerHTML = term
-        ? results.map(post => `
-            <div style="padding:12px;border-bottom:1px solid #333">
-              <strong>${escapeHTML(post.username || "User")}</strong>
-            </div>
-          `).join("") || '<p class="empty">No matching users in posts.</p>'
-        : "";
-    });
-
-
-    // =====================================================
-    // UPLOAD MODAL
-    // =====================================================
-
-    function openUpload() {
-      if (!currentUser) return;
-      modal.classList.remove("hidden");
-    }
-
-    function closeUpload() {
-      if (uploading) return;
-      modal.classList.add("hidden");
-      selectedFile = null;
-      fileInput.value = "";
-      previewArea.innerHTML = "";
-      captionInput.value = "";
-      uploadError.textContent = "";
-      progress.classList.add("hidden");
-      progressBar.style.width = "0%";
-      progressText.textContent = "";
-    }
-
-    $("navUpload").addEventListener("click", openUpload);
-    $("closeModal").addEventListener("click", closeUpload);
-
-    modal.addEventListener("click", event => {
-      if (event.target === modal) closeUpload();
-    });
-
-
-    // =====================================================
-    // FILE PREVIEW
-    // =====================================================
-
-    fileInput.addEventListener("change", () => {
-      selectedFile = fileInput.files?.[0] || null;
-      previewArea.innerHTML = "";
-      uploadError.textContent = "";
-
-      if (!selectedFile) return;
-
-      const isImage = selectedFile.type.startsWith("image/");
-      const isVideo = selectedFile.type.startsWith("video/");
-
-      if (!isImage && !isVideo) {
-        uploadError.textContent = "Choose an image or video file.";
-        selectedFile = null;
-        return;
-      }
-
-      // 100 MB maximum file size.
-      if (selectedFile.size > 100 * 1024 * 1024) {
-        uploadError.textContent = "Maximum file size is 100 MB.";
-        selectedFile = null;
-        return;
-      }
-
-      const url = URL.createObjectURL(selectedFile);
-      const media = document.createElement(isVideo ? "video" : "img");
-
-      media.id = "mediaPreview";
-      media.src = url;
-      media.controls = isVideo;
-      media.alt = "Upload preview";
-
-      previewArea.appendChild(media);
-    });
-
-
-    // =====================================================
-    // REAL FIREBASE STORAGE UPLOAD + PROGRESS
-    // =====================================================
-
-    publishBtn.addEventListener("click", async () => {
-      if (!currentUser) {
-        uploadError.textContent = "Please log in first.";
-        return;
-      }
-
-      if (!selectedFile) {
-        uploadError.textContent = "Please select a photo or video.";
-        return;
-      }
-
-      if (uploading) return;
-
-      uploading = true;
-      publishBtn.disabled = true;
-      publishBtn.textContent = "Uploading...";
-      uploadError.textContent = "";
-      progress.classList.remove("hidden");
-      progressBar.style.width = "0%";
-      progressText.textContent = "Preparing upload...";
-
-      try {
-        const file = selectedFile;
-        const type = file.type.startsWith("video/") ? "video" : "image";
-
-        const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, "_");
-        const path = "glovix-posts/" + currentUser.uid + "/" +
-          Date.now() + "_" + safeName;
-
-        const storageRef = ref(storage, path);
-
-        uploadTask = uploadBytesResumable(storageRef, file, {
-          contentType: file.type
-        });
-
-        const snapshot = await new Promise((resolve, reject) => {
-          uploadTask.on("state_changed", snap => {
-            const percent = snap.totalBytes > 0
-              ? Math.round((snap.bytesTransferred / snap.totalBytes) * 100)
-              : 0;
-
-            progressBar.style.width = percent + "%";
-            progressText.textContent = percent + "% uploaded";
-          }, reject, () => resolve(uploadTask.snapshot));
-        });
-
-        const imageUrl = await getDownloadURL(snapshot.ref);
-
-        progressBar.style.width = "100%";
-        progressText.textContent = "Saving post...";
-
-        const username = currentUser.displayName ||
-          currentUser.email?.split("@")[0] || "GLOVIX User";
-
-        await addDoc(collection(db, "posts"), {
-          uid: currentUser.uid,
-          imageUrl: imageUrl,
-          type: type,
-          username: username,
-          userphoto: currentUser.photoURL || "",
-          caption: captionInput.value.trim() ||
-            "MADE IN MIAN ABDULLAH GULZAR",
-          likes: [],
-          createdAt: serverTimestamp()
-        });
-
-        progressText.textContent = "Post shared successfully!";
-        publishBtn.textContent = "Shared!";
-
-        setTimeout(() => {
-          uploading = false;
-          publishBtn.disabled = false;
-          publishBtn.textContent = "Share post";
-          closeUpload();
-          showPage("home");
-        }, 900);
-
-      } catch (error) {
-        console.error("Upload error:", error);
-        uploadError.textContent = error.message || "Upload failed.";
-        uploading = false;
-        publishBtn.disabled = false;
-        publishBtn.textContent = "Share post";
-      }
-    });
-
-
-    // =====================================================
-    // HEADER BUTTONS
-    // =====================================================
-
-    $("headerLike").addEventListener("click", () => {
-      alert("Welcome to GLOVIX notifications!");
-    });
-
-    $("headerMessage").addEventListener("click", () => {
-      alert("GLOVIX messaging will be added in a future update.");
-    });
-
-  </script>
+window.login=async()=>{
+ if(busy)return;
+ busy=true;
+ try{
+  await signInWithEmailAndPassword(auth,$("email").value.trim(),$("password").value);
+ }catch(e){toast(e.message)}
+ finally{busy=false}
+};
+
+window.googleLogin=async()=>{
+ try{
+  const result=await signInWithPopup(auth,provider);
+  await saveUser(result.user);
+ }catch(e){toast(e.message)}
+};
+
+window.forgot=async()=>{
+ const email=$("email").value.trim();
+ if(!email)return toast("Enter your email first.");
+ try{
+  await sendPasswordResetEmail(auth,email);
+  toast("Password reset email sent.");
+ }catch(e){toast(e.message)}
+};
+
+window.logout=async()=>{
+ try{await signOut(auth)}catch(e){toast(e.message)}
+};
+
+onAuthStateChanged(auth,async user=>{
+ currentUser=user;
+ if(user){
+  try{
+   await saveUser(user);
+   hide("auth");show("app");
+   loadFeed();
+   loadProfile();
+  }catch(e){toast("Account setup error: "+e.message)}
+ }else{
+  if(unsubscribeFeed)unsubscribeFeed();
+  hide("app");show("auth");
+ }
+});
+
+window.showPage=(page)=>{
+ ["home","upload","profile","search","notifications"].forEach(p=>hide(p+"Page"));
+ show(page+"Page");
+ if(page==="profile")loadProfile();
+ if(page==="home")loadFeed();
+};
+
+$("uploadFile").addEventListener("change",e=>{
+ selectedFile=e.target.files[0];
+ if(!selectedFile)return;
+ if(!selectedFile.type.startsWith("video/")){
+  selectedFile=null;
+  return toast("Please select a video.");
+ }
+ if(selectedFile.size>100*1024*1024){
+  selectedFile=null;
+  return toast("Video is over the 100 MB app limit.");
+ }
+ $("preview").src=URL.createObjectURL(selectedFile);
+ show("preview");
+});
+
+window.uploadVideo=async()=>{
+ if(!currentUser)return toast("Please login.");
+ if(!selectedFile)return toast("Select a video first.");
+ if(busy)return;
+ busy=true;
+ try{
+  toast("Uploading video...");
+  const filePath="videos/"+currentUser.uid+"/"+Date.now()+"_"+selectedFile.name.replace(/[^a-zA-Z0-9._-]/g,"_");
+  const storageRef=ref(storage,filePath);
+  const task=uploadBytesResumable(storageRef,selectedFile);
+  await new Promise((resolve,reject)=>{
+   task.on("state_changed",s=>{
+    const pct=Math.round(s.bytesTransferred/s.totalBytes*100);
+    $("message").textContent="Uploading "+pct+"%";
+    $("message").style.display="block";
+   },reject,resolve);
+  });
+  const videoUrl=await getDownloadURL(task.snapshot.ref);
+  const userSnap=await getDoc(doc(db,"users",currentUser.uid));
+  const username=userSnap.data()?.username||"User";
+  await addDoc(collection(db,"posts"),{
+   uid:currentUser.uid,
+   username,
+   photo:currentUser.photoURL||"",
+   videoUrl,
+   caption:$("caption").value.trim().slice(0,2000),
+   likes:0,
+   createdAt:serverTimestamp()
+  });
+  selectedFile=null;
+  $("uploadFile").value="";
+  $("caption").value="";
+  $("preview").removeAttribute("src");
+  hide("preview");
+  toast("Your video has been published!");
+  showPage("home");
+ }catch(e){toast("Upload failed: "+e.message)}
+ finally{busy=false}
+};
+
+function loadFeed(){
+ if(unsubscribeFeed)unsubscribeFeed();
+ const q=query(collection(db,"posts"),orderBy("createdAt","desc"),limit(40));
+ unsubscribeFeed=onSnapshot(q,snap=>{
+  const feed=$("feed");
+  feed.innerHTML="";
+  if(snap.empty){
+   feed.innerHTML="<p style='color:#888;text-align:center;padding:30px'>No videos yet. Be the first to upload!</p>";
+   return;
+  }
+  snap.forEach(post=>{
+   const p=post.data();
+   const id=post.id;
+   const article=document.createElement("article");
+   article.className="post";
+   const head=document.createElement("div");
+   head.className="posthead";
+   const avatar=document.createElement("img");
+   avatar.className="avatar";
+   avatar.src=p.photo||"https://placehold.co/50x50/222/fff?text=G";
+   const name=document.createElement("span");
+   name.className="username";
+   name.textContent=p.username||"User";
+   head.append(avatar,name);
+   const video=document.createElement("video");
+   video.className="postvideo";
+   video.src=p.videoUrl;
+   video.controls=true;
+   video.playsInline=true;
+   video.preload="metadata";
+   const caption=document.createElement("div");
+   caption.className="caption";
+   caption.textContent=p.caption||"";
+   const actions=document.createElement("div");
+   actions.className="postactions";
+   const like=document.createElement("button");
+   like.className="action";
+   like.textContent="♡ "+(p.likes||0)+" Likes";
+   like.onclick=()=>toggleLike(id);
+   const comment=document.createElement("button");
+   comment.className="action";
+   comment.textContent="💬 Comments";
+   comment.onclick=()=>openComments(id);
+   const share=document.createElement("button");
+   share.className="action";
+   share.textContent="↗ Share";
+   share.onclick=()=>sharePost(id);
+   actions.append(like,comment,share);
+   const date=document.createElement("div");
+   date.className="postdate";
+   date.textContent="GLOVIX • "+(p.createdAt?.toDate?p.createdAt.toDate().toLocaleString():"Recently");
+   article.append(head,video,caption,actions,date);
+   feed.append(article);
+  });
+ },e=>toast("Feed error: "+e.message));
+}
+
+async function toggleLike(postId){
+ try{
+  const likeRef=doc(db,"posts",postId,"likes",currentUser.uid);
+  const postRef=doc(db,"posts",postId);
+  await runTransaction(db,async tx=>{
+   const [likeSnap,postSnap]=await Promise.all([tx.get(likeRef),tx.get(postRef)]);
+   if(!postSnap.exists())return;
+   const count=Number(postSnap.data().likes||0);
+   if(likeSnap.exists()){
+    tx.delete(likeRef);
+    tx.update(postRef,{likes:Math.max(0,count-1)});
+   }else{
+    tx.set(likeRef,{uid:currentUser.uid,createdAt:serverTimestamp()});
+    tx.update(postRef,{likes:count+1});
+   }
+  });
+ }catch(e){toast("Like error: "+e.message)}
+}
+
+window.sharePost=async(id)=>{
+ const url=location.href.split("#")[0]+"#post-"+id;
+ try{
+  if(navigator.share)await navigator.share({title:"GLOVIX Video",url});
+  else{await navigator.clipboard.writeText(url);toast("Video link copied!")}
+ }catch(e){}
+};
+
+window.openComments=async(postId)=>{
+ const comment=prompt("Write your comment:");
+ if(!comment||!comment.trim())return;
+ try{
+  const userSnap=await getDoc(doc(db,"users",currentUser.uid));
+  await addDoc(collection(db,"posts",postId,"comments"),{
+   uid:currentUser.uid,
+   username:userSnap.data()?.username||"User",
+   text:comment.trim().slice(0,1000),
+   createdAt:serverTimestamp()
+  });
+  toast("Comment posted!");
+ }catch(e){toast("Comment error: "+e.message)}
+};
+
+async function loadProfile(){
+ if(!currentUser)return;
+ const snap=await getDoc(doc(db,"users",currentUser.uid));
+ const u=snap.data()||{};
+ const area=$("profileArea");
+ area.innerHTML="";
+ const avatar=document.createElement("img");
+ avatar.src=u.photo||currentUser.photoURL||"https://placehold.co/80x80/222/fff?text=G";
+ const name=document.createElement("h3");
+ name.textContent=u.username||"User";
+ const email=document.createElement("p");
+ email.textContent=currentUser.email||"";
+ email.style.color="#999";
+ const edit=document.createElement("button");
+ edit.className="btn";
+ edit.textContent="Edit username";
+ edit.onclick=async()=>{
+  const n=prompt("New username:",u.username||"");
+  if(!n||!n.trim())return;
+  try{
+   await setDoc(doc(db,"users",currentUser.uid),{username:cleanName(n.trim())},{merge:true});
+   toast("Username updated.");
+   loadProfile();
+  }catch(e){toast(e.message)}
+ };
+ const count=document.createElement("p");
+ count.textContent="Your GLOVIX account";
+ area.append(avatar,name,email,edit,count);
+}
+
+window.searchUsers=async()=>{
+ const term=$("searchInput").value.trim().toLowerCase();
+ const results=$("searchResults");
+ results.innerHTML="";
+ if(term.length<2)return;
+ try{
+  const q=query(collection(db,"users"),orderBy("username"),limit(100));
+  const snap=await getDocs(q);
+  snap.forEach(d=>{
+   const u=d.data();
+   if((u.username||"").toLowerCase().includes(term)){
+    const item=document.createElement("div");
+    item.className="panel";
+    item.textContent=(u.username||"User")+" • GLOVIX";
+    results.append(item);
+   }
+  });
+  if(!results.children.length)results.textContent="No users found.";
+ }catch(e){toast("Search error: "+e.message)}
+};
+</script>
 </body>
 </html>
