@@ -1,5 +1,5 @@
 
-const CACHE_NAME = "glovix-v3";
+const CACHE_NAME = "glovix-v10";
 const FILES_TO_CACHE = ["./","./index.html","./manifest.json"];
 self.addEventListener("install",(event)=>{
 event.waitUntil(caches.open(CACHE_NAME).then((cache.addAll(FILES_TO_CACHE)));
